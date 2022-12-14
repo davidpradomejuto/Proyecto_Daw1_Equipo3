@@ -53,13 +53,12 @@ public class Comunidad {
     }
 
     public String sorteo() {
-        String result = "";
         int random = (int) Math.floor(Math.random() * provincias.length) + 1;
-        return result = provincias[random];
+        return provincias[random];
     }
 
     public int buscar(String newNprovincia) {
-        int result = 0;
+        int result = -1;
 
         for (int i = 0; i < provincias.length; i++) {
             String nombre = provincias[i];
@@ -68,9 +67,7 @@ public class Comunidad {
             if (nombre.contains(newNprovincia)) {
                 result = 1;
                 i=provincias.length;
-            } else {
-                result = -1;
-            }
+            } 
         }
         return result;
     }

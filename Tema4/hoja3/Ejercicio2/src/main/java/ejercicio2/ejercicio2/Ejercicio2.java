@@ -12,7 +12,7 @@ package ejercicio2.ejercicio2;
 public class Ejercicio2 {
 
     public static void main(String[] args) {
-       Curso a=new Curso(3);
+       Curso a=new Curso(7);
        a.desplaza();
        a.iniciales();
        System.out.println("El nombre en esa posicion es: "+a.verNombre(2));

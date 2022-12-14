@@ -33,7 +33,7 @@ public class Triatlon {
         this.dorsal = teclado.nextInt(); //pido el dorsal del participante
 
         System.out.println("Introduce tu nombre");
-        this.nombre = teclado.next(); // pido el nombre del participante
+        this.nombre = teclado.nextLine(); // pido el nombre del participante
 
         System.out.println("Introduce el numero de pruebas");
         int nPruebas = teclado.nextInt(); //pido el numero de pruebas
@@ -41,7 +41,7 @@ public class Triatlon {
         pruebas = new int[nPruebas]; //dimensiono el array 
 
         for (int i = 0; i < pruebas.length; i++) { //pido las puntuaciones del array
-            System.out.println("Introduce la puntuacion de la prueba " + i + ": ");
+            System.out.println("Introduce la puntuacion de la prueba " + (i+1) + ": ");
             pruebas[i] = teclado.nextInt(); 
         }
     }
@@ -52,14 +52,15 @@ public class Triatlon {
         for (int i = 0; i < pruebas.length; i++) {
             suma += pruebas[i]; //hago la suma
         }
-        media = suma / (pruebas.length - 1); //calculo la media de todos los puntos
+        media = suma / (pruebas.length); //calculo la media de todos los puntos
         return media; //muestro la media
     }
 
     public Seleccionado esSeleccionado() {
         Seleccionado estado = Seleccionado.Falso;
+        
         for (int i = 0; i < pruebas.length; i++) {
-            if (pruebas[i] == 10) {
+            if (pruebas[i] > 10) {
                 estado = Seleccionado.Verdadero; // si algun elemento del array es 10 , el enumerado "estado" es verdadero
             }
         }
@@ -78,7 +79,8 @@ public class Triatlon {
             }
         }
 
-        return "Dorsal = " + dorsal + " Nombre = " + nombre + " Puntos = " + lista + " Media = " + String.valueOf(pMedia()); //muestro toda la cadena
+        return "Dorsal = " + dorsal + " Nombre = " + nombre + " Puntos = " + lista + 
+                " Media = " + String.valueOf(pMedia()); //muestro toda la cadena
     }
 
 }

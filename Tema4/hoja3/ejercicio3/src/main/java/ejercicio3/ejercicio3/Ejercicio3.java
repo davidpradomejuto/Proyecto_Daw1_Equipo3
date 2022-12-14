@@ -13,8 +13,11 @@ public class Ejercicio3 {
 
     public static void main(String[] args) {
         Comunidad a=new Comunidad("montepinar",3);
+        
+        System.out.println("el resultado del sorteo es : "+a.sorteo());
+        
         System.out.println(a.mostrar());
-        System.out.println(a.sorteo());
+           
         System.out.println(a.buscar("suances"));
         
     }
