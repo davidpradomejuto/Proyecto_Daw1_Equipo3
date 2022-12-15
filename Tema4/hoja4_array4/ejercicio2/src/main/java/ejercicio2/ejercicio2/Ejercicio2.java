@@ -16,5 +16,7 @@ public class Ejercicio2 {
         a.mostrar();
         
         System.out.println("el mayor numero de esa fila es: "+a.mayorF(2));
+        System.out.println("el mayor numero de esa fila es: "+a.mayorC(2));
+        System.out.println("La media es: "+a.media());
     }
 }

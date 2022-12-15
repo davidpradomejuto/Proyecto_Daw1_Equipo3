@@ -42,21 +42,36 @@ public class Tabla {
                     mayor = matriz[fila][i];
                 }
             }
-            
+
         } else {
             System.out.println("error, la fila es incorrecta");//si la fila no existe manda este mesaje
         }
         return mayor;
     }
-    
+
     public int mayorC(int columna) {
         int mayor = 0;
-        for (int i = 0; i < 1; i++) {
-            
+        if (columna < matriz[1].length) {//si la fila existe
+            for (int i = 0; i < matriz.length; i++) {
+                if (matriz[i][columna] >= mayor) {
+                    mayor = matriz[i][columna];
+                }
+            }
         }
 
-        
         return mayor;
     }
 
+    public int media(){
+        int sumamedia=0;
+        int contador=0;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                contador++;
+                sumamedia+=matriz[i][j];
+            }
+        }
+        
+        return sumamedia/contador;
+    }
 }
