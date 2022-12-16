@@ -67,8 +67,8 @@ public class Ejercicio1 {
                     }
                 }
                 case 4 -> {
-                    for (int i = 0, x = matriz.length - 1; i < matriz.length; ++i, x--) {
-                        System.out.println(matriz[i][x]);
+                    for (int i = 0; i < matriz.length; ++i) {
+                        System.out.println(matriz[i][matriz.length - 1 - i]);
                     }
                 }
                 case 5 -> {
