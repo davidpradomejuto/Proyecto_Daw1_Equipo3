@@ -20,7 +20,7 @@ public class Ejercicio1 {
         {401, 402, 403, 404, 405},
         {501, 502, 503, 504, 505}};
 
-        do {
+        while (opcion != 6){
             Scanner teclado = new Scanner(System.in);
 
             System.out.println("Que opcion quieres elegir?");
@@ -81,7 +81,7 @@ public class Ejercicio1 {
                     System.out.println("opcion no valida");
                 }
             }
-        } while (opcion != 6);
+        }
 
     }
 }
