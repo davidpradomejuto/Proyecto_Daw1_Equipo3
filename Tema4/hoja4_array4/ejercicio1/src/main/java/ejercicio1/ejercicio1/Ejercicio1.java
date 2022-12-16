@@ -75,7 +75,7 @@ public class Ejercicio1 {
                     for (int i = matriz.length - 1; 0 <= i; --i) {
                         System.out.println(matriz[i][i]);
                     }
-                }
+                }             
                 case 6 -> {
                     System.out.println("Fin del programa");
                 }
