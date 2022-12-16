@@ -14,11 +14,11 @@ public class Ejercicio1 {
 
     public static void main(String[] args) {
         int opcion = 0;
-        int matriz[][]= {{101, 102, 103, 104, 105},
-                                {201, 202, 203, 204, 205},
-                                {301, 302, 303, 304, 305},
-                                {401, 402, 403, 404, 405},
-                                {501, 502, 503, 504, 505}};
+        int matriz[][] = {{101, 102, 103, 104, 105},
+        {201, 202, 203, 204, 205},
+        {301, 302, 303, 304, 305},
+        {401, 402, 403, 404, 405},
+        {501, 502, 503, 504, 505}};
 
         do {
             Scanner teclado = new Scanner(System.in);
@@ -36,24 +36,27 @@ public class Ejercicio1 {
                 case 1 -> {
 
                     System.out.println("Que fila quieres elegir?");
-                    int fila = teclado.nextInt();
+                    int fila = 1-teclado.nextInt();
+                    if (matriz.length >= fila) {
+                        for (int i = 0; i < matriz[fila].length; i++) {
+                            System.out.print(matriz[fila][i] + ",");
 
-                    for (int i = 0; i < matriz[fila].length; i++) {
-                        System.out.print(matriz[fila][i] + ",");
+                            System.out.println("");
 
-                        System.out.println("");
-
+                        }
                     }
                 }
 
-            case 2 -> {
+                case 2 -> {
                     System.out.println("Que columna quieres elegir?");
-                    int columna = teclado.nextInt();
-                    
-                    for (int i = 0; i < matriz.length; i++) {
-                        System.out.print(matriz[i][columna] + ",");
+                    int columna = 1-teclado.nextInt();
+
+                    if (matriz[0].length >= columna) {
+                        for (int i = 0; i < matriz.length; i++) {
+                            System.out.print(matriz[i][columna] + ",");
+                        }
+                        System.out.println("");
                     }
-                    System.out.println("");
 
                 }
                 case 3 -> {
@@ -62,12 +65,12 @@ public class Ejercicio1 {
                     }
                 }
                 case 4 -> {
-                   for (int i = 0,x = matriz.length-1; i < matriz.length; ++i,x--) {
+                    for (int i = 0, x = matriz.length - 1; i < matriz.length; ++i, x--) {
                         System.out.println(matriz[i][x]);
                     }
                 }
                 case 5 -> {
-                    for (int i = matriz.length-1; 0 <= i; --i) {
+                    for (int i = matriz.length - 1; 0 <= i; --i) {
                         System.out.println(matriz[i][i]);
                     }
                 }
@@ -80,5 +83,5 @@ public class Ejercicio1 {
             }
         } while (opcion != 6);
 
-        }
     }
+}

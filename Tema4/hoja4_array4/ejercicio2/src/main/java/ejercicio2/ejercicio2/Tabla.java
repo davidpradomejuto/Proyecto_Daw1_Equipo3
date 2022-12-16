@@ -34,6 +34,7 @@ public class Tabla {
     }
 
     public int mayorF(int fila) {
+        fila -=1;
         int mayor = 0;
         if (fila < matriz.length) {//si la fila existe
 
@@ -51,6 +52,7 @@ public class Tabla {
 
     public int mayorC(int columna) {
         int mayor = 0;
+        columna-=1;
         if (columna < matriz[1].length) {//si la fila existe
             for (int i = 0; i < matriz.length; i++) {
                 if (matriz[i][columna] >= mayor) {
