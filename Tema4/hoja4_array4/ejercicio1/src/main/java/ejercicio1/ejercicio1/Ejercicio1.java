@@ -20,7 +20,7 @@ public class Ejercicio1 {
         {401, 402, 403, 404, 405},
         {501, 502, 503, 504, 505}};
 
-        while (opcion != 6){
+        do {
             Scanner teclado = new Scanner(System.in);
 
             System.out.println("Que opcion quieres elegir?");
@@ -36,20 +36,22 @@ public class Ejercicio1 {
                 case 1 -> {
 
                     System.out.println("Que fila quieres elegir?");
-                    int fila = 1-teclado.nextInt();
-                    if (matriz.length >= fila) {
+                    int fila = teclado.nextInt()-1;
+                    if (matriz.length > fila) {
+                        
                         for (int i = 0; i < matriz[fila].length; i++) {
                             System.out.print(matriz[fila][i] + ",");
 
                             System.out.println("");
 
                         }
+                        
                     }
                 }
 
                 case 2 -> {
                     System.out.println("Que columna quieres elegir?");
-                    int columna = 1-teclado.nextInt();
+                    int columna = teclado.nextInt()-1;
 
                     if (matriz[0].length >= columna) {
                         for (int i = 0; i < matriz.length; i++) {
@@ -81,7 +83,7 @@ public class Ejercicio1 {
                     System.out.println("opcion no valida");
                 }
             }
-        }
+        } while (opcion != 6);
 
     }
 }
