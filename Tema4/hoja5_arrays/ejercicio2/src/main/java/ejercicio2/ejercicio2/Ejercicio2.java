@@ -12,8 +12,8 @@ package ejercicio2.ejercicio2;
 public class Ejercicio2 {
 
     public static void main(String[] args) {
-        Sopa a = new Sopa();
-        a.setPalabra("hola", 1, 2, 1);
+        Sopa a = new Sopa(10,10);
+        a.setPalabra("YYYY", 0, 1, -1);
         a.mostrar();
         
     }
