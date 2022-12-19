@@ -20,11 +20,11 @@ public class Sopa {
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-                // Genera un número aleatorio entre 0 y 25
-                int aleatorio = random.nextInt(26);
-                // Convierte ese número en una letra del alfabeto utilizando el código ASCII
+                
+                int aleatorio = random.nextInt(26);//0 ->25
+                
                 char letraAleatoria = (char) ('a' + aleatorio);
-                // Asigna la letra aleatoria al elemento del array
+                
                 matriz[i][j] = letraAleatoria;
             }
         }
@@ -61,19 +61,18 @@ public class Sopa {
     public void setPalabra(String palabra, int x, int y, int d) {
         int fila = x;
         int columna = y;
+        
         for (int i = 0; i < palabra.length(); i++) {
+
+            matriz[fila][columna] = palabra.charAt(i);//asigno al letra a esa posicion
             
-            matriz[fila][columna] = palabra.charAt(i);
-            if (d == 1) {
+            if (d == 1) { //si es 1 o -1 sumo un eje u otro
                 columna++;
             } else {
                 fila++;
             }
         }
+    
     }
 
 }
-
-
-
-

@@ -13,7 +13,7 @@ public class Ejercicio2 {
 
     public static void main(String[] args) {
         Sopa a = new Sopa(10,10);
-        a.setPalabra("YYYY", 0, 1, -1);
+        a.setPalabra("hola", 0, 9, 1);
         a.mostrar();
         
     }
