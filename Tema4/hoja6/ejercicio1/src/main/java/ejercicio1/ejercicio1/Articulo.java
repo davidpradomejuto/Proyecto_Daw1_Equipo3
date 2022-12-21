@@ -16,16 +16,14 @@ public class Articulo {
     private int stock;
     
     Articulo(){
-    Scanner teclado = new Scanner(System.in);
-    
         System.out.println("Introduce el ID de articulo");
-        this.codigo = teclado.nextInt();
+        this.codigo = new Scanner(System.in).nextInt();
         
         System.out.println("Introduce al descripcion de articulo");
-        this.descripcion = teclado.nextLine();
+        this.descripcion = new Scanner(System.in).nextLine();
         
         System.out.println("Introduce el stock de articulo");
-        this.stock = teclado.nextInt();
+        this.stock = new Scanner(System.in).nextInt();
     }
 
     public int getCodigo() {

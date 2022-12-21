@@ -9,6 +9,7 @@ package ejercicio1.ejercicio1;
  * @author david
  */
 public class Almacen {
+
     private int contador = 0;
     private Articulo matriz[];
 
@@ -16,19 +17,19 @@ public class Almacen {
         matriz = new Articulo[tamano];
     }
 
-    public void llenar(Articulo objeto) {          
-            matriz[contador] = objeto;
-            this.contador++;
+    public void llenar(Articulo objeto) {
+        matriz[contador] = objeto;
+        this.contador++;
     }
-    
-    public void pedidos(){
-        for (int i = 0; i < contador-1; i++) {
 
-                System.out.println("Informacion del producto "+matriz[i].getCodigo());
-                System.out.println("descripcion: "+matriz[i].getDescripcion());
-                System.out.println("stock: "+matriz[i].getStock());
-                
-            
+    public void pedidos() {
+        for (int i = 0; i < contador - 1; i++) {
+            if (matriz[i].getStock() < 10) {
+                System.out.println("Informacion del producto " + matriz[i].getCodigo());
+                System.out.println("descripcion: " + matriz[i].getDescripcion());
+                System.out.println("stock: " + matriz[i].getStock());
+            }
+
         }
     }
 }
