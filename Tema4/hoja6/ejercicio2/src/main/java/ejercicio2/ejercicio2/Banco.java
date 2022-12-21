@@ -13,12 +13,10 @@ import java.util.Scanner;
 public class Banco {
 
     private Cliente matriz[];
-    private int nClientes;
-    private int contador = 1;
+    private int contador = 0;
 
     public Banco(int nMaximo) {
-        this.nClientes = nMaximo;
-        matriz = new Cliente[this.nClientes];
+        matriz = new Cliente[nMaximo];
     }
 
     public void ingresar() {
@@ -37,9 +35,9 @@ public class Banco {
         int saldoCliente = new Scanner(System.in).nextInt();
         usuario.setSaldo(saldoCliente);
 
-        usuario.setCodigo(contador);
+        usuario.setCodigo(contador+1);
 
-        matriz[contador - 1] = usuario;
+        matriz[contador] = usuario;
         this.contador++;
     }
 
@@ -48,9 +46,9 @@ public class Banco {
         int idCliente = new Scanner(System.in).nextInt();
 
         String result = "";
-        for (int i = 0; i < contador - 1; i++) {
+        for (int i = 0; i < contador; i++) {
             if (matriz[i].getCodigo() == idCliente) {
-                result = result.concat( "El nombre  y apellidos del usuario son " + matriz[i].getNombre() + " " + matriz[i].getApellidos());
+                result = result.concat("El nombre  y apellidos del usuario son " + matriz[i].getNombre() + " " + matriz[i].getApellidos());
                 result = result.concat("El saldo del usuario es " + matriz[i].getSaldo());
             }
         }
@@ -58,20 +56,19 @@ public class Banco {
     }
 
     public void mostrar() {
-        for (int i = 0; i < contador - 1; i++) {
+        for (int i = 0; i < contador; i++) {
             System.out.println("El nombre  y apellidos del usuario son " + matriz[i].getNombre() + " " + matriz[i].getApellidos());
             System.out.println("El saldo del usuario es " + matriz[i].getSaldo() + " y su codigo es " + matriz[i].getCodigo());
-            
+
         }
     }
 
     public void eliminar(int idUsuario) {
         int id = idUsuario - 1;
-        
-        for (int i = id; i < contador-2; i++) {
-            matriz[i] = matriz[i+1];
-            matriz[i].setCodigo(i+1);
-            
+
+        for (int i = id; i < contador - 1; i++) {
+            matriz[i] = matriz[i + 1];
+            matriz[i].setCodigo(i + 1);
         }
         this.contador--;
     }

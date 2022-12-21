@@ -13,9 +13,15 @@ import java.util.Scanner;
 public class Ejercicio2 {
 
     public static void main(String[] args) {
-        Banco a = new Banco(10);
+        Banco a = new Banco(3);
         int opcion = 0;
-        while (opcion != 5){
+        while (opcion != 5) {
+            System.out.println("1. ingresar cliente");
+            System.out.println("2. mostrar");
+            System.out.println("3. buscar");
+            System.out.println("4. eliminar");
+            System.out.println("5 .salir");
+                  
             System.out.println("Introduce la opcion que quieras");
             opcion = new Scanner(System.in).nextInt();
             switch (opcion) {
@@ -26,12 +32,12 @@ public class Ejercicio2 {
                     a.mostrar();
                 }
                 case 3 -> {
-                    System.out.println(a.buscar()); 
+                    System.out.println(a.buscar());
                 }
                 case 4 -> {
-                    System.out.println("Introduce el id del usuario a eliminar");    
+                    System.out.println("Introduce el id del usuario a eliminar");
                     int idCliente = new Scanner(System.in).nextInt();
-                    
+
                     a.eliminar(idCliente);
                 }
                 case 5 -> {
@@ -42,10 +48,6 @@ public class Ejercicio2 {
                 }
             }
         }
-
-        a.eliminar(3);
-        System.out.println("");
-        a.mostrar();
 
     }
 }
