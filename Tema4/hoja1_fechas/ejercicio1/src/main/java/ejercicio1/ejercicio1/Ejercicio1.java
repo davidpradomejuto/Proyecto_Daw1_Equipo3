@@ -20,18 +20,22 @@ public class Ejercicio1 {
         Letra arrayletras[] = new Letra[nletras];//genero el array con la clase Letra
 
         for (int i = 0; i < arrayletras.length; i++) { // hago el for tantas veces como elemento tenga el array
-            arrayletras[i] = new Letra();// creo el objeto en cada posicion del array
-
-            if (arrayletras[i].vencida() == false) {
-                arrayletras[i].mostrar();
+            
+            if (arrayletras[i].vencida() == false) { // si la letra no es vencida hago lo sigtuiente
+                
+                arrayletras[i].mostrar(); //muestro los datos de la letra que acabo de introducir
+                
                 System.out.println("faltan " + arrayletras[i].diasFaltan() + " dias");
+                
+                System.out.println("Demoro la letra 15 dias"); //demoro la letra 15 dias
                 arrayletras[i].demora(15);
-                arrayletras[i].mostrar();
+                
+                arrayletras[i].mostrar(); // vuelvo a mostrar los datos de la letra
                 System.out.println("El titular es " + arrayletras[i].getTitular());
-
                 System.out.println("faltan " + arrayletras[i].diasFaltan() + " dias");
+                
             } else {
-                System.out.println("La letra esta vencida:");
+                System.out.println("La letra esta vencida:"); //si la letra esta vencida muestro este mensaje
             }
         }
 

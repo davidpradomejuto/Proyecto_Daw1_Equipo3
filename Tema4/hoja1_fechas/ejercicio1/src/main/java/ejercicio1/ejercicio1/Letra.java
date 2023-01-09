@@ -25,7 +25,7 @@ public class Letra {
         Scanner teclado = new Scanner(System.in);
 
         
-            System.out.println("Introduce la letra: ");
+            System.out.println("Introduce el numero de la letra: ");
             numLetra = teclado.nextInt();
             
             System.out.println("Introduce el titular: ");
