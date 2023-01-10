@@ -53,7 +53,7 @@ public class Alumno {
         int[] result = new int[3];
         Arrays.sort(matriz);
         
-        for (int i = matriz.length ,x=0; i > matriz.length-3; i--,x++) {
+        for (int i = matriz.length-1 ,x=0; i >= matriz.length-3; i--,x++) {
             result[x] = matriz[i];
         }
         
