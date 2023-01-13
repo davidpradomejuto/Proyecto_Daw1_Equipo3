@@ -48,7 +48,7 @@ public class Multiplicar {
     }
     
     public int[] tablaMultiplicar(int numero){
-        int[] result = new int[9];
+        int[] result = new int[10];
         for (int i = 0; i < result.length; i++) {
             result[i]=numero*i;
         }

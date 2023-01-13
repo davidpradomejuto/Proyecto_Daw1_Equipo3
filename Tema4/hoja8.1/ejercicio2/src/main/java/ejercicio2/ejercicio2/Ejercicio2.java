@@ -20,7 +20,7 @@ public class Ejercicio2 {
        a.valoresAspa();
        
        int[] result =  a.tablaMultiplicar(5);
-        for (int i = 0; i < result.length; i++) {
+        for (int i = 1; i < result.length; i++) {
             System.out.print(result[i]+",");
         }
     }
