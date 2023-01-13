@@ -17,7 +17,12 @@ public class Ejercicio2 {
        a.multiplica();
         System.out.println("");
        a.muestra();
-       a.valoresAspa();
+       
+       int[] array =  a.valoresAspa();
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]+",");
+        }
+       
        
        int[] result =  a.tablaMultiplicar(5);
         for (int i = 0; i < result.length; i++) {
