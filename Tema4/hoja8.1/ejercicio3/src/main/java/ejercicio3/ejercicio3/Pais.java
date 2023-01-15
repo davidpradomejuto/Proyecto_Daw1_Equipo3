@@ -40,6 +40,8 @@ public class Pais {
 
             Ciudad a = new Ciudad(nombreCiudad, latitudCiudad, longitudCiudad, habitantesCiudad);
             ciudades[contadorCiudades] = a;
+            
+            System.out.println("Ciudad añadida");
         }
     }
 
@@ -61,15 +63,27 @@ public class Pais {
             if(comparada.equalsIgnoreCase(nombreCiudad)){
                 System.out.println("La ciudad Existe ");
                 i=ciudades.length;
-            }
-            
-        }
-        
+            }  
+        }       
     }
+    
+    public int mediaHabitantes(){
+        int totalHabitantes=0;
+        for (int i = 0; i <= contadorCiudades; i++) {
+            totalHabitantes+=ciudades[i].getHabitantes();
+        } 
+        return totalHabitantes/contadorCiudades;
+    }
+    
+    
 
     @Override
     public String toString() {
-        return "Pais{" + "nombreP=" + nombreP + ", ciudades=" + ciudades + ", nCiudades=" + nCiudades + ", contadorCiudades=" + contadorCiudades + '}';
+        String result="";
+        for (int i = 0; i <= contadorCiudades; i++) {
+            result.concat(ciudades.toString());
+        }
+        return result;
     }
     
     
