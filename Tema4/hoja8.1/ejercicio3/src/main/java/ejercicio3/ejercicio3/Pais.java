@@ -24,6 +24,7 @@ public class Pais {
 
     public void addCiudad() {
         if (contadorCiudades < ciudades.length) {
+            
             Scanner teclado = new Scanner(System.in);
 
             System.out.println("Introduce el nombre de la ciudad: ");
@@ -40,14 +41,15 @@ public class Pais {
 
             Ciudad a = new Ciudad(nombreCiudad, latitudCiudad, longitudCiudad, habitantesCiudad);
             ciudades[contadorCiudades] = a;
-            
+            contadorCiudades++;
             System.out.println("Ciudad añadida");
+            
         }
     }
 
     public Ciudad ciudadMasHabitada() {
         int mayor = 0, nciudad = 0;
-        for (int i = 0; i < ciudades.length; i++) {
+        for (int i = 0; i < contadorCiudades; i++) {
             if (ciudades[i].getHabitantes() >= mayor) {
                 mayor = ciudades[i].getHabitantes();
                 nciudad =i;
@@ -57,31 +59,39 @@ public class Pais {
     }
 
     public void ciudadExiste(String nombreCiudad){
-        
-        for (int i = 0; i < ciudades.length; i++) {
-            String comparada = ciudades[i].getNombre().toUpperCase();
+        boolean encontrada = false;
+        for (int i = 0; i < contadorCiudades; i++) {
+            
+            String comparada = ciudades[i].getNombre().toLowerCase();
+            
             if(comparada.equalsIgnoreCase(nombreCiudad)){
-                System.out.println("La ciudad Existe ");
-                i=ciudades.length;
-            }  
+                encontrada=true;
+                i = ciudades.length;
+                
+            }
+            
         }       
+        if (encontrada==false){
+            System.out.println("La ciudad no existe ");}
+        else{
+            System.out.println("La ciudad Existe ");}
+        
     }
     
     public int mediaHabitantes(){
         int totalHabitantes=0;
-        for (int i = 0; i <= contadorCiudades; i++) {
+        for (int i = 0; i < contadorCiudades; i++) {
             totalHabitantes+=ciudades[i].getHabitantes();
         } 
         return totalHabitantes/contadorCiudades;
     }
     
-    
 
     @Override
     public String toString() {
         String result="";
-        for (int i = 0; i <= contadorCiudades; i++) {
-            result.concat(ciudades.toString());
+        for (int i = 0; i < contadorCiudades; i++) {
+            result.concat(ciudades[i].toString());
         }
         return result;
     }

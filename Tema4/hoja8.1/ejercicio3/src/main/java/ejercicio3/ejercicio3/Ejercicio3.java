@@ -22,7 +22,9 @@ public class Ejercicio3 {
                 + "2. Devolver ciudad con mas habitantes\n"
                 + "3. Ciudad existe?\n"
                 + "4. Media de habitantes\n"
-                + "5. to String\n");
+                + "5. to String\n"
+                + "6. Salir del programa\n");
+            
          System.out.println("Introduce tu opcion : ");
         Scanner Teclado = new Scanner(System.in);
         opcion = Teclado.nextInt();
@@ -35,7 +37,7 @@ public class Ejercicio3 {
                 }
                 case 3 -> {
                     System.out.println("Introduce el nombre de la ciudad que quiera buscar");
-                String  ciudadBuscada = Teclado.nextLine();
+                    String ciudadBuscada = new Scanner(System.in).nextLine();
                     francia.ciudadExiste(ciudadBuscada);
                 }
                 case 4 -> {

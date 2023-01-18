@@ -39,7 +39,7 @@ public class Ciudad {
 
     @Override
     public String toString() {
-        return "Ciudad{" + "nombre =" + nombre + ", habitantes =" + habitantes + '}';
+        return "Ciudad{" + "nombre = " + nombre + ", habitantes = " + habitantes + '}';
     }
 
     
