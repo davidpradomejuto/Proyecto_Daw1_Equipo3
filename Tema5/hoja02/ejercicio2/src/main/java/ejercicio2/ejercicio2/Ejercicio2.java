@@ -59,7 +59,7 @@ public class Ejercicio2 {
             System.out.print("Mes de caducidad: " + matriz[i].getMes() + "\t");
             System.out.print("Año de caducidad" + matriz[i].getaCaducidad() + "\n");
         }
-        
+
         System.out.println("Saco los datos de todos los produtos de promocion");
 
         for (int i = 0; i < 5; i++) {
@@ -67,18 +67,30 @@ public class Ejercicio2 {
             System.out.print("Precio :" + matriz1[i].getPrecio() + "\t");
             System.out.print("Descripcion : " + matriz1[i].getDescripcion() + "\n");
             System.out.print("Descuento: " + matriz1[i].getDescuento() + "% \t");
-            System.out.print("Precio despues del descuento " + (matriz1[i].getPrecio()*matriz1[i].getPrecio())/100 + "\n");
+            System.out.print("Precio despues del descuento " + (matriz1[i].getPrecio() * matriz1[i].getPrecio()) / 100 + "\n");
         }
-        
+
         System.out.println("Codigo y descripcion de todos los productos caducados");
-        
+
         for (int i = 0; i < 5; i++) {
-            
-            if (matriz[i].getMes() <=1 && matriz[i].getaCaducidad() <=2023){
-            System.out.print("Codigo del producto " + matriz[i].getCodigo() + "\t");
-            System.out.print("Descripcion : " + matriz[i].getDescripcion() + "\n");
+
+            if (matriz[i].getMes() <= 1 && matriz[i].getaCaducidad() <= 2023) {
+                System.out.print("Codigo del producto " + matriz[i].getCodigo() + "\t");
+                System.out.print("Descripcion : " + matriz[i].getDescripcion() + "\n");
 
             }
         }
+
+        System.out.println("Porducto con maximo descuento");
+        int mayor = 0;
+        int codigomayor = 999;
+        for (int i = 0; i < 5; i++) {
+            if (matriz1[i].getDescuento() >= mayor) {
+                mayor = matriz1[i].getDescuento();
+                codigomayor = matriz1[i].getCodigo();
+            }
+        }
+        System.out.println("El producto con mas decuento ha sido el producto con codigo : " + codigomayor);
     }
 }
+
