@@ -13,14 +13,14 @@ public class AparatoElectrico {
     private static double consumoTotal;
 
     private double potencia;
-    private boolean encendido = false;
+    private boolean encendido;
 
     public AparatoElectrico() {
     }
 
-    public AparatoElectrico(double potencia, boolean encendido) {
+    public AparatoElectrico(double potencia) {
         this.potencia = potencia;
-        this.encendido = encendido;
+        this.encendido = false;
     }
 
     public static double consumo() {
@@ -30,11 +30,13 @@ public class AparatoElectrico {
     public void enciende() {
         encendido = true;
         consumoTotal += potencia;
+        System.out.println("El aparato esta encendido");
     }
 
     public void apagado() {
         encendido = false;
         consumoTotal -= potencia;
+        System.out.println("El aparato esta apagado");
     }
 
 }

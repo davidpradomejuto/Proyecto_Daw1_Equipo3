@@ -12,14 +12,14 @@ package ejercicio3.ejercicio3;
 public class Ejercicio3 {
 
     public static void main(String[] args) {
-        AparatoElectrico bombilla = new AparatoElectrico(150,false);
-        AparatoElectrico plancha = new AparatoElectrico(2000,false);
+        AparatoElectrico bombilla = new AparatoElectrico(150);
+        AparatoElectrico plancha = new AparatoElectrico(2000);
         
-        System.out.println("El consumo es de "+AparatoElectrico.consumo()+" W");
-        
+        System.out.println("El consumo es de "+AparatoElectrico.consumo()+" W");      
         bombilla.enciende();
+ 
+        System.out.println("El consumo es de "+AparatoElectrico.consumo()+" W");
         plancha.enciende();
-        
         System.out.println("El consumo es de "+AparatoElectrico.consumo()+" W");
         
     }
