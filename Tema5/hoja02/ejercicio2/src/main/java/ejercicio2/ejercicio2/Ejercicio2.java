@@ -4,6 +4,7 @@
  */
 package ejercicio2.ejercicio2;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 /**
@@ -14,8 +15,11 @@ public class Ejercicio2 {
 
     public static void main(String[] args) {
         //generos dos array con dos tipos diferente de objeto(esto no deberia ser asi)
-        Perecedero matriz[] = new Perecedero[5];
+
+        /*Perecedero matriz[] = new Perecedero[5];
         EnPromocion matriz1[] = new EnPromocion[5];
+         */
+        Articulo matriz[] = new Articulo[10];
 
         for (int i = 0; i < 5; i++) {
 
@@ -30,9 +34,9 @@ public class Ejercicio2 {
             int descuentop = new Scanner(System.in).nextInt();
 
             //creo el objeto
-            matriz1[i] = new EnPromocion(codigop, descripcionp, preciop, descuentop);
+            matriz[i] = new EnPromocion(codigop, descripcionp, preciop, descuentop);
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 5; i < 10; i++) {
 
             //pido los datos
             System.out.println("Introduce el mes de caducidad");
@@ -50,47 +54,52 @@ public class Ejercicio2 {
             matriz[i] = new Perecedero(mescad, aniocad, codigop, descripcionp, preciop);
         }
 
-        System.out.println("Saco los datos de todos los produtos perecederos");
+        System.out.println("Saco los datos de todos los produtos ");
 
-        for (int i = 0; i < 5; i++) {
-            System.out.print("Codigo del producto " + matriz[i].getCodigo() + "\t");
-            System.out.print("Precio :" + matriz[i].getPrecio() + "\t");
-            System.out.print("Descripcion : " + matriz[i].getDescripcion() + "\n");
-            System.out.print("Mes de caducidad: " + matriz[i].getMes() + "\t");
-            System.out.print("Año de caducidad" + matriz[i].getaCaducidad() + "\n");
-        }
-
-        System.out.println("Saco los datos de todos los produtos de promocion");
-
-        for (int i = 0; i < 5; i++) {
-            System.out.print("Codigo del producto " + matriz1[i].getCodigo() + "\t");
-            System.out.print("Precio :" + matriz1[i].getPrecio() + "\t");
-            System.out.print("Descripcion : " + matriz1[i].getDescripcion() + "\n");
-            System.out.print("Descuento: " + matriz1[i].getDescuento() + "% \t");
-            System.out.print("Precio despues del descuento " + (matriz1[i].getPrecio() * matriz1[i].getPrecio()) / 100 + "\n");
-        }
-
-        System.out.println("Codigo y descripcion de todos los productos caducados");
-
-        for (int i = 0; i < 5; i++) {
-
-            if (matriz[i].getMes() <= 1 && matriz[i].getaCaducidad() <= 2023) {
-                System.out.print("Codigo del producto " + matriz[i].getCodigo() + "\t");
-                System.out.print("Descripcion : " + matriz[i].getDescripcion() + "\n");
+        for (int i = 0; i < 10; i++) {
+            if (matriz[i] instanceof Perecedero) { // esta es una forma para castear objetos
+                Perecedero pereaux = (Perecedero) matriz[i];
+                System.out.print("Codigo del producto " + pereaux.getCodigo() + "\t");
+                System.out.print("Precio :" + pereaux.getPrecio() + "\t");
+                System.out.print("Descripcion : " + pereaux.getDescripcion() + "\n");
+                System.out.print("Mes de caducidad: " + pereaux.getMes() + "\t");
+                System.out.print("Año de caducidad" + pereaux.getaCaducidad() + "\n");
+            }
+            if (matriz[i] instanceof EnPromocion proaux) { // una forma para castear un objeto
+                System.out.print("Codigo del producto " + proaux.getCodigo() + "\t");
+                System.out.print("Precio :" + proaux.getPrecio() + "\t");
+                System.out.print("Descripcion : " + proaux.getDescripcion() + "\n");
+                System.out.print("Descuento: " + proaux.getDescuento() + "% \t");
+                System.out.print("Precio despues del descuento " + (proaux.getPrecio() - proaux.getDescuento() * proaux.getPrecio()) / 100 + "\n");
 
             }
         }
 
-        System.out.println("Porducto con maximo descuento");
+        System.out.println("Codigo y descripcion de todos los productos caducados");
+
+        for (int i = 0; i < 10; i++) {
+            if (matriz[i] instanceof Perecedero) {
+                Perecedero pereaux = (Perecedero) matriz[i];
+                if (pereaux.getMes() <= LocalDate.now().getMonthValue() && pereaux.getaCaducidad() <= LocalDate.now().getYear()) {
+                    System.out.print("Codigo del producto " + pereaux.getCodigo() + "\t");
+                    System.out.print("Descripcion : " + pereaux.getDescripcion() + "\n");
+
+                }
+            }
+        }
+
+        System.out.println("Producto con maximo descuento");
         int mayor = 0;
         int codigomayor = 999;
         for (int i = 0; i < 5; i++) {
-            if (matriz1[i].getDescuento() >= mayor) {
-                mayor = matriz1[i].getDescuento();
-                codigomayor = matriz1[i].getCodigo();
+            if (matriz[i] instanceof EnPromocion) {
+                 EnPromocion proaux = (EnPromocion) matriz[i];
+                if (proaux.getDescuento() >= mayor) {
+                    mayor = proaux.getDescuento();
+                    codigomayor = proaux.getCodigo();
+                }
             }
         }
         System.out.println("El producto con mas decuento ha sido el producto con codigo : " + codigomayor);
     }
 }
-

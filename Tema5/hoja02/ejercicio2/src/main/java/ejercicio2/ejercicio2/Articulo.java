@@ -19,6 +19,7 @@ public class Articulo {
         this.descripcion = descripcion;
         this.precio = precio;
     }
+    public Articulo(){};
 
     public int getCodigo() {
         return codigo;
