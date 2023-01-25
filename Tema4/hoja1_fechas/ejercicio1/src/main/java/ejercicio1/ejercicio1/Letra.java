@@ -6,9 +6,11 @@ package ejercicio1.ejercicio1;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Locale;
 
 /**
  *
@@ -58,7 +60,12 @@ public class Letra {
         System.out.println("El numero de letra es: "+this.numLetra);
         System.out.println("El titular es: "+this.titular);
         System.out.printf("El importe de la letra es de : %,.2f €\n",this.importe);
-        System.out.println("La fecha de vencimiento de la letra es el: "+this.fechaVencimiento);
+        //formateo a castellano
+        DateTimeFormatter esDateFormatLargo = DateTimeFormatter
+                .ofPattern("EEEE, dd 'de' MMMM 'de' yyyy 'a las' hh:mm:ss")
+                .withLocale(new Locale("es", "ES"));
+        System.out.println("La fecha de vencimiento de la letra es el:  " + this.fechaVencimiento.format(esDateFormatLargo));
+        
     }
     
     public int devuelveMeses(){
