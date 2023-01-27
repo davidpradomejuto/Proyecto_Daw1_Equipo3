@@ -12,7 +12,7 @@ package ejercicio1.ejercicio1;
 public class Ejercicio1 {
 
     public static void main(String[] args) {
-        Cono co = new Cono(3,4);
+        Cono co = new Cono(10,15);
         Cilindro ci = new Cilindro(3,8);
         System.out.printf("Volumen de un cono: %,.2f\n",co.volumen());
         System.out.printf("Area de un cono: %,.2f\n",co.area());
