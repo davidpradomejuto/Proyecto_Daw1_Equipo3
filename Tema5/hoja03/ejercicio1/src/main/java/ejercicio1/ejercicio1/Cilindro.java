@@ -13,12 +13,14 @@ public class Cilindro extends Figura {
         super(radio, altura);
     }
     
+    @Override
     public double area(){
         
         double result = 2*Math.PI*radio*(altura*radio);
         return result;
     }
     
+    @Override
     public double volumen(){  
         double result = Math.PI*Math.pow(radio,2)*altura;
         return result;

@@ -14,12 +14,16 @@ public class Cono extends Figura {
         super(radio, altura);
     }
     
+    
+    //sobresescribo los dos metodos de area y volumen
+    @Override
     public double area(){
         double generatriz=Math.sqrt(Math.pow(altura,2)+Math.pow(radio,2));
         double result = Math.PI*radio*generatriz;
         return result;
     }
     
+    @Override
     public double volumen(){  //ok
         double result = Math.PI*Math.pow(radio,2)*altura;
         return result/3;

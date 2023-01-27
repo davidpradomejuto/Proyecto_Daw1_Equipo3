@@ -8,7 +8,9 @@ package ejercicio1.ejercicio1;
  *
  * @author DAW118
  */
-public class Figura {
+
+//creo la clase abstracta de figura
+public abstract class Figura {
     protected int radio;
     protected int altura;
 
@@ -25,6 +27,8 @@ public class Figura {
         return altura;
     }
     
-    public abstract class area{};
-    public abstract class volumen{};
+    //genero dos metodos abstractos que devolveran un double
+    public abstract double area();
+    
+    public abstract double volumen();
 }
