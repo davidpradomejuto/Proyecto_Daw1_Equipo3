@@ -16,15 +16,12 @@ public class Profesor extends Persona {
 
     public Profesor(int nAsignaturas) {
         super();
-        if (super.getDni().length() != 7) {
-            System.out.println("El DNI no tiene la longitud correcta");
-        } else {
-            asignaturas = new String[nAsignaturas];
-            for (int i = 0; i < asignaturas.length; i++) {
+        asignaturas = new String[nAsignaturas];
+        for (int i = 0; i < asignaturas.length; i++) {
 
-                System.out.println("Introduce la asginatura " + (i + 1) + " :");
-                asignaturas[i] = new Scanner(System.in).nextLine();
-            }
+            System.out.println("Introduce la asginatura " + (i + 1) + " :");
+            asignaturas[i] = new Scanner(System.in).nextLine();
+
         }
 
     }

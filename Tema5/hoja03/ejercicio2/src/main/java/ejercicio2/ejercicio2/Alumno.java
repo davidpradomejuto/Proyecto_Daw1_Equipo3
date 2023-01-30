@@ -16,15 +16,12 @@ public class Alumno extends Persona {
 
     public Alumno(int nNotas) {
         super();
-        if (super.getDni().length() != 7) {
-            System.out.println("El DNI no tiene la longitud correcta");
-        } else {
-            notas = new int[nNotas];
-            for (int i = 0; i < nNotas; i++) {
 
-                System.out.println("Introduce la nota " + (i + 1) + " :");
-                notas[i] = new Scanner(System.in).nextInt();
-            }
+        notas = new int[nNotas];
+        for (int i = 0; i < nNotas; i++) {
+
+            System.out.println("Introduce la nota " + (i + 1) + " :");
+            notas[i] = new Scanner(System.in).nextInt();
         }
 
     }
