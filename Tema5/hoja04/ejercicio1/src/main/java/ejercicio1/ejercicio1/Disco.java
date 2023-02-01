@@ -9,33 +9,31 @@ import java.util.Locale;
 
 /**
  *
- * @author DAW118
+ * @author david
  */
-public class Libro extends Publicacion {
+public class Disco extends Publicacion {
     
-    private int numPaginas;
-    
-    public Libro(String newtitulo,String newautor,int newdia,int newmes,int newanio,int numpags){
-        super(newtitulo,newautor,newdia,newmes,newanio);
-        this.numPaginas=numpags;   
+    private int duracionMinutos;
+
+    public Disco(int duracionMinutos, String titulo, String autor, int dia, int mes, int anio) {
+        super(titulo, autor, dia, mes, anio);
+        this.duracionMinutos = duracionMinutos;
     }
 
-    public int getNumPaginas() {
-        return numPaginas;
+    public int getDuracionMinutos() {
+        return duracionMinutos;
     }
 
-    public void setNumPaginas(int numPaginas) {
-        this.numPaginas = numPaginas;
+    public void setDurecionMinutos(int duracionMinutos) {
+        this.duracionMinutos = duracionMinutos;
     }
 
     @Override
     public String toString() {
-        
         DateTimeFormatter esDateFormat = DateTimeFormatter.ofPattern("EEEE, dd 'de' MMMM 'de' yyyy").withLocale(new Locale("es","ES"));
-        return "titulo: "+titulo+" numPaginas = " + numPaginas +" autor: "+autor+
+        return "titulo: "+titulo+" Duracion = " + duracionMinutos +" autor: "+autor+
                 " fecha de publicacion: "+super.getFecha().format(esDateFormat) ;
     }
-
     
     
     
