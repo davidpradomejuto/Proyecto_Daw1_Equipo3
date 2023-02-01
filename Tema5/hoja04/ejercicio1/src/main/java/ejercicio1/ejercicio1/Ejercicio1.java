@@ -34,7 +34,7 @@ public class Ejercicio1 {
                 int mes = new Scanner(System.in).nextInt();
                 System.out.println("introduce el año: ");
                 int anio = new Scanner(System.in).nextInt();
-                System.out.println("introduce el durecion mintuos: ");
+                System.out.println("introduce el duracion minutos: ");
                 int duracion = new Scanner(System.in).nextInt();
 
                 matriz[i] = new Disco(duracion, titulo, autor, dia, mes, anio);
@@ -92,7 +92,7 @@ public class Ejercicio1 {
             }
         }
         
-        System.out.println("Muestro los libros editados en febrero que tengan ,as de 1000 paginas");
+        System.out.println("Muestro los libros editados en febrero que tengan mas de 1000 paginas");
         for (int i = 0; i < 5; i++) {
             if (matriz[i] instanceof Libro libroaux) { 
                 if (libroaux.getFecha().getMonthValue()==LocalDate.now().getMonthValue() && libroaux.getNumPaginas()>=1000) {
@@ -104,7 +104,7 @@ public class Ejercicio1 {
         
         for (int i = 0; i < 5; i++) {
             if (matriz[i] instanceof Disco discoaux) { 
-               if(discoaux.getFecha().isBefore(LocalDate.now().minusYears(2))){//la fecha actual menos 2 años
+               if(discoaux.getFecha().isAfter(LocalDate.now().minusYears(2))){//la fecha actual menos 2 años
                     System.out.println("Titulo: "+discoaux.getTitulo()+" Autor: "+discoaux.getAutor());
                }
             }
