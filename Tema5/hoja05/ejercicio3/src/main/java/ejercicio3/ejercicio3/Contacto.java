@@ -36,6 +36,13 @@ public class Contacto {
     public int getTelefono() {
         return telefono;
     }
+
+    @Override
+    public String toString() {
+        return "Contacto{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", telefono=" + telefono + '}';
+    }
+    
+    
     
     
     

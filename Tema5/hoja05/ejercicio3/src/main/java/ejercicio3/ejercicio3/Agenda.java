@@ -10,7 +10,8 @@ import java.util.Arrays;
  *
  * @author DAW118
  */
-public class Agenda {
+public class Agenda implements Comparable<Agenda>{
+
     private int contador;
     private Contacto[] matriz;
 
@@ -18,26 +19,55 @@ public class Agenda {
         this.contador = 0;
         matriz = new Contacto[tamanio];
     }
-    
-    public void insertar(Contacto newcontacto){
-        matriz[contador]=newcontacto;
-    }   
-    
-    public void buscar(String nombre){
+
+    public void insertar(Contacto newcontacto) {
+        matriz[contador] = newcontacto;
+    }
+
+    public void buscar(String nombre) {
         boolean encontrado = false;
         for (int i = 0; i < contador; i++) {
-            if (matriz[i].getNombre().contentEquals(nombre)){
+            if (matriz[i].getNombre().contentEquals(nombre)) {
                 encontrado = true;
-                i=contador;
+                i = contador;
             }
         }
-        
-        if(!encontrado){
+
+        if (!encontrado) {
             System.out.println("Contacto no encontrado.");
-        }else{
-            System.out.println("Contacto "+nombre+"encontrado.");
+        } else {
+            System.out.println("Contacto " + nombre + "encontrado.");
         }
     }
+
+    public void eliminar(String nombreContacto) {
+        int posicionInicial = 0;
+        for (int i = 0; i < contador; i++) {
+            if (matriz[i].getNombre().contentEquals(nombreContacto)) {
+                posicionInicial = i;
+            }
+        }
+
+        for (int i = contador; i > posicionInicial; i++) {
+            Contacto auxobj;
+
+            auxobj = matriz[i - 1];
+            matriz[i - 1] = matriz[i];
+            matriz[i - 2] = auxobj;
+        }
+        contador--;
+    }
+
+    @Override
+    public String toString() {
+        String result = "";
+        for (int i = 0; i < contador; i++) {
+            result = result.concat(matriz[i].toString());
+        }
+
+        return result;
+    }
     
-    public void 
+    public void ordenar
+
 }
