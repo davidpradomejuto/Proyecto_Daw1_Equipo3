@@ -12,6 +12,24 @@ package ejercicio3.ejercicio3;
 public class Ejercicio3 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Agenda agenda = new Agenda(5);
+        
+        Contacto david = new Contacto("david","prado","davidprado@gmail",1235);
+        Contacto abel = new Contacto("abel","prado","abel@gmail",54321);
+        Contacto pedro = new Contacto("pedro","perez","pedro@gmail",98765);
+        System.out.println("Inserto los contactos");
+        agenda.insertar(david);
+        agenda.insertar(abel);
+        agenda.insertar(pedro);
+        
+        
+        System.out.println(agenda.toString());
+        agenda.buscar("abel");
+        agenda.ordenar();
+        System.out.println(agenda.toString());
+        agenda.eliminar("david");
+                
+        System.out.println(agenda.toString());
+                
     }
 }

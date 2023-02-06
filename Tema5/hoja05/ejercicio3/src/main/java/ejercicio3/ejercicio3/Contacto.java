@@ -8,7 +8,7 @@ package ejercicio3.ejercicio3;
  *
  * @author DAW118
  */
-public class Contacto {
+public class Contacto implements Comparable<Contacto>{
     private String nombre;
     private String apellidos;
     private String email;
@@ -19,6 +19,11 @@ public class Contacto {
         this.apellidos = apellidos;
         this.email = email;
         this.telefono = telefono;
+    }
+    
+    @Override
+    public int compareTo(Contacto o) {
+        return this.apellidos.compareToIgnoreCase(o.getApellidos());
     }
 
     public String getNombre() {

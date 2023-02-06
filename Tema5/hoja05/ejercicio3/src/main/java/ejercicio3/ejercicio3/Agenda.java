@@ -10,7 +10,7 @@ import java.util.Arrays;
  *
  * @author DAW118
  */
-public class Agenda implements Comparable<Agenda>{
+public class Agenda{
 
     private int contador;
     private Contacto[] matriz;
@@ -22,6 +22,8 @@ public class Agenda implements Comparable<Agenda>{
 
     public void insertar(Contacto newcontacto) {
         matriz[contador] = newcontacto;
+        System.out.println("Contacto insertado");
+        contador++;
     }
 
     public void buscar(String nombre) {
@@ -36,7 +38,7 @@ public class Agenda implements Comparable<Agenda>{
         if (!encontrado) {
             System.out.println("Contacto no encontrado.");
         } else {
-            System.out.println("Contacto " + nombre + "encontrado.");
+            System.out.println("Contacto " + nombre + " encontrado.");
         }
     }
 
@@ -48,26 +50,28 @@ public class Agenda implements Comparable<Agenda>{
             }
         }
 
-        for (int i = contador; i > posicionInicial; i++) {
-            Contacto auxobj;
-
-            auxobj = matriz[i - 1];
-            matriz[i - 1] = matriz[i];
-            matriz[i - 2] = auxobj;
+        for (int i = posicionInicial; i < contador-1; i++) {//eliminar el contacto
+            matriz[i] = matriz[i + 1];
         }
         contador--;
     }
+
+        
+    
 
     @Override
     public String toString() {
         String result = "";
         for (int i = 0; i < contador; i++) {
-            result = result.concat(matriz[i].toString());
+            result = result.concat(matriz[i].toString()+"\n");
         }
 
         return result;
     }
     
-    public void ordenar
+    
+    public void ordenar() {
+        Arrays.sort(matriz,0,contador);
+    }
 
 }
