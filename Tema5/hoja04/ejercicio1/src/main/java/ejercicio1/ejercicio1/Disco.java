@@ -30,7 +30,8 @@ public class Disco extends Publicacion {
 
     @Override
     public String toString() {
-        DateTimeFormatter esDateFormat = DateTimeFormatter.ofPattern("EEEE, dd 'de' MMMM 'de' yyyy").withLocale(new Locale("es","ES"));
+        DateTimeFormatter esDateFormat = DateTimeFormatter.ofPattern("dd 'de' MMMM 'de' yyyy")
+                .withLocale(new Locale("es","ES"));
         return "titulo: "+titulo+" Duracion = " + duracionMinutos +" autor: "+autor+
                 " fecha de publicacion: "+super.getFecha().format(esDateFormat) ;
     }

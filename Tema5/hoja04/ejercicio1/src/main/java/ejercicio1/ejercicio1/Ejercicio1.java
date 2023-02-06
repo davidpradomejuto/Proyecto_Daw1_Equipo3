@@ -60,60 +60,57 @@ public class Ejercicio1 {
 
         System.out.println("Muestro los datos de todos las publicaciones");
 
-        for (int i = 0; i < 5; i++) {
-            if (matriz[i] instanceof Libro) { // esta es una forma para castear objetos
-                Libro libroaux = (Libro) matriz[i];
-                System.out.println(libroaux.toString());
-            }
-            if (matriz[i] instanceof Disco discaux) { // una forma para castear un objeto
-                System.out.println(discaux.toString());
-            }
+        for (int i = 0; i < matriz.length; i++) {
+            System.out.println(matriz[i].toString()); //muestro los datos de las publicaciones
         }
 
-        
-            System.out.println("Muestro los datos del disco con mas duracion");
+        System.out.println("Muestro los datos del disco con mas duracion");
         int mayortiempo = 0;
-        int posicionmayor=0;
-        for (int i = 0; i < 5; i++) {
+        int posicionmayor = 0;
+        for (int i = 0; i < matriz.length; i++) {
             if (matriz[i] instanceof Disco discaux) {
                 if (discaux.getDuracionMinutos() >= mayortiempo) {
                     mayortiempo = discaux.getDuracionMinutos();
-                    posicionmayor=i;
+                    posicionmayor = i;
                 }
             }
         }
-        
-        if(matriz[posicionmayor]  instanceof Disco discaux){
-            if(discaux.getAutor().length()>=3){
-                System.out.println(" 3 primeras letras del autor: "+discaux.getAutor().substring(0, 3));
+
+        if (matriz[posicionmayor] instanceof Disco discaux) {
+            if (discaux.getAutor().length() >= 3) {
+                System.out.println(" 3 primeras letras del autor: " + discaux.getAutor().substring(0, 3));
+            } else {
+                System.out.println("El autor no tiene mas de 3 letras");
             }
-            if(discaux.getTitulo().length()>=3){
-                System.out.println(" 3 primeras letras del titulo: "+discaux.getTitulo().substring(0, 3));
+            if (discaux.getTitulo().length() >= 3) {
+                System.out.println(" 3 primeras letras del titulo: " + discaux.getTitulo().substring(0, 3));
+            } else {
+                System.out.println("El titulo no tiene mas de 3 letras");
             }
         }
-        
+
         System.out.println("Muestro los libros editados en febrero que tengan mas de 1000 paginas");
-        for (int i = 0; i < 5; i++) {
-            if (matriz[i] instanceof Libro libroaux) { 
-                if (libroaux.getFecha().getMonthValue()==LocalDate.now().getMonthValue() && libroaux.getNumPaginas()>=1000) {
-                    System.out.println("Titulo: "+libroaux.getTitulo()+" Autor: "+libroaux.getAutor());
+        for (int i = 0; i < matriz.length; i++) {
+            if (matriz[i] instanceof Libro libroaux) {
+                if (libroaux.getFecha().getMonthValue() == LocalDate.now().getMonthValue() &&
+                        libroaux.getFecha().getYear() == LocalDate.now().getYear() &&
+                        libroaux.getNumPaginas() >= 1000) {
+                    
+                    System.out.println("Titulo: " + libroaux.getTitulo() + " Autor: " + libroaux.getAutor());
                 }
             }
-            
+
         }
         
-        for (int i = 0; i < 5; i++) {
-            if (matriz[i] instanceof Disco discoaux) { 
-               if(discoaux.getFecha().isAfter(LocalDate.now().minusYears(2))){//la fecha actual menos 2 años
-                    System.out.println("Titulo: "+discoaux.getTitulo()+" Autor: "+discoaux.getAutor());
-               }
+        System.out.println("Muestro los discos editados en los ultimos 2 años");
+        for (int i = 0; i < matriz.length; i++) {
+            if (matriz[i] instanceof Disco discoaux) {
+                if (discoaux.getFecha().isAfter(LocalDate.now().minusYears(2))) {//la fecha actual menos 2 años
+                    System.out.println("Titulo: " + discoaux.getTitulo() + " Autor: " + discoaux.getAutor());
+                }
             }
-            
+
         }
-        
-        
-        
-        
-        
+
     }
 }

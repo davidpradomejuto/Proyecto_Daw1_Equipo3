@@ -5,7 +5,7 @@
 package ejercicio1.ejercicio1;
 
 import java.time.LocalDate;
-import java.time.Month;
+
 
 /**
  *
@@ -46,9 +46,7 @@ public abstract class Publicacion {
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
-    
-    
-    
+
     
     @Override
     public abstract String toString();
