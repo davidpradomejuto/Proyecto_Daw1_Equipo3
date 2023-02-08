@@ -28,6 +28,7 @@ public class Agenda{
 
     public void buscar(String nombre) {
         boolean encontrado = false;
+        
         for (int i = 0; i < contador; i++) {
             if (matriz[i].getNombre().contentEquals(nombre)) {
                 encontrado = true;
