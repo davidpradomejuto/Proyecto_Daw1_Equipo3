@@ -12,6 +12,12 @@ package ejercicio4.ejercicio4;
 public class Ejercicio4 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        flauta f1 = new flauta();
+        f1.tocarNota("Do");
+        f1.tocarNota("Re");
+        
+        Piano p1 = new Piano();
+        p1.tocarNota("Do");
+        
     }
 }
