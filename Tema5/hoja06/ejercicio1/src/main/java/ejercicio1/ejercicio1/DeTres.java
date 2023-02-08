@@ -18,8 +18,7 @@ public class DeTres implements Series {
 
     @Override
     public int getSiguiente() {
-
-        valor = +3;
+        valor +=3;
         return valor;
     }
 
