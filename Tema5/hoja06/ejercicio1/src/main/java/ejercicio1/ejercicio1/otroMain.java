@@ -26,7 +26,7 @@ public class otroMain {
           System.out.println(inter2.getSiguiente());  
         }
         
-        Series.mostrarInicio();
+        Series.nombreInterfaz();
     }
     
 }

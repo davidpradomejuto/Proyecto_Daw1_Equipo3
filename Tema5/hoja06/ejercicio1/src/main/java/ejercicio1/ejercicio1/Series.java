@@ -14,6 +14,6 @@ public interface Series {
     public int getSiguiente();
     public void reiniciar();
     public void setComenzar(int x);
-    public static void mostrarInicio(){System.out.println(" Interfaz Series ");};
-    
+    public static void nombreInterfaz(){System.out.println(" Interfaz Series ");};
+    default public void mostrarInicio(){System.out.println("Muestro inicio :"+inicio);}
 }

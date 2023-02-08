@@ -29,13 +29,15 @@ public class DeDos implements Series{
     
     @Override
     public void reiniciar(){
-        valor = 0;
+        anterior=inicio-2;
+        valor = inicio;
         System.out.println("Serie reinciada");
     }
     
     @Override
     public void setComenzar(int x){
         valor = x;
+        anterior = x-2;
         System.out.println("Serie comenzada con "+x);
     }
     
