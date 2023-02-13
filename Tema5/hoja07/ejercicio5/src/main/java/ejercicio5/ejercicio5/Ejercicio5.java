@@ -22,8 +22,8 @@ public class Ejercicio5 {
                 System.out.println("Introduce el divisor: ");
                 int divisor = new Scanner(System.in).nextInt();
 
-                
-                System.out.println("El resultado de la Division es "+Division(dividendo, divisor));
+                //ejecuto la clase estatica
+                System.out.println("El resultado de la Division es " + Division(dividendo, divisor));
                 valido = true;
             } catch (InputMismatchException e) {
                 System.out.println("Error No es un numero");
@@ -35,6 +35,7 @@ public class Ejercicio5 {
         }
     }
 
+    //creo el metodo y le indico que mande las excepciones a la clase superior
     public static int Division(int dividendo, int divisor) throws ArithmeticException, InputMismatchException {
         return dividendo / divisor;
     }
