@@ -18,9 +18,9 @@ public class Ejercicio5 {
         while (!valido) {
             try {
                 System.out.println("Introduce el dividendo: ");
-                int dividendo = new Scanner(System.in).nextInt();
+                double dividendo = new Scanner(System.in).nextDouble();
                 System.out.println("Introduce el divisor: ");
-                int divisor = new Scanner(System.in).nextInt();
+                double divisor = new Scanner(System.in).nextDouble();
 
                 //ejecuto la clase estatica
                 System.out.println("El resultado de la Division es " + Division(dividendo, divisor));
@@ -36,7 +36,7 @@ public class Ejercicio5 {
     }
 
     //creo el metodo y le indico que mande las excepciones a la clase superior
-    public static int Division(int dividendo, int divisor) throws ArithmeticException, InputMismatchException {
+    public static double Division(double dividendo, double divisor) throws ArithmeticException, InputMismatchException {
         return dividendo / divisor;
     }
 }
