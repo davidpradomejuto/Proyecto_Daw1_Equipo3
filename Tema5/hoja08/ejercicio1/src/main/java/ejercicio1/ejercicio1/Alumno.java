@@ -43,10 +43,8 @@ public class Alumno {
                     System.out.println("Error Indeterminado");
                 }
             }
-
-            valido = false;
+            
         }
-
     }
     
     public void mostrar(){
