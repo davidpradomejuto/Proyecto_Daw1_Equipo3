@@ -14,34 +14,68 @@ import java.util.Scanner;
 public class Ejercicio5 {
 
     public static void main(String[] args) {
-        boolean valido = false;
-        double dividendo=0;
-        double divisor=0;
-        while (!valido) {
-            try {
-                System.out.println("Introduce el dividendo: ");
-                dividendo = new Scanner(System.in).nextDouble();
-                System.out.println("Introduce el divisor: ");
-                divisor = new Scanner(System.in).nextDouble();
-            } catch (InputMismatchException e) {
-                System.out.println("Error No es un numero");
-                ;
-            } catch (Exception e) {
-                System.out.println("Error Indeterminado");
-            }
+        double dividendo = 0;
+        double divisor = 0;
 
             try {
+                System.out.print("dividendo ");
+                dividendo = pedirDouble();
+                System.out.print("divisor ");
+                divisor = pedirDouble();
+
                 double resultado = division(dividendo, divisor);
                 //ejecuto la clase estatica
                 System.out.println("El resultado de la Division es " + resultado);
-                valido = true;
-            } catch (ArithmeticException e) {
+               
+            } catch (ArithmeticException ae) {
                 System.out.println("Error Has divido entre 0");
-        }
+                System.out.println(ae.getMessage());
+            } catch (Exception e) {
+                System.out.println("Error Indeterminado");
+                System.out.println(e.getMessage());
+            }
+
     }
-    //creo el metodo y le indico que mande las excepciones a la clase superior
 
     public static double division(double dividendo, double divisor) throws ArithmeticException {
         return dividendo / divisor;
+    }
+
+    public static double pedirDouble() {
+        boolean valido = false;
+        double n = 0;
+        
+        while (!valido) {
+            try {
+                System.out.println("Introduce el Numero: ");
+                n = new Scanner(System.in).nextDouble();
+                valido = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Error No es un numero");
+            } catch (Exception e) {
+                System.out.println("Error Indeterminado");
+            }
+        }
+        
+        return n;
+    }
+    
+    public static double pedirInt() {
+        boolean valido = false;
+        int n = 0;
+        
+        while (!valido) {
+            try {
+                System.out.println("Introduce el Numero: ");
+                n = new Scanner(System.in).nextInt();
+                valido = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Error No es un numero");
+            } catch (Exception e) {
+                System.out.println("Error Indeterminado");
+            }
+        }
+        
+        return n;
     }
 }

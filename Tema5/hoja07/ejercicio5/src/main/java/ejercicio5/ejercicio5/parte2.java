@@ -16,7 +16,6 @@ public class parte2 {
     public static void main(String[] args) {
         double result = Division();
         System.out.println("El resultado de la division es : " + result);
-
     }
 
     public static double Division() {

@@ -50,7 +50,7 @@ public class Alumno {
     }
     
     public void mostrar(){
-        System.out.println("Datos del alumno: ");
+        System.out.println("Datos del alumno "+nombre+" :");
         System.out.print("Notas :");
         for (int i = 0; i < notas.length; i++) {
             if(i==notas.length-1){

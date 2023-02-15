@@ -31,14 +31,10 @@ public class Ejercicio4 {
                     throw new Exception("El numero no esta entre 0 y 100");
                 }
             } catch (InputMismatchException ime) {
-
                System.out.println("El dato tiene que ser entero");
-
             } catch (Exception e) {
-                
+               
                 System.out.println(e.getMessage());
-                
-
             }
             contador++;
             
