@@ -7,6 +7,7 @@ package ejercicio1.ejercicio1;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
 /**
  *
  * @author DAW118
@@ -17,11 +18,19 @@ public class Alumno {
     private int[] notas;
 
     public Alumno(int numeroNotas) {
-
+        boolean nombrevalido = false;
         notas = new int[numeroNotas];
-
-        System.out.println("Introduce el nombre del alumno: ");
-        nombre = new Scanner(System.in).nextLine();
+        
+        while (!nombrevalido) {
+            try {
+                System.out.println("Introduce el nombre del alumno: ");
+                nombre = new Scanner(System.in).nextLine();
+                intronombre(nombre);
+                nombrevalido = true;
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
 
         for (int i = 0; i < notas.length; i++) {
             boolean valido = false;
@@ -43,20 +52,29 @@ public class Alumno {
                     System.out.println("Error Indeterminado");
                 }
             }
-            
+
         }
     }
-    
-    public void mostrar(){
-        System.out.println("Datos del alumno "+nombre+" :");
+
+    public void mostrar() {
+        System.out.println("Datos del alumno " + nombre + " :");
         System.out.print("Notas :");
         for (int i = 0; i < notas.length; i++) {
-            if(i==notas.length-1){
-                 System.out.print(notas[i]);
-            }else{
-            System.out.print(notas[i]+" , ");
+            if (i == notas.length - 1) {
+                System.out.print(notas[i]);
+            } else {
+                System.out.print(notas[i] + " , ");
             }
-           }
+        }
     }
-    
+
+    public static String intronombre(String nombre) throws Exception {
+        if (nombre.matches("[a-zA-Z]+.*\\s.*")) {
+
+        } else {
+            throw new Exception(" Error el nombre contiene algun caracter no valido");
+        }
+        return nombre;
+    }
+
 }

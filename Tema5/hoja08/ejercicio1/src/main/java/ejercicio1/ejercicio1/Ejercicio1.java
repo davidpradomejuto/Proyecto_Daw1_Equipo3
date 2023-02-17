@@ -20,13 +20,13 @@ public class Ejercicio1 {
         }
 
         try {
-            System.out.println("Introduce el numero de jugador 1 - 4 que quieres ver: ");
+            System.out.println("Introduce el numero de jugador 1 - "+matriz.length+" que quieres ver: ");
             int n = new Scanner(System.in).nextInt();
             
-            if (n >= 1 && n <= 4) {
+            if (n >= 1 && n <= matriz.length) {
                 matriz[n].mostrar();
             }else {
-                throw new Exception("El numero no esta entre 1 y 4");
+                throw new Exception("El numero no esta entre 1 y "+matriz.length);
             }
         }catch (InputMismatchException e) {
                 System.out.println("Error No es un numero");
