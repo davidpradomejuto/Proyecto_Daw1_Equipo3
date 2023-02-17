@@ -12,8 +12,7 @@ public class Ejercicio1 {
 
     public static void main(String[] args) {
         try {
-            
-                throw new Exception("Exception del string");
+            throw new Exception("Exception del string");
             
         }catch(Exception e){
             System.out.println(e.getMessage());

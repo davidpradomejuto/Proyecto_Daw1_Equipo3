@@ -18,15 +18,16 @@ public class Ejercicio5 {
         int contador = 0;
 
         System.out.println("Genero el numero");
-        int numero = (int) Math.floor(Math.random() * 500) + 1; //genero el numero
+        int numero = (int) Math.floor(Math.random() * 500)+ 1; //genero el numero
 
         System.out.println("Numero generado = " + numero);
 
         while (!verificado) {
+            contador++; //aumento el contador en cada bucle
             //pido en numero mediante la clase estatica
             int numerointroducido = pedirInt(); 
-            contador++; //aumento el contador en cada bucle
-            try {
+             
+           try {
                 verificarNumero(numero, numerointroducido); // verifico el numero para que haga saltar la excepcion si no salta ninguna significa que el numero se ha encontrado
                 System.out.println("Numero encontrado");
                 verificado = true; //salgo del bucle

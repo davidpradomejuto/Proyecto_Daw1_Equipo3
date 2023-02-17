@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
 package ejercicio3.ejercicio3;
-
 /**
  *
  * @author DAW118
@@ -16,7 +15,7 @@ public class Ejercicio3 {
             System.out.println(matriz[5]);
         } catch (ArrayIndexOutOfBoundsException aiobe) {
             System.out.println("Has intentado acceder a una posicion fuera del array. ");
-        }catch(Exception e){
+        } catch (Exception e) {
             e.getMessage();
         }
     }

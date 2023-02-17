@@ -12,7 +12,6 @@ package ejercicio4.ejercicio4;
 public class Ejercicio4 {
 
     public static void main(String[] args) {
-        
         try{
             System.out.println("Genero la excepcion");
             throw new MiExcepcion("Esto es un error");
