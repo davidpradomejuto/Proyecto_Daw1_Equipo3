@@ -10,7 +10,7 @@ package ejercicio1.ejercicio1;
  */
 public abstract class Guerrero implements Comparable<Guerrero> {
 
-    private final String NOMBRE;
+    private String NOMBRE;
     private int edad, fuerza;
     private boolean herido, muerto;
 

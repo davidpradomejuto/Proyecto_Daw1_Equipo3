@@ -17,7 +17,7 @@ public class Griego extends Guerrero {
     @Override
     public boolean retirarse() {
         boolean result = false;
-        if (super.getHerido() || !super.getMuerto()){
+        if (super.getHerido() && !super.getMuerto()){
             result = true;
         }
         return result;
