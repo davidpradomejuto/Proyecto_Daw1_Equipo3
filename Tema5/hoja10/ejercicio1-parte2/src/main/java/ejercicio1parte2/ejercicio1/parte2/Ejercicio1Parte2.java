@@ -20,23 +20,16 @@ public class Ejercicio1Parte2 {
         Griego g = new Griego("griegoprueba", 32, 24);
 
         System.out.println("Creo un caballo vacio con capacidad para 10 hombres");
-        Caballo caballo = new Caballo(t, 10);
+        Caballo caballo = new Caballo(t, 3);
 
-        if (caballo.montar(t) == -1) {
-            System.out.println("El caballo esta lleno");
-        } else if (caballo.montar(t) == -2) {
-            System.out.println("Has intentado subir un troyano");
-        }else{
-            System.out.println("el numero de Griegos en el caballo son: "+caballo.montar(t));
-        }
         
-         if (caballo.montar(g) == -1) {
-            System.out.println("El caballo esta lleno");
-        } else if (caballo.montar(g) == -2) {
-            System.out.println("Has intentado subir un troyano");
-        }else{
-            System.out.println("el numero de Griegos en el caballo son: "+caballo.montar(t));
-        }
+        System.out.println("el numero de Griegos en el caballo son: " + caballo.montar(g));
+        System.out.println("el numero de Griegos en el caballo son: " + caballo.montar(g));
+        System.out.println("el numero de Griegos en el caballo son: " + caballo.montar(t));
+        System.out.println("el numero de Griegos en el caballo son: " + caballo.montar(g));
+        System.out.println("el numero de Griegos en el caballo son: " + caballo.montar(g));
+        
+        
 
     }
 }
