@@ -19,7 +19,7 @@ public class Ejercicio1Parte2 {
         System.out.println("creo el griego");
         Griego g = new Griego("griegoprueba", 32, 24);
 
-        System.out.println("Creo un caballo vacio con capacidad para 10 hombres");
+        System.out.println("Creo un caballo vacio con capacidad para 3 hombres");
         Caballo caballo = new Caballo(t, 3);
 
         
@@ -28,6 +28,11 @@ public class Ejercicio1Parte2 {
         System.out.println("el numero de Griegos en el caballo son: " + caballo.montar(t));
         System.out.println("el numero de Griegos en el caballo son: " + caballo.montar(g));
         System.out.println("el numero de Griegos en el caballo son: " + caballo.montar(g));
+        
+        System.out.println("Creo un caballo vacio con capacidad para 3 hombres");
+        Caballo caballo2 = new Caballo(t, 3);
+        
+        Troyano a = new Troyano();
         
         
 

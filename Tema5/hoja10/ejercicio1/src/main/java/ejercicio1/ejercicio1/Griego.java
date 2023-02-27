@@ -14,6 +14,10 @@ public class Griego extends Guerrero {
         super(newnombre,newedad,newfuerza);
     }
     
+    public Griego(){
+        super();
+    }
+    
     @Override
     public boolean retirarse() {
         boolean result = false;
