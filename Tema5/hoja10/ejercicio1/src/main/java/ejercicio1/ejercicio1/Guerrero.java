@@ -10,7 +10,7 @@ package ejercicio1.ejercicio1;
  */
 public abstract class Guerrero implements Comparable<Guerrero> {
 
-    private String NOMBRE;
+    private final String NOMBRE;
     private int edad, fuerza;
     private boolean herido, muerto;
 
@@ -32,14 +32,24 @@ public abstract class Guerrero implements Comparable<Guerrero> {
     
     //genero el segundo constructor
     public Guerrero() {
-        this("Guerrerox",15,1);
+        System.out.println("Introduce el nombre");
+        this.NOMBRE = Teclado.pedirNombre();
+        System.out.println("Introduce la edad");
+        this.edad = Teclado.pedirIntPositivo();
+        System.out.println("Introduce la fuerza");
+        this.fuerza = Teclado.pedirIntPositivo();
+        this.herido=false;
+        this.muerto = false;
+        
     }
     
-    //genero el tercero constructor
+    //genero el tercer constructor
     public Guerrero(Guerrero g,String newnombre){
         this.NOMBRE = newnombre;
         this.edad = g.getEdad();
         this.fuerza = g.getFuerza();
+        this.herido = g.getHerido();
+        this.muerto = g.getMuerto();
     }
 
     //genero el metodo retirarse();
@@ -81,10 +91,6 @@ public abstract class Guerrero implements Comparable<Guerrero> {
 
     public String getNombre() {
         return NOMBRE;
-    }
-
-    public void setNombre(String nombre) {
-        this.NOMBRE = nombre;
     }
 
     public int getEdad() {

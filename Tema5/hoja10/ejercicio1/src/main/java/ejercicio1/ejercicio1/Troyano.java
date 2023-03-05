@@ -14,6 +14,10 @@ public class Troyano extends Guerrero {
         super(newnombre,newedad,newfuerza);
     }
     
+    public Troyano(){
+        super();
+    }
+    
     @Override
     public boolean retirarse() {
         return false;

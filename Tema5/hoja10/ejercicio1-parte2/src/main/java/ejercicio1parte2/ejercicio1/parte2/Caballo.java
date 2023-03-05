@@ -21,15 +21,15 @@ public class Caballo implements PuedeMontarse {
         boolean griegos = true;
         this.ocupacion = 0;
 
-        for (int i = 0; i < matriz.length; i++) {
+        for (int i = 0; i < matriz.length && griegos; i++) {
 
-            if (matriz[i] instanceof Griego griegoaux) {
+            if (matriz[i] instanceof Griego) {
                 this.ocupacion++;
             } else {
                 griegos = false;
-                i = matriz.length;
             }
         }
+        
         if (griegos) {
             this.matriz = matriz;
             this.CAPACIDAD = matriz.length;
@@ -42,11 +42,11 @@ public class Caballo implements PuedeMontarse {
     }
 
     public Caballo(Guerrero guerrero, int newcapacidad) { //constructor
-        if (guerrero instanceof Griego griegoaux) {
+        if (guerrero instanceof Griego && newcapacidad >0) {
 
-            this.matriz = new Guerrero[newcapacidad];
+            this.matriz = new Guerrero[newcapacidad];           
             this.CAPACIDAD = newcapacidad;
-            this.ocupacion++;
+            this.ocupacion = 1;
         } else {
             this.matriz = new Guerrero[newcapacidad];
             this.CAPACIDAD = newcapacidad;
@@ -56,25 +56,26 @@ public class Caballo implements PuedeMontarse {
 
     public void ordenar() { //ordena el array por fuerza
         System.out.println("Ordenando array...");
-        Arrays.sort(matriz);
+        Arrays.sort(matriz,0,ocupacion);
     }
 
     public int buscar(String nombre) { //busca el nombre de un guerrero
-        int result = -1;
-        Arrays.sort(matriz);
-        for (int i = 0; i < ocupacion; i++) {
+        //int result = -1;
+        Arrays.sort(matriz,0,ocupacion);
+        return Arrays.binarySearch(matriz, 0, ocupacion, nombre);
+        /*for (int i = 0; i < ocupacion; i++) {
             if (this.matriz[i].getNombre().equalsIgnoreCase(nombre)) {
                 result = i;
                 i = ocupacion;
             }
         }
-        return result;
+        return result;*/
     }
 
     @Override
     public int montar(Guerrero g) { //este metodo recibe un guerrero y comprueba si se puede meter en el caballo, si esta lleno devuelve un -1 y si el guerrero no es griego devuelve un -2
         int result = 0;
-        if (g instanceof Griego griegoaux) {
+        if (g instanceof Griego) {
             if (ocupacion < matriz.length) {
                 matriz[ocupacion] = g;
                 ocupacion++;
@@ -83,7 +84,7 @@ public class Caballo implements PuedeMontarse {
                 result = -1;
             }
         }
-        if (g instanceof Troyano troyanoaux) {
+        if (g instanceof Troyano) {
             
             result = -2;
         }
@@ -93,9 +94,10 @@ public class Caballo implements PuedeMontarse {
 
     @Override
     public void desmontar() { //este metodo vacia todo el array del caballo
-        for (int i = 0; i < matriz.length; i++) {
+        /*for (int i = 0; i < matriz.length; i++) {
             matriz[i] = null;
-        }
+        }*/
+        Arrays.fill(matriz,null);
         ocupacion = 0;
     }
 
