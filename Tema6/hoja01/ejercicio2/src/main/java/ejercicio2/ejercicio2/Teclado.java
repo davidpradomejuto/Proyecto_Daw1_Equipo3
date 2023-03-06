@@ -56,7 +56,7 @@ public class Teclado {
         return n;
     }
     
-    public static int pedirIntPositivo() {
+    public static Integer pedirIntPositivo() {
         boolean valido = false;
         int n = 0;
 

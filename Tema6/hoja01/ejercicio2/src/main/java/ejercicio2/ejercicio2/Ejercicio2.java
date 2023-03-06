@@ -15,10 +15,12 @@ public class Ejercicio2 {
 
     public static void main(String[] args) {
         boolean negativo = false;
-        int[] elementos;
+        Integer[] elementos= new Integer[0];
         Contenedor pila = new Contenedor(elementos);
+       
+         
         do{
-            int numero = pedirIntPositivo();
+            Integer numero = pedirIntPositivo();
             if(numero != -1){
                 apilar(numero);
             }else{
