@@ -39,6 +39,7 @@ public class Contenedor<T> implements Pila {
 
     public T extraerDelPrincipio() {
         T objeto = (T) matriz[0];
+        matriz = Arrays.copyOfRange(matriz, 1, matriz.length);  
         return objeto;
     }
 
@@ -48,28 +49,23 @@ public class Contenedor<T> implements Pila {
 
     @Override
     public String toString() {
-        String result = "";
-        for (int i = 0; i <= contador; i++) {
-            result = result.concat(matriz[i].toString() + ",");
-        }
-
-        return result;
+        return Arrays.deepToString(matriz);
     }
 
     @Override
     public void apilar(Object objeto) {
-     insertarAlPrincipio((T) objeto);
+        insertarAlPrincipio((T) objeto);
     }
 
     @Override
     public Object desapilar() {
-       return extraerDelPrincipio();
+        return extraerDelPrincipio();
     }
 
     @Override
     public boolean estaVacia() {
         boolean result = false;
-        if(matriz.length==0){
+        if (matriz.length == 0) {
             result = true;
         }
         return result;

@@ -31,13 +31,14 @@ public class Contenedor<T> {
 
     public void insertarAlFinal(T nuevo) {
         matriz = Arrays.copyOf(matriz, matriz.length + 1);
-        System.arraycopy(matriz, 0, matriz, 0, matriz.length - 2);
+        
         matriz[matriz.length - 1] = nuevo;
         contador++;
     }
 
     public T extraerDelPrincipio() {
         T objeto = (T) matriz[0];
+        matriz = Arrays.copyOfRange(matriz, 1, matriz.length);  
         return objeto;
     }
 
@@ -47,12 +48,7 @@ public class Contenedor<T> {
 
     @Override
     public String toString() {
-        String result = "";
-        for (int i = 0; i <= contador; i++) {
-            result=result.concat( matriz[i].toString()+",");
-        }
-        
-        return result;
+        return Arrays.deepToString(matriz);
     }
     
     

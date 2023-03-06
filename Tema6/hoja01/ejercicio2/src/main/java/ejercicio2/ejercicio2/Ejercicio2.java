@@ -15,14 +15,13 @@ public class Ejercicio2 {
 
     public static void main(String[] args) {
         boolean negativo = false;
-        Integer[] elementos= new Integer[0];
-        Contenedor pila = new Contenedor(elementos);
+        Contenedor<Integer> pila = new Contenedor<>(new Integer[0]);
        
          
         do{
             Integer numero = pedirIntPositivo();
             if(numero != -1){
-                apilar(numero);
+               pila.apilar(numero);
             }else{
                 negativo = true;
             }
@@ -30,6 +29,15 @@ public class Ejercicio2 {
         
         System.out.println("muestro los numeros. ");
         
+        System.out.println(pila.toString());
+        System.out.println("Ordeno los numeros");
+        pila.ordenar();
+        System.out.println(pila.toString());
         System.out.println("vacio la pila. ");
+        pila.desapilar();
+        System.out.println("muestro los numeros. ");
+        
+        System.out.println(pila.toString());
+        
     }
 }

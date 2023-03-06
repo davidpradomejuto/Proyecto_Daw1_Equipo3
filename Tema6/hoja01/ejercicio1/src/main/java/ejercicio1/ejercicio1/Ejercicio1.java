@@ -12,6 +12,21 @@ package ejercicio1.ejercicio1;
 public class Ejercicio1 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Contenedor<Integer> contenedor = new Contenedor<>(new Integer[0]);
+        
+        contenedor.insertarAlFinal(3);
+        contenedor.insertarAlFinal(6);
+        contenedor.insertarAlFinal(9);
+        contenedor.insertarAlFinal(11);
+        contenedor.insertarAlFinal(13);
+        
+        System.out.println("Muestro los datos");
+        System.out.println(contenedor.toString());
+        
+        contenedor.extraerDelPrincipio();
+        
+        System.out.println("Muestro los datos");
+        System.out.println(contenedor.toString());
+        
     }
 }
