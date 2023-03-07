@@ -33,4 +33,9 @@ public class DeTres implements Series {
         valor = x;
         System.out.println("Serie comenzada con " + x);
     }
+    
+    @Override
+    public void mostrarInicio(){
+        System.out.println("inicio "+valor);
+    }
 }
