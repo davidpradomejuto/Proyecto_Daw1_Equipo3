@@ -13,10 +13,6 @@ import java.util.Scanner;
  * @author david
  */
 public class Teclado {
-
-    public static void main(String[] args) {
-       pedirNombre();
-    }
     
     public static double pedirDouble() {
         boolean valido = false;
@@ -60,25 +56,42 @@ public class Teclado {
 
         return n;
     }
+        public static String introString(String mensaje) {
+        System.out.print(mensaje);
+        return new Scanner(System.in).nextLine();
+    }
+        public static String pedirNombre() {
 
-    public static String pedirNombre() {
-        boolean nombrevalido = false;
-        String nombre = "";
-        while (!nombrevalido) {
-            try {
-                System.out.println("Introduce el nombre del alumno: ");
-                nombre = new Scanner(System.in).nextLine();
-                if (nombre.matches("[a-zA-Z]+.*\\s.*")) {
+        int contCaracteres;
+        boolean exitFor;
+        String nombre;
 
-                } else {
-                    throw new Exception("Error el nombre contiene algun caracter no valido");
+        do {
+
+            contCaracteres = 0;
+            exitFor = false;
+            nombre = introString("Introduce el nombre del guerrero: ");
+
+            for (int i = 0; i < nombre.length() && !exitFor; i++) {
+
+                try {
+
+                    if (Character.isLetter(nombre.charAt(i)) || nombre.charAt(i) == ' ') {
+                        contCaracteres++;
+                    } else {
+                        exitFor = true;
+                        throw new Exception("El nombre '" + nombre + "' no es válido. Caracteres válidos: letras y espacio. Vuelve a intentarlo.");
+                    }
+
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
                 }
-                nombrevalido = true;
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
+
             }
-        }
+
+        } while (contCaracteres != nombre.length());
 
         return nombre;
+
     }
 }
