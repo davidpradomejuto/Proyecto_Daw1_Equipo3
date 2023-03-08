@@ -11,19 +11,26 @@ package ejercicio12.ejercicio12;
 public class Ejercicio12 {
 
     public static void main(String[] args) {
-        double [] v = new double[15];
-        acceso_por_indice(v,16);
-    }
-
-    public static double acceso_por_indice(double[] v, int j) throws RuntimeException {
+        double[] v = new double[15];
         try {
-            if ((0 <= j) && (j <= v.length)) {
-                return v[j];
-            } else {
-                throw new Exception("El incide" + j + "no existe");
-            }
-        } catch (RuntimeException exc) {
-            throw exc;
+            acceso_por_indice(v, 16);
+        } catch (Exception e) {
+            System.out.println("Error");
         }
     }
+
+    public static double acceso_por_indice(double[] v, int j) throws Exception {
+        double result = 0;
+        try {
+            if ((0 <= j) && (j <= v.length)) {
+                result = v[j];
+            } else {
+
+            }
+        } catch (Exception exc) {
+            throw exc;
+        }
+        return result;
+    }
+
 }

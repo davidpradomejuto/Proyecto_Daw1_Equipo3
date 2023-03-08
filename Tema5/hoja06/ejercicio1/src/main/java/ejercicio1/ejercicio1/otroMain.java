@@ -24,9 +24,12 @@ public class otroMain {
         Series inter2 = b;
         for (int i = 0; i < 5; i++) {
           System.out.println(inter2.getSiguiente());  
+          inter2.mostrarInicio();
         }
         
         Series.nombreInterfaz();
+        inter2.mostrarInicio();
+        
     }
     
 }
