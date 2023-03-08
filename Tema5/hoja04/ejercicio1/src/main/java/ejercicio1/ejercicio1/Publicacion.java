@@ -47,7 +47,6 @@ public abstract class Publicacion {
         this.fecha = fecha;
     }
 
-    
     @Override
     public abstract String toString();
 }
