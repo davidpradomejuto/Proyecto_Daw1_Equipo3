@@ -33,7 +33,7 @@ public class Ejercicio2 {
         System.out.println("Ordeno los numeros");
         pila.ordenar();
         System.out.println(pila.toString());
-        System.out.println("vacio la pila. ");
+        System.out.println("desapilo un dato de la pila. ");
         pila.desapilar();
         System.out.println("muestro los numeros. ");
         
