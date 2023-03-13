@@ -12,7 +12,15 @@ package hoja2.ejercicio2;
 public class Ejercicio2 {
 
     public static void main(String[] args) {
-        Persona a = new Persona();
-        System.out.println(a.toString());
+
+        Asociacion s = new Asociacion();
+        
+        s.insertar();
+        s.insertar();
+        
+        s.buscarPorDni("72197202H");
+        
+        System.out.println("Datos totales...");
+        System.out.println(s.ListarDatos());
     }
 }

@@ -15,7 +15,7 @@ public class Ejercicio1 {
 
     public static void main(String[] args) {
 
-        ArrayList<Integer> matriz = new ArrayList<Integer>();
+        ArrayList<Integer> matriz = new ArrayList<>();
 
         matriz = leeValores();
         
