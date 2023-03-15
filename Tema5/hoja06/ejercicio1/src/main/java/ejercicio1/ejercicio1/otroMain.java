@@ -17,13 +17,13 @@ public class otroMain {
         System.out.println("Pruebo con la clase DeDos");
         Series inter = a;
         for (int i = 0; i < 5; i++) {
-          System.out.println(inter.getSiguiente());  
+          System.out.println("muestro el siguiente "+inter.getSiguiente());  
         }
         
         System.out.println("Pruebo con la clase DeTres");
         Series inter2 = b;
         for (int i = 0; i < 5; i++) {
-          System.out.println(inter2.getSiguiente());  
+          System.out.println("muestro el siguiente "+inter2.getSiguiente());  
           inter2.mostrarInicio();
         }
         

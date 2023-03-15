@@ -16,9 +16,7 @@ public class AutoAnfibio implements transporteMaritimo, TransporteTerrestre {
         this.marca = marca;
         this.modelo = modelo;
     }
-    
-    
-    
+
     @Override
     public void nadar(){System.out.println("El auto esta nadando");}
     @Override

@@ -14,7 +14,6 @@ public class Piano extends Instrumento {
         super();
     }
     
-    
      @Override
     public void tocarNota(String nota) {
         System.out.printf("Piano: tocar nota %s.\n", nota);
