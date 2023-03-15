@@ -62,6 +62,12 @@ public class Asociacion {
     }
     
     public void ordenarPorNombre(){
-        
+        Comparator<Persona> compPersona=new Comparator<>() {
+            @Override
+            public int compare(Persona o1, Persona o2) {
+                return o1.getNombre().compareToIgnoreCase(o2.getNombre());
+            }
+        };
+        Collections.sort(matriz,compPersona);
     }
 }
