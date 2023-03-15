@@ -22,5 +22,7 @@ public class Ejercicio2 {
         
         System.out.println("Datos totales...");
         System.out.println(s.ListarDatos());
+        
+        
     }
 }

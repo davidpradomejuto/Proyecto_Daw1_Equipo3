@@ -5,6 +5,8 @@
 package hoja2.ejercicio2;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 
 /**
@@ -53,5 +55,13 @@ public class Asociacion {
 
         return sumatotal;
     }
-
+    
+    public void ordenarPorDni(){
+       Collections.sort(matriz);
+        System.out.println("Array ordenado");
+    }
+    
+    public void ordenarPorNombre(){
+        
+    }
 }

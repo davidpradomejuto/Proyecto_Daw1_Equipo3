@@ -12,7 +12,7 @@ import java.time.Period;
  *
  * @author DAW118
  */
-public class Persona {
+public class Persona implements Comparable<Persona> {
     private String nombre;
     private LocalDate fechaDeNacimiento;
     private String DNI;
@@ -79,6 +79,11 @@ public class Persona {
     @Override
     public String toString() {
         return "Persona{" + "nombre=" + nombre + ", fechaDeNacimiento=" + fechaDeNacimiento.toString() + ", DNI=" + DNI + '}';
+    }
+
+    @Override
+    public int compareTo(Persona o) {
+        return DNI.compareToIgnoreCase(o.getDNI());
     }
     
     
