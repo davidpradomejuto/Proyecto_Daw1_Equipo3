@@ -15,7 +15,6 @@ public class Partido {
     private int golesVisitante;
 
     public Partido() {
-        
     }
 
     public Partido(String equipoLocal, String equipoVisitante, int golesLocal, int golesVisitante) {

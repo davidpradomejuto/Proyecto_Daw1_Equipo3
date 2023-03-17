@@ -12,6 +12,21 @@ package hoja2.ejercicio4;
 public class Ejercicio4 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Jornada hoy = new Jornada();
+        
+        Partido a = new Partido("madrid","betis",1,1);
+        Partido b = new Partido("racing","barsa",1,0);
+        Partido c = new Partido("osasuna","celta",3,2);
+        hoy.insertar(a);
+        hoy.insertar(b);
+        hoy.insertar(c);
+        
+        hoy.mostrar();
+        hoy.toString();
+        
+        hoy.borrarEmpates();
+        
+        System.out.println("----------------------");
+        hoy.mostrar();
     }
 }
