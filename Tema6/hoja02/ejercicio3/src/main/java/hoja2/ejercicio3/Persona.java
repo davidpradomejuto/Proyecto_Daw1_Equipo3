@@ -2,11 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package hoja2.ejercicio2;
-
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.Period;
+package hoja2.ejercicio3;
 
 /**
  *
@@ -14,12 +10,13 @@ import java.time.Period;
  */
 public class Persona implements Comparable<Persona> {
     private String nombre;
-    private LocalDate fechaDeNacimiento;
+    private String apellidos;
     private String DNI;
 
-    public Persona() {
+     public Persona() {
         boolean dnivalido = false;
         boolean nombrevalido = false;
+        boolean apellidovalido=false;
         
         do{
         String posibleDni = Teclado.pedirDni("Introduce el Dni de la persona: ");
@@ -44,7 +41,17 @@ public class Persona implements Comparable<Persona> {
         }
         }while(!nombrevalido);
         
-        this.fechaDeNacimiento = Teclado.pedirFecha();
+        do {
+        String posibleApellido = Teclado.pedirNombre("Introduce el apellido de la persona: ");
+        
+        if (ValidaDatos.validarNombre(posibleApellido)){
+            apellidovalido = true;
+            System.out.println("apellido correcto");
+            this.apellidos=posibleApellido;
+        }else{
+            System.out.println("apellido Invalido repite");
+        }
+        }while(!nombrevalido);
     }
 
     public String getNombre() {
@@ -55,12 +62,12 @@ public class Persona implements Comparable<Persona> {
         this.nombre = nombre;
     }
 
-    public LocalDate getFechaDeNacimiento() {
-        return fechaDeNacimiento;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
-        this.fechaDeNacimiento = fechaDeNacimiento;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getDNI() {
@@ -70,21 +77,32 @@ public class Persona implements Comparable<Persona> {
     public void setDNI(String DNI) {
         this.DNI = DNI;
     }
-    
-    public long getEdad(){
-        long edad = 0;
-        edad = Period.between(fechaDeNacimiento,LocalDate.now()).getYears();
-        return edad;
-    }
-    @Override
-    public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", fechaDeNacimiento=" + fechaDeNacimiento.toString() + ", DNI=" + DNI + '}';
-    }
 
     @Override
-    public int compareTo(Persona o) {
-        return DNI.compareToIgnoreCase(o.getDNI());
+	public int compareTo(Persona o) {
+    	int result;
+    	if (this.nombre.compareTo(o.nombre) >= 1) {
+        	result = 1;
+    	} else if (this.nombre.compareTo(o.nombre) <= -1) {
+        	result = -1;
+    	} else {
+
+        	if (this.apellidos.compareTo(o.apellidos) <= 1) {
+            	result = 1;
+        	} else if (this.apellidos.compareTo(o.apellidos) <= -1) {
+            	result = -1;
+        	} else {
+            	result = 0;
+        	}
+    	}
+    	return result;
+	}
+
+    @Override
+    public String toString() {
+        return "Persona{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", DNI=" + DNI + '}';
     }
-    
-    
+     
+     
 }
+
