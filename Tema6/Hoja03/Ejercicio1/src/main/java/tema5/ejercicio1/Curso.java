@@ -22,10 +22,10 @@ public class Curso {
     }
     
     public Curso(){
-        System.out.println("Introduce el codigo: ");
-        codigo=new Scanner(System.in).nextInt();
-        descripcion=ValidarDatos.validarDescripcion();
-        nHoras=ValidarDatos.validarHoras();
+       
+        codigo=Teclado.pedirIntPositivo("Introduce el codigo del curso:");
+        descripcion=Teclado.pedirNombre("Introduce la descripcion:");
+        nHoras=Teclado.pedirIntPositivo("Introduce el numero de horas:");
     }
 
     public int getCodigo() {
@@ -55,7 +55,7 @@ public class Curso {
     @Override
     public String toString() {
         System.out.println("");
-        return "Codigo del Curso=" + codigo + "\nDescripción del Curso=" + descripcion + "\nNúmero de Horas=" + nHoras;
+        return "Codigo del Curso=" + codigo + " Descripción del Curso=" + descripcion + " Número de Horas=" + nHoras;
     }
     
 }
