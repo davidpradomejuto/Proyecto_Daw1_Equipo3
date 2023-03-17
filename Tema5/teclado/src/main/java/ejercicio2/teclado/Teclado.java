@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
-
 package ejercicio2.teclado;
 
 import java.time.LocalDate;
@@ -14,14 +13,14 @@ import java.util.Scanner;
  * @author david
  */
 public class Teclado {
-    
-    public static double pedirDouble() {
+
+    public static double pedirDouble(String frase) {
         boolean valido = false;
         double n = 0;
 
         while (!valido) {
             try {
-                System.out.println("Introduce el Numero: ");
+                  System.out.println(frase);
                 n = new Scanner(System.in).nextDouble();
                 valido = true;
             } catch (InputMismatchException e) {
@@ -34,18 +33,19 @@ public class Teclado {
         return n;
     }
 
-    public static int pedirIntPositivo() {
+    public static int pedirIntPositivo(String frase) { // este metodo recibe una String que va a ser la frase que pida el numero entero y mira que sea un numero entero lo que recibe la
+        //clase scanner, si no lo es, da un error y lo repite
         boolean valido = false;
         int n = 0;
 
         while (!valido) {
             try {
-                System.out.println("Introduce el Numero: ");
+                System.out.println(frase); // aqui muestro por pantalla la frase que me ha venido por parametros
                 n = new Scanner(System.in).nextInt();
-                if (n > 0) {
+                if (n > 0) { // si es positivo salgo del bucle, si es negativo doy un error
                     valido = true;
-                    
-                }else{
+
+                } else {
                     System.out.println("Has introducido un numero negativo,repite");
                 }
             } catch (InputMismatchException e) {
@@ -57,13 +57,9 @@ public class Teclado {
 
         return n;
     }
-        public static String introString(String mensaje) {
-        System.out.print(mensaje);
-        return new Scanner(System.in).nextLine();
-    }
-        
-        
-        public static String pedirNombre() {
+
+    public static String pedirNombre(String mensaje) { // este metodo me sirve para recoger un nombre, tambien lo uso para pedir los apellidos del alumno, hace lo mismo que el del pedir un color
+        // pero recibiendo la frase que va a mostrar por pantalla mediante parametros
 
         int contCaracteres;
         boolean exitFor;
@@ -73,7 +69,9 @@ public class Teclado {
 
             contCaracteres = 0;
             exitFor = false;
-            nombre = introString("Introduce el nombre del guerrero: ");
+
+            System.out.print(mensaje);
+            nombre = new Scanner(System.in).nextLine();
 
             for (int i = 0; i < nombre.length() && !exitFor; i++) {
 
@@ -97,8 +95,8 @@ public class Teclado {
         return nombre;
 
     }
-        
-        public static LocalDate pedirFecha() { // este metodo pide el dia,mes y anio en numeros  y lo convierte en fecha, se que el rango de fecha de los dias cambia dependiendo del mes
+
+    public static LocalDate pedirFecha() { // este metodo pide el dia,mes y anio en numeros  y lo convierte en fecha, se que el rango de fecha de los dias cambia dependiendo del mes
         //yo le he puesto de 0 a 31 , por que no queria poner otra capa mas de complejidad
 
         int dia = 0, mes = 0, anio = 0;
@@ -149,7 +147,7 @@ public class Teclado {
             }
 
         } while (!validomes);
-        
+
         do {//pido el anio, yo he puesto un rango del anio 0 al actual
             try {
 
