@@ -21,7 +21,7 @@ public class Ejercicio1 {
         do {
             System.out.println("Menu de la Academia");
             System.out.print("1- Añadir un nuevo curso al final de la lista\n2- Insertar un nuevo curso en cualquier posicion\n3- Borrar un curso dado su código\n4- Modificar el numero de Horas de un curso dado su codigo\n");
-            System.out.print("5- Mostrar todos los cursos\n\"0- Salir\n");
+            System.out.print("5- Mostrar todos los cursos\n\0- Salir\n");
             
             System.out.println("Ingresa una opcion: ");
             opc = teclado.nextInt();
