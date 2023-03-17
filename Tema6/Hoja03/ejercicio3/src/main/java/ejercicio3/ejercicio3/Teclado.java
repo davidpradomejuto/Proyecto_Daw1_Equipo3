@@ -4,6 +4,7 @@
  */
 package ejercicio3.ejercicio3;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.InputMismatchException;
@@ -101,7 +102,7 @@ public class Teclado {
 
                     try {
 
-                        if (Character.isLetter(nombre.charAt(i)) || nombre.charAt(i) == ' ' && Character.isLowerCase(nombre.charAt(i)) ) {
+                        if (Character.isLetter(nombre.charAt(i)) || nombre.charAt(i) == ' ' && Character.isLowerCase(nombre.charAt(i))) {
                             contCaracteres++;
                         } else {
                             exitFor = true;
@@ -113,7 +114,7 @@ public class Teclado {
                     }
 
                 }
-            }else{
+            } else {
                 System.out.println("La primera palabra de la frase no es mayuscula");
             }
 
@@ -126,7 +127,7 @@ public class Teclado {
     public static LocalDateTime pedirFechayHora() { // este metodo pide el dia,mes y anio en numeros  y lo convierte en fecha, se que el rango de fecha de los dias cambia dependiendo del mes
         //yo le he puesto de 0 a 31 , por que no queria poner otra capa mas de complejidad
 
-        int dia = 0, mes = 0, anio = 0, hora = 0,minuto =0, segundo = 0;
+        int dia = 0, mes = 0, anio = 0, hora = 0, minuto = 0, segundo = 0;
         boolean validodia = false;
         boolean validomes = false;
         boolean validoanio = false;
@@ -199,8 +200,8 @@ public class Teclado {
             }
 
         } while (!validoanio);
-        
-         do {//pido el anio, yo he puesto un rango del anio 0 al actual
+
+        do {
             try {
 
                 System.out.print("Introduce el la hora: ");
@@ -221,8 +222,8 @@ public class Teclado {
             }
 
         } while (!validohora);
-         
-         do {//pido el anio, yo he puesto un rango del anio 0 al actual
+
+        do {
             try {
 
                 System.out.print("Introduce el minuto: ");
@@ -243,8 +244,8 @@ public class Teclado {
             }
 
         } while (!validominuto);
-         
-         do {//pido el anio, yo he puesto un rango del anio 0 al actual
+
+        do {//pido el anio, yo he puesto un rango del anio 0 al actual
             try {
 
                 System.out.print("Introduce el segundo: ");
@@ -266,6 +267,16 @@ public class Teclado {
 
         } while (!validosegundo);
 
+        try {
+            LocalDateTime fechavalida = LocalDateTime.of(anio, mes, dia, hora, minuto, segundo);
+            
+        } catch (DateTimeException dte) {
+            System.out.println("Error...");
+            System.out.println(dte.getMessage());
+        }catch (Exception e){
+            System.out.println("Error...");
+            System.out.println(e.getMessage());
+        }
         return LocalDateTime.of(anio, mes, dia, hora, minuto, segundo); //devuelvo la fecha formateada en LocalDate
 
     }

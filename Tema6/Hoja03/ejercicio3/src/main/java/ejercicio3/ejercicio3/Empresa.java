@@ -4,6 +4,7 @@
  */
 package ejercicio3.ejercicio3;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 
@@ -25,11 +26,8 @@ public class Empresa {
         int size = matriz.size();
         try {
             matriz.addLast(c);
-            if (size < matriz.size()) {
-                System.out.println("Contenedor añadido");
-            } else {
-                System.out.println("Ha habido un error, el contenedor no se ha añadido");
-            }
+            System.out.println("Contenedor añadido");
+
         } catch (Exception e) {
             System.out.println("Error...");
             System.out.println(e.getMessage());
@@ -43,28 +41,27 @@ public class Empresa {
             System.out.println(c.toString());
         }
     }
-    
-    public void retirar(){
-        boolean encontrado = false;
-        System.out.println("Introduce los datos del contenedor que quieres quitar:");
-        int codigo = Teclado.pedirCodigo4Digitos("Introduce el codigo del contenedor:");
+
+    public void retirar() {
         
-        LocalDateTime fecha = Teclado.pedirFechayHora();
-        
-         for (Contenedor c : matriz) {
-             
-             if (codigo == c.getCodigo() && fecha == c.getFecha() && !encontrado){
-                 if(matriz.remove(c)){
-                     System.out.println("Contenedor Eliminado");
-                 }else{
-                     System.out.println("El contenedor no se ha podido eliminar");
-                 }
-             }
-             
+        if (!matriz.isEmpty()) {
+            Contenedor aux = matriz.removeLast();
+            System.out.println("Datos del contenedor:");
+            System.out.println(aux.toString());
+            System.out.println("Tiempo en el contenedor");
+            Duration duration = Duration.between(aux.getFecha(), LocalDateTime.now());
+
+            if (duration.getSeconds() > 59) {
+                if (duration.getSeconds() > 3600) {
+                    if (duration.getSeconds() > 86600) {
+                        System.out.println("El tiempo almacenado en horas es de :" + duration.getSeconds() / 3600);
+                    }
+                } else {
+                    System.out.println("El tiempo almacenado en minutos es de :" + duration.getSeconds() / 60);
+                }
+            } else {
+                System.out.println("El tiempo almacenado en segundos es de :" + duration.getSeconds());
+            }
         }
-         
-         if (!encontrado){
-             System.out.println("El contenedor no ha sido encontrado...");
-         }
     }
 }
