@@ -12,6 +12,8 @@ package tema5.ejercicio2;
 public class Ejercicio2 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Taller t = new Taller();
+        
+        FichaVehiculo f1 = new FichaVehiculo();
     }
 }
