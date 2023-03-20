@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  */
 public class Cliente {
     private String nombre;
-    private long tlf;
+    private int tlf;
     private LocalDateTime fechaLlegada;
     private LocalDateTime fechaAtencion;
     
@@ -43,7 +43,7 @@ public class Cliente {
         return tlf;
     }
 
-    public void setTlf(long tlf) {
+    public void setTlf(int tlf) {
         this.tlf = tlf;
     }
 
