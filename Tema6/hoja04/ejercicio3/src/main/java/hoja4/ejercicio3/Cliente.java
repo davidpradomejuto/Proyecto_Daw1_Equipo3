@@ -40,6 +40,7 @@ public class Cliente {
         return hash;
     }
     
+    @Override
      public boolean equals(Object obj) {
         if (obj instanceof Cliente c) {
             return c.codigo == codigo;
