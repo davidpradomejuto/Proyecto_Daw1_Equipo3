@@ -119,6 +119,31 @@ public class Teclado {
         return nombre;
 
     }
+    
+     public static int pedirTlf(String frase) { // este metodo recibe una String que va a ser la frase que pida el numero entero y mira que sea un numero entero lo que recibe la
+        //clase scanner, si no lo es, da un error y lo repite
+        boolean valido = false;
+        int n = 0;
+
+        while (!valido) {
+            try {
+                System.out.println(frase); // aqui muestro por pantalla la frase que me ha venido por parametros
+                n = new Scanner(System.in).nextInt();
+                if (n >= 0 && String.valueOf(n).length() >= 9 ) { // si es positivo salgo del bucle, si es negativo doy un error
+                    valido = true;
+
+                } else {
+                    System.out.println("Has introducido un numero negativo o tiene un tamaño menor de 9. ,Repite");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Error No es un numero");
+            } catch (Exception e) {
+                System.out.println("Error Indeterminado");
+            }
+        }
+
+        return n;
+    }
 
     public static LocalDate pedirFecha() { // este metodo pide el dia,mes y anio en numeros  y lo convierte en fecha, se que el rango de fecha de los dias cambia dependiendo del mes
         //yo le he puesto de 0 a 31 , por que no queria poner otra capa mas de complejidad
