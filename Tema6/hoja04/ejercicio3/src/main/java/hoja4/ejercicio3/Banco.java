@@ -19,6 +19,8 @@ public class Banco {
         matriz = new LinkedHashSet<>();
     }
 
+   
+
     public void insertar() {
 
         Cliente o = new Cliente();
@@ -74,9 +76,9 @@ public class Banco {
                 c = o;
             }
         }
-        if (c != null){
-        System.out.println(c.toString());
-        }else{
+        if (c != null) {
+            System.out.println(c.toString());
+        } else {
             System.out.println("No hay ningun cliente");
         }
     }
