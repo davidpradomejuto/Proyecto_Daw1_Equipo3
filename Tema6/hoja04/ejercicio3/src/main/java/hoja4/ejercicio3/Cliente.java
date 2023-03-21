@@ -33,6 +33,21 @@ public class Cliente {
 
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + this.codigo;
+        return hash;
+    }
+    
+     public boolean equals(Object obj) {
+        if (obj instanceof Cliente c) {
+            return c.codigo == codigo;
+        } else {
+            return false;
+        }
+    }
+
     public int getCodigo() {
         return codigo;
     }
