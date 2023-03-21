@@ -58,6 +58,13 @@ public class Atleta {
     public void setTiempo(double tiempo) {
         this.tiempo = tiempo;
     }
+
+    @Override
+    public String toString() {
+        return "Atleta{" + "dorsal=" + dorsal + ", nombre=" + nombre + ", tiempo=" + tiempo + '}';
+    }
+    
+    
     
     
 }
