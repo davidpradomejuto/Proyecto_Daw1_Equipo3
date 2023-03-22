@@ -44,7 +44,6 @@ public class Almacen {
                 encontrado = false;
                 result = o;
             }
-
         }
         
         
