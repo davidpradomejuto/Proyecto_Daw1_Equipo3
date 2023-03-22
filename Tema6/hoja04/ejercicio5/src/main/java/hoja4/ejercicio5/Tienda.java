@@ -5,7 +5,10 @@
 package hoja4.ejercicio5;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -33,8 +36,12 @@ public class Tienda {
             int mes = Teclado.pedirIntPositivo("introduce el mes: ");
             int anio = Teclado.pedirIntPositivo("introduce el anio: ");
             int duracion = Teclado.pedirIntPositivo("introduce la duracion: ");
+            if (matriz.add(new Disco(duracion, titulo, autor, dia, mes, anio))) {
+                System.out.println("Disco introducido");
+            } else {
+                System.out.println("Disco no introducido");
+            }
 
-            matriz.add(new Disco(duracion, titulo, autor, dia, mes, anio));
         } else if (opcion == 2) {
             System.out.println("Quieres insertar un libro.......");
 
@@ -45,7 +52,11 @@ public class Tienda {
             int anio = Teclado.pedirIntPositivo("introduce el anio: ");
             int npaginas = Teclado.pedirIntPositivo("introduce el numero de paginas: ");
 
-            matriz.add(new Libro(titulo, autor, dia, mes, anio, npaginas));
+            if (matriz.add(new Libro(titulo, autor, dia, mes, anio, npaginas))) {
+                System.out.println("libro introducido");
+            } else {
+                System.out.println("libro no introducido");
+            }
         } else {
             System.out.println("Opcion no valida.");
         }
@@ -57,7 +68,7 @@ public class Tienda {
         boolean encontrado = false;
 
         for (Publicacion o : matriz) {
-            if (o.getTitulo() == tituloBuscado && !encontrado) {
+            if (o.getTitulo().equalsIgnoreCase(tituloBuscado) && !encontrado) {
                 encontrado = true;
                 if (matriz.remove(o)) {
                     System.out.println("Publicacion borrada...");
@@ -82,45 +93,43 @@ public class Tienda {
         }
     }
 
-    public void mayorDuracion() {
+    public Disco mayorDuracion() {
         System.out.println("Disco con mayor duracion...");
         int mayortiempo = 0;
-        String titulo = "";
-        for (Publicacion o : matriz) {
-            if (o instanceof Disco discaux) {
+        Disco result = null;
+
+        Iterator<Publicacion> it = matriz.iterator();
+        while (it.hasNext()) {
+            Publicacion aux = it.next();
+            
+            if (aux instanceof Disco discaux) {
                 if (discaux.getDuracionMinutos() >= mayortiempo) {
                     mayortiempo = discaux.getDuracionMinutos();
-                    titulo = o.getTitulo();
+                    result = discaux;
                 }
             }
         }
-
-        for (Publicacion o : matriz) {
-            if (o instanceof Disco discaux) {
-                if (o.getTitulo().equalsIgnoreCase(titulo)) {
-                    System.out.println(discaux.toString());
-                }
-            }
-        }
+        
+        return result;
 
     }
 
-    public void editadosYMes() {
+    public List<Libro> novedades() {
         int mes = Teclado.PedirFecha("mes", 1, 12);
-
+        List<Libro> libros = new ArrayList<>(); 
+        
         System.out.println("Muestro los libros editados en febrero que tengan mas de 1000 paginas");
         for (Publicacion o : matriz) {
             if (o instanceof Libro libroaux) {
-                if (libroaux.getFecha().getMonthValue() == LocalDate.now().getMonthValue()
+                if (libroaux.getFecha().getMonthValue() == mes
                         && libroaux.getFecha().getYear() == LocalDate.now().getYear()
-                        && libroaux.getNumPaginas() >= 1000) {
-                    if (libroaux.getFecha().isAfter(LocalDate.now().minusYears(2))) {//la fecha actual menos 2 años
-                        System.out.println("Titulo: " + libroaux.getTitulo() + " Autor: " + libroaux.getAutor());
-                    }
-
+                        && libroaux.getNumPaginas() >= 400) {
+                   libros.add(libroaux);
                 }
             }
         }
+        
+        return libros;
     }
 
 }

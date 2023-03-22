@@ -15,11 +15,12 @@ public class Ejercicio4 {
 
         int opcion = 0;
 
-        System.out.println("Menu \n1.- Añadir un atleta.\n"
-                + "2.-Tiempo medio\n"
-                + "3.- Dar la vuelta\n"
-                + "4.- Salir");
         do {
+            System.out.println("Menu \n1.- Añadir un atleta.\n"
+                + "2.- Tiempo medio\n"
+                + "3.- Dar la vuelta\n"
+                + "4.- mostrar\n"
+                + "5.salir");
             
             opcion = Teclado.pedirIntPositivo("Introduce una opcion");
             
@@ -27,9 +28,10 @@ public class Ejercicio4 {
                 case 1->{a.insertar();}
                 case 2->{a.tiempoMedio();}
                 case 3->{a.darVuelta();}
-                case 4->{System.out.println("Saliendo..");}
+                case 4->{a.mostrar();}
+                case 5->{System.out.println("Saliendo..");}
                 default-> {System.out.println("Opcion no valida");}
             }
-        } while (opcion != 4);
+        } while (opcion != 5);
     }
 }

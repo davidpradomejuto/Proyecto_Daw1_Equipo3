@@ -74,4 +74,31 @@ public class Teclado {
 
         return n;
     }
+    
+     public static int PedirFecha(String mensaje, int min, int max) {
+        boolean valido = false;
+        int dato = 0;
+        do {
+            try {
+
+                System.out.print("Introduce el/la " + mensaje + " :");
+                dato = new Scanner(System.in).nextInt();
+
+                if (dato > min && dato <= max) {
+                    valido = true;
+
+                } else {
+                    throw new Exception("El " + mensaje + " introducido no es valido");
+                }
+
+            } catch (InputMismatchException ime) {
+                System.out.println("Error No es un numero");
+            } catch (Exception e) {
+                System.out.println("Error indeterminado");
+                System.out.println(e.getMessage());
+            }
+
+        } while (!valido);
+        return dato;
+    }
 }

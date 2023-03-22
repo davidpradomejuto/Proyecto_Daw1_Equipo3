@@ -12,6 +12,24 @@ package hoja4.ejercicio5;
 public class Ejercicio5 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Tienda t = new Tienda();
+        t.insertar();
+        t.insertar();
+        t.insertar();
+        
+        t.mostrar();
+        
+        System.out.println("Borrar..");
+        t.borrar();
+        
+        t.mostrar();
+        
+        System.out.println("\ndisco con mayor duracion\n");
+        
+        t.mayorDuracion();
+        
+        System.out.println("\nnovedades\n");
+        
+        t.novedades();
     }
 }

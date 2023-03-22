@@ -6,6 +6,7 @@ package hoja4.ejercicio5;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  *
@@ -16,6 +17,32 @@ public abstract class Publicacion {
     protected String titulo;
     protected String autor;
     protected LocalDate fecha;
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.titulo);
+        hash = 89 * hash + Objects.hashCode(this.autor);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Publicacion other = (Publicacion) obj;
+        if (!Objects.equals(this.titulo, other.titulo)) {
+            return false;
+        }
+        return Objects.equals(this.autor, other.autor);
+    }
 
     public Publicacion(String titulo, String autor, int dia,int mes,int anio) {
         try{
