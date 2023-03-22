@@ -4,6 +4,7 @@
  */
 package ejercicio2.teclado;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.InputMismatchException;
@@ -21,7 +22,7 @@ public class Teclado {
 
         while (!valido) {
             try {
-                  System.out.println(frase);
+                System.out.println(frase);
                 n = new Scanner(System.in).nextDouble();
                 valido = true;
             } catch (InputMismatchException e) {
@@ -58,7 +59,7 @@ public class Teclado {
 
         return n;
     }
-    
+
     public static String pedirNombreRegex(String mensaje) { // este metodo me sirve para recoger un nombre, tambien lo uso para pedir los apellidos del alumno, hace lo mismo que el del pedir un color
         // pero recibiendo la frase que va a mostrar por pantalla mediante parametros
 
@@ -72,7 +73,7 @@ public class Teclado {
             nombre = new Scanner(System.in).nextLine();
             if (nombre.matches(regex)) {
                 valido = true;
-            }else{
+            } else {
                 System.out.println("Error. La cadena no cumple los requisitos");
             }
 
@@ -119,8 +120,8 @@ public class Teclado {
         return nombre;
 
     }
-    
-     public static int pedirTlf(String frase) { // este metodo recibe una String que va a ser la frase que pida el numero entero y mira que sea un numero entero lo que recibe la
+
+    public static int pedirTlf(String frase) { // este metodo recibe una String que va a ser la frase que pida el numero entero y mira que sea un numero entero lo que recibe la
         //clase scanner, si no lo es, da un error y lo repite
         boolean valido = false;
         int n = 0;
@@ -129,7 +130,7 @@ public class Teclado {
             try {
                 System.out.println(frase); // aqui muestro por pantalla la frase que me ha venido por parametros
                 n = new Scanner(System.in).nextInt();
-                if (n >= 0 && String.valueOf(n).length() >= 9 ) { // si es positivo salgo del bucle, si es negativo doy un error
+                if (n >= 0 && String.valueOf(n).length() >= 9) { // si es positivo salgo del bucle, si es negativo doy un error
                     valido = true;
 
                 } else {
@@ -149,102 +150,69 @@ public class Teclado {
         //yo le he puesto de 0 a 31 , por que no queria poner otra capa mas de complejidad
 
         int dia = 0, mes = 0, anio = 0;
-        boolean validodia = false;
-        boolean validomes = false;
-        boolean validoanio = false;
 
+        LocalDate fecha = LocalDate.now();
+        boolean fechaValida = false;
         do {
+
+            dia = PedirFecha("dia", 1, 31);
+            mes = PedirFecha("mes", 1, 12);
+            anio = PedirFecha("anio", 0, 2023);
+            
+
             try {
-
-                System.out.print("Introduce el dia en numero: ");
-                dia = new Scanner(System.in).nextInt();
-
-                if (dia > 0 && dia <= 31) { // este rango se que no es correcto deberia variar segun el mes elegido
-                    validodia = true;
-
-                } else {
-                    throw new Exception("El dia introducido no es valido");
-                }
-
-            } catch (InputMismatchException ime) {
-                System.out.println("Error No es un numero");
-            } catch (Exception e) {
-                System.out.println("Error indeterminado");
-                System.out.println(e.getMessage());
+                fecha = LocalDate.of(anio, mes, dia);
+                fechaValida = true;
+            } catch (DateTimeException DTE) {
+                System.out.println("Fecha no valida. repite");
             }
 
-        } while (!validodia);
-
-        do { //pido el mes y miro si es correcto el rango
-            try {
-
-                System.out.print("Introduce el mes en numero: ");
-                mes = new Scanner(System.in).nextInt();
-
-                if (mes > 0 && mes <= 12) {
-                    validomes = true;
-
-                } else {
-                    throw new Exception("El mes introducido no es valido");
-                }
-
-            } catch (InputMismatchException ime) {
-                System.out.println("Error No es un numero");
-            } catch (Exception e) {
-                System.out.println("Error indeterminado");
-                System.out.println(e.getMessage());
-            }
-
-        } while (!validomes);
-
-        do {//pido el anio, yo he puesto un rango del anio 0 al actual
-            try {
-
-                System.out.print("Introduce el anio en numero: ");
-                anio = new Scanner(System.in).nextInt();
-
-                if (anio > 0 && anio <= 2023) {
-                    validoanio = true;
-
-                } else {
-                    throw new Exception("El anio introducido no es valido");
-                }
-
-            } catch (InputMismatchException ime) {
-                System.out.println("Error No es un numero");
-            } catch (Exception e) {
-                System.out.println("Error indeterminado");
-                System.out.println(e.getMessage());
-            }
-
-        } while (!validoanio);
-
-        return LocalDate.of(anio, mes, dia); //devuelvo la fecha formateada en LocalDate
+        } while (!fechaValida);
+        
+        return fecha; //devuelvo la fecha formateada en LocalDate
 
     }
-    
-     public static LocalDateTime pedirFechayHora() { // este metodo pide el dia,mes y anio en numeros  y lo convierte en fecha, se que el rango de fecha de los dias cambia dependiendo del mes
+
+    public static LocalDateTime pedirFechayHora() { // este metodo pide el dia,mes y anio en numeros  y lo convierte en fecha, se que el rango de fecha de los dias cambia dependiendo del mes
         //yo le he puesto de 0 a 31 , por que no queria poner otra capa mas de complejidad
+        int dia = 0, mes = 0, anio = 0, hora = 0, minuto = 0, segundo = 0;
+        LocalDateTime fecha = LocalDateTime.now();
+        boolean fechaValida = false;
+        do {
 
-        int dia = 0, mes = 0, anio = 0, hora = 0,minuto =0, segundo = 0;
-        boolean validodia = false;
-        boolean validomes = false;
-        boolean validoanio = false;
-        boolean validohora = false;
-        boolean validominuto = false;
-        boolean validosegundo = false;
+            dia = PedirFecha("dia", 1, 31);
+            mes = PedirFecha("mes", 1, 12);
+            anio = PedirFecha("anio", 0, 2023);
+            hora = PedirFecha("hora", 0, 23);
+            minuto = PedirFecha("minuto", 0, 59);
+            segundo = PedirFecha("segundo", 0, 59);
 
+            try {
+                fecha = LocalDateTime.of(anio, mes, dia, hora, minuto, segundo);
+                fechaValida = true;
+            } catch (DateTimeException DTE) {
+                System.out.println("Fecha no valida. repite");
+            }
+
+        } while (!fechaValida);
+        return fecha; //devuelvo la fecha formateada en LocalDate
+
+    }
+
+    public static int PedirFecha(String mensaje, int min, int max) {
+        boolean valido = false;
+        int dato = 0;
         do {
             try {
 
-                System.out.print("Introduce el dia en numero: ");
-                dia = new Scanner(System.in).nextInt();
+                System.out.print("Introduce el/la " + mensaje + " :");
+                dato = new Scanner(System.in).nextInt();
 
-                if (dia > 0 && dia <= 31) { // este rango se que no es correcto deberia variar segun el mes elegido
-                    validodia = true;
+                if (dato > min && dato <= max) {
+                    valido = true;
 
                 } else {
-                    throw new Exception("El dia introducido no es valido");
+                    throw new Exception("El " + mensaje + " introducido no es valido");
                 }
 
             } catch (InputMismatchException ime) {
@@ -254,119 +222,7 @@ public class Teclado {
                 System.out.println(e.getMessage());
             }
 
-        } while (!validodia);
-
-        do { //pido el mes y miro si es correcto el rango
-            try {
-
-                System.out.print("Introduce el mes en numero: ");
-                mes = new Scanner(System.in).nextInt();
-
-                if (mes > 0 && mes <= 12) {
-                    validomes = true;
-
-                } else {
-                    throw new Exception("El mes introducido no es valido");
-                }
-
-            } catch (InputMismatchException ime) {
-                System.out.println("Error No es un numero");
-            } catch (Exception e) {
-                System.out.println("Error indeterminado");
-                System.out.println(e.getMessage());
-            }
-
-        } while (!validomes);
-
-        do {//pido el anio, yo he puesto un rango del anio 0 al actual
-            try {
-
-                System.out.print("Introduce el anio en numero: ");
-                anio = new Scanner(System.in).nextInt();
-
-                if (anio > 0 && anio <= 2023) {
-                    validoanio = true;
-
-                } else {
-                    throw new Exception("El anio introducido no es valido");
-                }
-
-            } catch (InputMismatchException ime) {
-                System.out.println("Error No es un numero");
-            } catch (Exception e) {
-                System.out.println("Error indeterminado");
-                System.out.println(e.getMessage());
-            }
-
-        } while (!validoanio);
-        
-         do {//pido el anio, yo he puesto un rango del anio 0 al actual
-            try {
-
-                System.out.print("Introduce el la hora: ");
-                hora = new Scanner(System.in).nextInt();
-
-                if (hora >= 0 && hora <= 23) {
-                    validohora = true;
-
-                } else {
-                    throw new Exception("la hora introducida no es valida");
-                }
-
-            } catch (InputMismatchException ime) {
-                System.out.println("Error No es un numero");
-            } catch (Exception e) {
-                System.out.println("Error indeterminado");
-                System.out.println(e.getMessage());
-            }
-
-        } while (!validohora);
-         
-         do {//pido el anio, yo he puesto un rango del anio 0 al actual
-            try {
-
-                System.out.print("Introduce el minuto: ");
-                minuto = new Scanner(System.in).nextInt();
-
-                if (minuto >= 0 && minuto <= 59) {
-                    validominuto = true;
-
-                } else {
-                    throw new Exception("El minuto introducido no es valido");
-                }
-
-            } catch (InputMismatchException ime) {
-                System.out.println("Error No es un numero");
-            } catch (Exception e) {
-                System.out.println("Error indeterminado");
-                System.out.println(e.getMessage());
-            }
-
-        } while (!validominuto);
-         
-         do {//pido el anio, yo he puesto un rango del anio 0 al actual
-            try {
-
-                System.out.print("Introduce el segundo: ");
-                segundo = new Scanner(System.in).nextInt();
-
-                if (segundo >= 0 && segundo <= 59) {
-                    validosegundo = true;
-
-                } else {
-                    throw new Exception("El segundo introducido no es valido");
-                }
-
-            } catch (InputMismatchException ime) {
-                System.out.println("Error No es un numero");
-            } catch (Exception e) {
-                System.out.println("Error indeterminado");
-                System.out.println(e.getMessage());
-            }
-
-        } while (!validosegundo);
-
-        return LocalDateTime.of(anio, mes, dia, hora, minuto, segundo); //devuelvo la fecha formateada en LocalDate
-
+        } while (!valido);
+        return dato;
     }
 }
