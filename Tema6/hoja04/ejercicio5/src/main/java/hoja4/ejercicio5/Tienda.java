@@ -4,6 +4,7 @@
  */
 package hoja4.ejercicio5;
 
+import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -21,7 +22,7 @@ public class Tienda {
     }
 
     public void insertar() {
-        int opcion =  Teclado.pedirIntPositivo("introduce el la opcion que quieras 1. Disco / 2. Libro: ");
+        int opcion = Teclado.pedirIntPositivo("introduce el la opcion que quieras 1. Disco / 2. Libro: ");
 
         if (opcion == 1) {
             System.out.println("Quieres insertar un disco...........");
@@ -34,7 +35,7 @@ public class Tienda {
             int duracion = Teclado.pedirIntPositivo("introduce la duracion: ");
 
             matriz.add(new Disco(duracion, titulo, autor, dia, mes, anio));
-        } else if (opcion == 2){
+        } else if (opcion == 2) {
             System.out.println("Quieres insertar un libro.......");
 
             String titulo = Teclado.pedirNombre("introduce el titulo: ");
@@ -45,7 +46,9 @@ public class Tienda {
             int npaginas = Teclado.pedirIntPositivo("introduce el numero de paginas: ");
 
             matriz.add(new Libro(titulo, autor, dia, mes, anio, npaginas));
-        }else {System.out.println("Opcion no valida.");}
+        } else {
+            System.out.println("Opcion no valida.");
+        }
     }
 
     public void borrar() {
@@ -66,20 +69,20 @@ public class Tienda {
             System.out.println("Publicacion no encontrada.");
         }
     }
-    
-    public void mostrar (){
+
+    public void mostrar() {
         System.out.println("Mostrando dato de la tienda..");
         for (Publicacion o : matriz) {
-            if (o instanceof Disco discaux){
+            if (o instanceof Disco discaux) {
                 System.out.println(discaux.toString());
             }
-            if (o instanceof Libro libaux){
+            if (o instanceof Libro libaux) {
                 System.out.println(libaux.toString());
             }
         }
     }
-    
-    public void mayorDuracion(){
+
+    public void mayorDuracion() {
         System.out.println("Disco con mayor duracion...");
         int mayortiempo = 0;
         String titulo = "";
@@ -91,16 +94,33 @@ public class Tienda {
                 }
             }
         }
-        
+
         for (Publicacion o : matriz) {
-            if (o instanceof Disco discaux){
-                if (o.getTitulo().equalsIgnoreCase(titulo)){
+            if (o instanceof Disco discaux) {
+                if (o.getTitulo().equalsIgnoreCase(titulo)) {
                     System.out.println(discaux.toString());
                 }
             }
         }
 
     }
-    
-    
+
+    public void editadosYMes() {
+        int mes = Teclado.PedirFecha("mes", 1, 12);
+
+        System.out.println("Muestro los libros editados en febrero que tengan mas de 1000 paginas");
+        for (Publicacion o : matriz) {
+            if (o instanceof Libro libroaux) {
+                if (libroaux.getFecha().getMonthValue() == LocalDate.now().getMonthValue()
+                        && libroaux.getFecha().getYear() == LocalDate.now().getYear()
+                        && libroaux.getNumPaginas() >= 1000) {
+                    if (libroaux.getFecha().isAfter(LocalDate.now().minusYears(2))) {//la fecha actual menos 2 años
+                        System.out.println("Titulo: " + libroaux.getTitulo() + " Autor: " + libroaux.getAutor());
+                    }
+
+                }
+            }
+        }
+    }
+
 }
