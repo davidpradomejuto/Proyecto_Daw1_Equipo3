@@ -15,8 +15,8 @@ public class Ejercicio1 {
         Mundo tierra = new Mundo();
         
         tierra.insertar();
-       
         
+          
         tierra.listar();
         
         
