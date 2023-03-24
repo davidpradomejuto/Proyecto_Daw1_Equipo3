@@ -44,7 +44,10 @@ public class Jugador implements Comparable<Jugador> {
         final Jugador other = (Jugador) obj;
         return this.estatura == other.estatura;
     }
-    
+    @Override
+    public int compareTo(Jugador o) {
+      return o.getEstatura()-this.estatura;
+    }
     public String getNombre() {
         return nombre;
     }
@@ -61,17 +64,12 @@ public class Jugador implements Comparable<Jugador> {
     public String toString() {
         return "Nombre: " + nombre + ", Estatura: " + estatura + " cm \n";
     }
-    
-    
 
     public void setEstatura(int estatura) {
         this.estatura = estatura;
     }
 
-    @Override
-    public int compareTo(Jugador o) {
-      return o.getEstatura();
-    }
+    
     
     
     

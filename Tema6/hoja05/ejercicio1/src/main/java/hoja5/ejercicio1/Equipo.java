@@ -4,11 +4,7 @@
  */
 package hoja5.ejercicio1;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -18,10 +14,10 @@ import java.util.TreeSet;
  */
 public class Equipo {
 
-    Set<Jugador> matriz;
+    SortedSet<Jugador> matriz;
 
     public Equipo() {
-        matriz = new HashSet<>();
+        matriz = new TreeSet<>();
     }
 
     public void insertar() {
@@ -43,8 +39,8 @@ public class Equipo {
         Iterator<Jugador> it = matriz.iterator();
         while (it.hasNext() && !encontrado) {
             Jugador aux = it.next();
-            
-               if (aux.getNombre().equalsIgnoreCase(codigoBuscado) && !encontrado) {
+
+            if (aux.getNombre().equalsIgnoreCase(codigoBuscado) && !encontrado) {
                 encontrado = true;
                 try {
                     it.remove();
@@ -52,23 +48,9 @@ public class Equipo {
                 } catch (UnsupportedOperationException uoe) {
                     System.out.println("error...");
                     System.out.println(uoe.getMessage());
-                }catch (Exception e){
+                } catch (Exception e) {
                     System.out.println("Error...");
                     System.out.println(e.getMessage());
-                }
-            }
-        }
-
-        for (Jugador o : matriz) {
-            if (o.getNombre().equalsIgnoreCase(codigoBuscado) && !encontrado) {
-                encontrado = true;
-                try {
-                    if (matriz.remove(o)) {
-                        System.out.println("jugador borrado...");
-                    }
-                } catch (UnsupportedOperationException uoe) {
-                    System.out.println("error...");
-                    System.out.println(uoe.getMessage());
                 }
             }
         }
@@ -87,9 +69,11 @@ public class Equipo {
 
     public Jugador jugadorMasBajo() {
         Jugador result = null;
-        int minAltura = 9999;
+        //int minAltura = 9999;
 
-        Iterator<Jugador> it = matriz.iterator();
+        result = matriz.first();
+
+        /*Iterator<Jugador> it = matriz.iterator();
         while (it.hasNext()) {
             Jugador aux = it.next();
             if (aux.getEstatura() <= minAltura) {
@@ -97,14 +81,16 @@ public class Equipo {
                 result = aux;
             }
         }
-
+         */
         return result;
     }
 
     public Jugador jugadorMasAlto() {
-        int maxAltura = 0;
+        //int maxAltura = 0;
         Jugador result = null;
 
+        result = matriz.last();
+        /*
         Iterator<Jugador> it = matriz.iterator();
         while (it.hasNext()) {
             Jugador aux = it.next();
@@ -113,6 +99,7 @@ public class Equipo {
                 result = aux;
             }
         }
+         */
 
         return result;
     }
