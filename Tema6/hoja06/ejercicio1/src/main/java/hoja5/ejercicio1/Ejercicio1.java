@@ -12,6 +12,7 @@ package hoja5.ejercicio1;
 public class Ejercicio1 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Serie s = new Serie("Prison break",Tematica.Aventura,"Americana",true,4);
+        s.
     }
 }

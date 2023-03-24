@@ -18,6 +18,12 @@ public class Capitulo {
         this.Ncapitulo = Ncapitulo;
         this.descripcion = descripcion;
     }
+    
+    public Capitulo (){
+        this.Ntemporada = Entrada.pedirIntPositivo("Introduce el numero de la temporada.");
+        this.Ncapitulo = Entrada.pedirCapitulo("Introduce el numero del capitulo.");
+        this.descripcion = Entrada.pedirNombreRegex("Introduce la descripcion del capitulo.");
+    }
 
     public int getNtemporada() {
         return Ntemporada;
@@ -42,6 +48,12 @@ public class Capitulo {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    @Override
+    public String toString() {
+        return "Ntemporada: " + Ntemporada + ", Ncapitulo: " + Ncapitulo + ", descripcion: " + descripcion + "\n";
+    }
+    
     
     
 }
