@@ -4,6 +4,8 @@
  */
 package hoja5.ejercicio1;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -30,6 +32,7 @@ public class Equipo {
         } else {
             System.out.println("Jugador no introducido, puede que este repetido.");
         }
+
     }
 
     public void borrar() {
@@ -37,17 +40,37 @@ public class Equipo {
 
         boolean encontrado = false;
 
+        Iterator<Jugador> it = matriz.iterator();
+        while (it.hasNext() && !encontrado) {
+            Jugador aux = it.next();
+            
+               if (aux.getNombre().equalsIgnoreCase(codigoBuscado) && !encontrado) {
+                encontrado = true;
+                try {
+                    it.remove();
+                    System.out.println("Jugador Borrado");
+                } catch (UnsupportedOperationException uoe) {
+                    System.out.println("error...");
+                    System.out.println(uoe.getMessage());
+                }catch (Exception e){
+                    System.out.println("Error...");
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+
         for (Jugador o : matriz) {
             if (o.getNombre().equalsIgnoreCase(codigoBuscado) && !encontrado) {
                 encontrado = true;
-                try{
-                if (matriz.remove(o)) {
-                    System.out.println("jugador borrado...");
+                try {
+                    if (matriz.remove(o)) {
+                        System.out.println("jugador borrado...");
+                    }
+                } catch (UnsupportedOperationException uoe) {
+                    System.out.println("error...");
+                    System.out.println(uoe.getMessage());
                 }
-                }catch (UnsupportedOperationException uoe){
-                        System.out.println("error...");
-                        System.out.println(uoe.getMessage());
-                        }} 
+            }
         }
         if (!encontrado) {
             System.out.println("jugador no encontrado.");
@@ -81,7 +104,7 @@ public class Equipo {
     public Jugador jugadorMasAlto() {
         int maxAltura = 0;
         Jugador result = null;
-        
+
         Iterator<Jugador> it = matriz.iterator();
         while (it.hasNext()) {
             Jugador aux = it.next();
@@ -90,18 +113,18 @@ public class Equipo {
                 result = aux;
             }
         }
-        
+
         return result;
     }
 
     public SortedSet MasDeDosMetros() {
         SortedSet<Jugador> lista;
         lista = new TreeSet<>();
-        
-         Iterator<Jugador> it = matriz.iterator();
+
+        Iterator<Jugador> it = matriz.iterator();
         while (it.hasNext()) {
             Jugador aux = it.next();
-            if (aux.getEstatura() >= 200) {  
+            if (aux.getEstatura() >= 200) {
                 lista.add(aux);
             }
         }

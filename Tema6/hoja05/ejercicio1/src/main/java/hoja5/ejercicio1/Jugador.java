@@ -8,7 +8,7 @@ package hoja5.ejercicio1;
  *
  * @author david
  */
-public class Jugador {
+public class Jugador implements Comparable<Jugador> {
     private String nombre;
     private int estatura;
 
@@ -59,13 +59,18 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "Jugador{" + "nombre=" + nombre + ", estatura=" + estatura + '}';
+        return "Nombre: " + nombre + ", Estatura: " + estatura + " cm \n";
     }
     
     
 
     public void setEstatura(int estatura) {
         this.estatura = estatura;
+    }
+
+    @Override
+    public int compareTo(Jugador o) {
+      return o.getEstatura();
     }
     
     
