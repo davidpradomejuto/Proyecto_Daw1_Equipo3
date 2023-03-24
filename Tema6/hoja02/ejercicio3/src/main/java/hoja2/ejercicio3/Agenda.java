@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class Agenda {
 
-    SortedSet<Persona> matriz = new ArrayList<>();
+    ArrayList<Persona> matriz = new ArrayList<>();
 
     public Agenda() {
     }
