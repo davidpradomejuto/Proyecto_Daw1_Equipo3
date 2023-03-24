@@ -44,7 +44,7 @@ public class Teclado {
             try {
                 System.out.println(frase); // aqui muestro por pantalla la frase que me ha venido por parametros
                 n = new Scanner(System.in).nextInt();
-                if (n > 0) { // si es positivo salgo del bucle, si es negativo doy un error
+                if (n >= 0) { // si es positivo salgo del bucle, si es negativo doy un error
                     valido = true;
 
                 } else {
