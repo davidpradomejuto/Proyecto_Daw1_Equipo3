@@ -39,17 +39,17 @@ public class Ejercicio1 {
                     + "5. Borrar capítulo de una serie ya almacenada \n"
                     + "6. Ver capítulos de una serie ya almacenada\n"
                     + "7. Salir");
-            Entrada.pedirIntPositivo("introduce tu opcion");
+            opcion = Entrada.pedirIntPositivo("introduce tu opcion");
             
             switch (opcion){
             case 1 ->{ge.insertarSerie();}
-            case 2 ->{}
-            case 3 ->{}
-            case 4 ->{}
-            case 5 ->{}
-            case 6 ->{}
-            case 7 ->{}
-            default ->{}
+            case 2 ->{ge.eliminarCap();}
+            case 3 ->{ge.mostrar();}
+            case 4 ->{ge.insertarCap();}
+            case 5 ->{ge.eliminarCap();}
+            case 6 ->{ge.verCap();}
+            case 7 ->{System.out.println("Saliendo...");}
+            default ->{System.out.println("Opcion no valida");}
         }
         } while (opcion != 7);
     }

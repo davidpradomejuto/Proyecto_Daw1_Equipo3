@@ -128,6 +128,28 @@ public class Entrada {
 
         return nombre;
     }
+    
+    public static String pedirCapRegex(String mensaje) { // este metodo me sirve para recoger un nombre, tambien lo uso para pedir los apellidos del alumno, hace lo mismo que el del pedir un color
+        // pero recibiendo la frase que va a mostrar por pantalla mediante parametros
+
+        String regex = "[A-Za-z0-9éáíóúñ ]*";
+        boolean valido = false;
+        String nombre;
+
+        do {
+
+            System.out.print(mensaje);
+            nombre = new Scanner(System.in).nextLine();
+            if (nombre.matches(regex)) {
+                valido = true;
+            } else {
+                System.out.println("Error. La cadena no cumple los requisitos");
+            }
+
+        } while (!valido);
+
+        return nombre;
+    }
 
     public static boolean pedirBooleanRegex(String mensaje) { // este metodo me sirve para recoger un nombre, tambien lo uso para pedir los apellidos del alumno, hace lo mismo que el del pedir un color
         // pero recibiendo la frase que va a mostrar por pantalla mediante parametros

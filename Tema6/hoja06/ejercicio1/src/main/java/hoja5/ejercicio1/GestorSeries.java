@@ -132,7 +132,7 @@ public class GestorSeries {
 
         if (aux != null) { // si la serie existe, se guarda en aux y si aux es distinto de null, genero un capitulo y le meto en la serie
             String claveCap = "";
-            claveCap = Entrada.pedirNombreRegex("Introduce la clave del capitulo....");
+            claveCap = Entrada.pedirCapRegex("Introduce la clave del capitulo....");
 
             Iterator<Serie> it = matriz.iterator(); //genero un iterator para buscar en el listado de serie la serie que quiero y usar su metodo modificar
             while (it.hasNext()) {
