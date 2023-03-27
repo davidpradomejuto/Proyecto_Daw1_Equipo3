@@ -47,10 +47,8 @@ public class Entrada {
             try {
                 System.out.println(frase); // aqui muestro por pantalla la frase que me ha venido por parametros
                 n = new Scanner(System.in).nextInt();
-                if (n >= 0 && n <= 30) { // si es positivo salgo del bucle, si es negativo doy un error
-
-                    valido = true;
-
+                if (n >= 0 && n <= 30) { // si es positivo salgo del bucle, si es negativo doy un error                   
+                        valido = true;
                 } else {
                     System.out.println("Has introducido un numero negativo,repite");
                 }

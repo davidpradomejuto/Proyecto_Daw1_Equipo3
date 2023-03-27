@@ -37,7 +37,8 @@ public class Serie {
     public String generaClaveCapitulo(Capitulo capitulo) {
         String result = "";
         result = result.concat(nombre.substring(0, 4));
-        result = result.concat(String.valueOf(capitulo.getNcapitulo()) + "X" + String.valueOf(capitulo.getNtemporada()));
+        result = result.concat(String.format("%02d", capitulo.getNcapitulo()) + "X" +String.format("%02d", capitulo.getNtemporada()));
+        
         return result;
     }
 
@@ -58,13 +59,18 @@ public class Serie {
         boolean eliminado = false;
         try {
             if (matriz.remove(clave)!=null){
+                
                 System.out.println("Capitulo borrado...");
                 eliminado = true;
             }else {
                 System.out.println("Error... capitulo no borrado");
             }
             
-        } catch (Exception e) {
+        }catch(NullPointerException npe){
+            System.out.println("La clave no es correcta");
+            System.out.println(npe.getMessage());
+        }
+        catch (Exception e) {
             System.out.println("Error...");
             System.out.println(e.getMessage());
         }      

@@ -21,8 +21,8 @@ public class Ejercicio1 {
 
         s.visualizaCapitulos();
 
-        s.eliminarCapitulo("Pris3X1");
-        s.eliminarCapitulo("Pris5x1");
+        s.eliminarCapitulo("Pris03X01");
+        s.eliminarCapitulo("Pris05x01");
         s.visualizaCapitulos();
 
         System.out.println("--------------");
