@@ -49,11 +49,11 @@ public class GestorSeries {
         int temporadas = Entrada.pedirIntPositivo("introduce el numero de temporadas...");
 
         boolean encontrado = false;
-        for (Serie s : matriz) {
-            if (s.getNombre().equalsIgnoreCase(nombre) && !encontrado) {
-                encontrado = true;
-            }
+        
+        if (existeSerie(nombre) != null){
+            encontrado = true;
         }
+        
         if (!encontrado) {
             try {
                 Serie insert = new Serie(nombre, tematica, nacionalidad, finalizada, temporadas);

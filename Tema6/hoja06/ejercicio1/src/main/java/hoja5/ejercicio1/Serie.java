@@ -84,6 +84,9 @@ public class Serie {
             Capitulo valor = capitulo.getValue();
             System.out.println(clave + "  ->  " + valor.toString());
         }
+        
+        
+                
     }
 
     public String getNombre() {
