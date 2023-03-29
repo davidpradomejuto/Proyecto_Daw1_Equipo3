@@ -22,7 +22,6 @@ public class Ejercicio1 {
         a.ingresar(200);
         Map aux = a.listaOjeto();
         
-        for (Map.entry<String,>(, a))
         
     }
 }
