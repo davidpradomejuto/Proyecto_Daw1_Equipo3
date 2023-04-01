@@ -16,6 +16,15 @@ import java.util.Scanner;
  */
 public class Teclado {
 
+    String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+    String decimalRegex = "^[0-9]+([.,][0-9]{1,2})?$";
+    String ipRegex = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
+   
+
+
     public static double pedirDouble(String frase) {
         boolean valido = false;
         double n = 0;
@@ -158,7 +167,6 @@ public class Teclado {
             dia = PedirFecha("dia", 1, 31);
             mes = PedirFecha("mes", 1, 12);
             anio = PedirFecha("anio", 0, 2023);
-            
 
             try {
                 fecha = LocalDate.of(anio, mes, dia);
@@ -168,7 +176,7 @@ public class Teclado {
             }
 
         } while (!fechaValida);
-        
+
         return fecha; //devuelvo la fecha formateada en LocalDate
 
     }
@@ -225,34 +233,34 @@ public class Teclado {
         } while (!valido);
         return dato;
     }
-    
+
     public static boolean validarDni(String dni) {
         String letrasDni = "TRWAGMYFPDXBNJZSQVHLCKE";
         boolean result = false;
-        try{
-        if (dni.length() == 9) {
-            
-            if (dni.substring(0, 8).matches("[0-9]+")) {
-                int resultDivision = Integer.parseInt(dni.substring(0, 8))%23;
-                if (dni.substring(8,9).toUpperCase().contentEquals(letrasDni.substring(resultDivision,resultDivision+1))) {
-                    result = true;
-                }else{
-                    throw new Exception("La letra no es correcta");
+        try {
+            if (dni.length() == 9) {
+
+                if (dni.substring(0, 8).matches("[0-9]+")) {
+                    int resultDivision = Integer.parseInt(dni.substring(0, 8)) % 23;
+                    if (dni.substring(8, 9).toUpperCase().contentEquals(letrasDni.substring(resultDivision, resultDivision + 1))) {
+                        result = true;
+                    } else {
+                        throw new Exception("La letra no es correcta");
+                    }
+
+                } else {
+                    throw new Exception("los primeros 8 caracteres del Dni no son numeros");
                 }
-                
-            }else{
-                throw new Exception("los primeros 8 caracteres del Dni no son numeros");
+
+            } else {
+                throw new Exception("El Dni tiene menos de 9 caracteres");
             }
-            
-        }else{
-            throw new Exception("El Dni tiene menos de 9 caracteres");
-        }
-        
-        }catch(Exception e){
+
+        } catch (Exception e) {
             System.out.println("Error indeterminado...");
             System.out.println(e.getMessage());
         }
-        
+
         return result;
     }
 }
