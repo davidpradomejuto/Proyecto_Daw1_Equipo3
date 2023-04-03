@@ -43,36 +43,11 @@ public class Funciones {
     }
 
     public static boolean validarCuenta(String cuentaStr) throws Exception {
-        // Separar los componentes de la cuenta
-        String entidad = cuentaStr.substring(0, 4);
-        String oficina = cuentaStr.substring(5, 9);
-        String dc = cuentaStr.substring(10, 12);
-        String cuenta = cuentaStr.substring(13, 23);
         
-        String iban = cuentaStr;
-
-        // Convertir letras a números
-        StringBuilder ibanNumerico = new StringBuilder();
-        for (int i = 0; i < iban.length(); i++) {
-            char c = iban.charAt(i);
-            if (Character.isLetter(c)) {
-                int n = c - 'A' + 10;
-                ibanNumerico.append(n);
-            } else {
-                ibanNumerico.append(c);
-            }
-        }
-
-        // Validar el IBAN
-        BigInteger num = new BigInteger(ibanNumerico.toString());
-        BigInteger mod97 = num.mod(new BigInteger("97"));
-
-        boolean result = mod97.intValue() == 1;
-        if (result) {
             return true;
-        } else {
-            throw new Exception("Numero de cuenta invalido");
-        }
+            //throw new Exception("Numero de cuenta invalido");
+        
+        
     }
 
     public static LocalDate pedirFecha() throws DateTimeParseException {
