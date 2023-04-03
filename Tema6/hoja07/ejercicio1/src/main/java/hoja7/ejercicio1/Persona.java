@@ -6,6 +6,7 @@ package hoja7.ejercicio1;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -47,7 +48,7 @@ public class Persona implements Identificable {
     @Override
     public Map listaOjeto() {
         
-        Map<String, String> matriz = new HashMap();
+        Map<String, String> matriz = new LinkedHashMap();
         matriz.put("nombre", this.nombre);
         matriz.put("apellidos", this.apellidos);
         matriz.put("fechaNacimiento", this.fechaNacimiento.toString());

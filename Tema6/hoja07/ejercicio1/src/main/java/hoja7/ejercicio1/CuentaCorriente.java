@@ -23,7 +23,6 @@ public abstract class CuentaCorriente extends CuentaBancaria implements Identifi
     public void setAutoriza(boolean autoriza) {
         this.autoriza = autoriza;
     }
-
     
     
 }

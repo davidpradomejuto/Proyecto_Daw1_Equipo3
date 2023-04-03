@@ -5,7 +5,9 @@
 package hoja7.ejercicio1;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  *
@@ -15,39 +17,54 @@ public abstract class CuentaBancaria implements Identificable {
 
     protected Persona titular;
     protected double saldo;
-    private String entidad;
-    private String oficina;
-    private String cuenta;
+    private String ccc;
 
     public CuentaBancaria(Persona titular, String ccc) {
         this.titular = titular;
-        //faltaria el metodo para verificar si la CCC es correcta y devolver la String ccc
-        //pide la String cc y lo divide en las tres variable,entidad,oficina,cuenta
-        entidad = ccc.substring(0, 1);
-        oficina = ccc.substring(1, 2);
-        cuenta = ccc.substring(2, 3);
+         
+        try {
+            if (Funciones.validarCuenta(ccc)) {
+                System.out.println("Numero de cuenta valido...");
+                this.ccc = ccc;
+            } 
+        }catch(Exception e){
+            System.out.println(e.getCause());
+            System.out.println(e.getMessage());
+        }
         this.saldo = 0;
-        
+
     }
 
+    
     @Override
     public Map listaOjeto() {
-        Map<String, String> matriz = new HashMap();
+        Map<String, String> matriz = new LinkedHashMap();
         matriz.putAll(titular.listaOjeto());
         matriz.put("saldo", String.valueOf(saldo));
-        //esto no esta bien, deberia devolver el valor del CC
-        matriz.put("ccc", entidad);
+        
+        matriz.put("ccc", ccc);
         return matriz;
     }
 
-    public abstract void ingresar(double cantidad);
+    public void ingresar(double cantidad) {
+          if (cantidad <= 0) {
+            System.out.println("La cantidad a ingresar debe ser mayor que cero.");
+        } else {
+            saldo += cantidad;
+            System.out.println("Ingreso realizado correctamente.");
+            System.out.println("Saldo actual: " + saldo);
+        }
+    }
 
     public void retirar(double cantidad) {
         if (cantidad > 0) {
             saldo -= cantidad;
             System.out.println("Saldo retirado...");
-        } else {
+        } else if(saldo - cantidad >=0){
             System.out.println("Error.... el saldo no puede ser negativo");
+        }else {
+            saldo -=cantidad;
+            System.out.println("Saldo retirado, tu saldo actual es de : "+saldo);
         }
 
     }
@@ -68,28 +85,31 @@ public abstract class CuentaBancaria implements Identificable {
         this.saldo = saldo;
     }
 
-    public String getEntidad() {
-        return entidad;
+    public String getCcc() {
+        return ccc;
     }
 
-    public void setEntidad(String entidad) {
-        this.entidad = entidad;
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 73 * hash + Objects.hashCode(this.ccc);
+        return hash;
     }
 
-    public String getOficina() {
-        return oficina;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CuentaBancaria other = (CuentaBancaria) obj;
+        return Objects.equals(this.ccc, other.ccc);
     }
 
-    public void setOficina(String oficina) {
-        this.oficina = oficina;
-    }
-
-    public String getCuenta() {
-        return cuenta;
-    }
-
-    public void setCuenta(String cuenta) {
-        this.cuenta = cuenta;
-    }
-
+    
 }

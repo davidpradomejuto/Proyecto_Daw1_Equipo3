@@ -8,33 +8,33 @@ package hoja7.ejercicio1;
  *
  * @author DAW118
  */
-public class CuentaCorrienteEmpresa extends CuentaCorriente {
-    private double maximoDescubierto;
+public class CuentaCorrienteEmpresa extends CuentaCorriente implements Identificable {
+
+    
     public final double MAX_DESCUBIERTO = 50000;
 
-    public CuentaCorrienteEmpresa(double maximoDescubierto,Persona titular, String ccc) {
+    public CuentaCorrienteEmpresa(Persona titular, String ccc) {
         super(titular, ccc);
-        this.maximoDescubierto = maximoDescubierto;
     }
 
-    public double getMaximoDescubierto() {
-        return maximoDescubierto;
-    }
+    
 
     public double getMAX_DESCUBIERTO() {
         return MAX_DESCUBIERTO;
     }
 
-    public void setMaximoDescubierto(double maximoDescubierto) {
-        this.maximoDescubierto = maximoDescubierto;
-    }
 
     @Override
     public void ingresar(double cantidad) {
-        super.saldo += cantidad;
+        if (cantidad <= 0) {
+            System.out.println("La cantidad a ingresar debe ser mayor que cero.");
+        } else if (cantidad + saldo <= MAX_DESCUBIERTO) {
+            System.out.println("No puedes tener una saldo descubierto mayor a 50000");
+        } else {
+            saldo += cantidad;
+            System.out.println("Ingreso realizado correctamente.");
+            System.out.println("Saldo actual: " + saldo);
+        }
     }
-    
-    
-    
-    
+
 }

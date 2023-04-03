@@ -13,5 +13,5 @@ import java.util.Map;
  */
 public interface Identificable {
     
-    public Map listaOjeto();
+    public abstract Map listaOjeto();
 }

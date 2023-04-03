@@ -37,58 +37,88 @@ public class Teclado {
         return nombre;
 
     }
+
     
-    public static int PedirFecha(String mensaje, int min, int max) {
+     public static int pedirIntPositivo(String frase) { // este metodo recibe una String que va a ser la frase que pida el numero entero y mira que sea un numero entero lo que recibe la
+        //clase scanner, si no lo es, da un error y lo repite
         boolean valido = false;
-        int dato = 0;
-        do {
+        int n = 0;
+
+        while (!valido) {
             try {
-
-                System.out.print("Introduce el/la " + mensaje + " :");
-                dato = new Scanner(System.in).nextInt();
-
-                if (dato > min && dato <= max) {
+                System.out.println(frase); // aqui muestro por pantalla la frase que me ha venido por parametros
+                n = new Scanner(System.in).nextInt();
+                if (n >= 0) { // si es positivo salgo del bucle, si es negativo doy un error
                     valido = true;
 
                 } else {
-                    throw new Exception("El " + mensaje + " introducido no es valido");
+                    System.out.println("Has introducido un numero negativo,repite");
                 }
-
-            } catch (InputMismatchException ime) {
+            } catch (InputMismatchException e) {
                 System.out.println("Error No es un numero");
             } catch (Exception e) {
-                System.out.println("Error indeterminado");
-                System.out.println(e.getMessage());
+                System.out.println("Error Indeterminado");
+            }
+        }
+
+        return n;
+    }
+     
+     public static String pedirCCC(){
+         String mensaje = "Introduce la CCC (separa cada bloque con espacios)";
+         String regex = "[0-9 ]*";
+        boolean valido = false;
+        String ccc;
+
+        do {
+            System.out.print(mensaje);
+            ccc = new Scanner(System.in).nextLine();
+            if (ccc.matches(regex)) {
+                valido = true;
+            } else {
+                System.out.println("Error. La cadena no cumple los requisitos");
             }
 
         } while (!valido);
-        return dato;
-    }
-    
-    public static LocalDate pedirFecha() { // este metodo pide el dia,mes y anio en numeros  y lo convierte en fecha, se que el rango de fecha de los dias cambia dependiendo del mes
-        //yo le he puesto de 0 a 31 , por que no queria poner otra capa mas de complejidad
 
-        int dia = 0, mes = 0, anio = 0;
-
-        LocalDate fecha = LocalDate.now();
-        boolean fechaValida = false;
-        do {
-
-            dia = PedirFecha("dia", 1, 31);
-            mes = PedirFecha("mes", 1, 12);
-            anio = PedirFecha("anio", 0, 2023);
-            
-
-            try {
-                fecha = LocalDate.of(anio, mes, dia);
-                fechaValida = true;
-            } catch (DateTimeException DTE) {
-                System.out.println("Fecha no valida. repite");
-            }
-
-        } while (!fechaValida);
+        return ccc;
+     }
+     
+     public static double pedirNumeroDecimal() {
+        Scanner sc = new Scanner(System.in);
+        double num = 0.0;
+        boolean entradaValida = false;
         
-        return fecha; //devuelvo la fecha formateada en LocalDate
-
+        while (!entradaValida) {
+            System.out.print("Introduce un número decimal: ");
+            try {
+                num = Double.parseDouble(sc.nextLine());
+                entradaValida = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Error: el valor introducido no es un número decimal válido.");
+            }
+        }
+        
+        return num;
     }
+     
+    public static double pedirDouble(String frase) {
+        boolean valido = false;
+        double n = 0;
+
+        while (!valido) {
+            try {
+                System.out.println(frase);
+                n = new Scanner(System.in).nextDouble();
+                valido = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Error No es un numero");
+            } catch (Exception e) {
+                System.out.println("Error Indeterminado");
+            }
+        }
+
+        return n;
+    }
+
 }

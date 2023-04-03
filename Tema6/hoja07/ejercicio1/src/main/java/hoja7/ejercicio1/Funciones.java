@@ -5,20 +5,22 @@
 package hoja7.ejercicio1;
 
 import java.math.BigInteger;
-    import java.time.LocalDate;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
+
 /**
  *
  * @author david
  */
 public class Funciones {
-     public static  int calcularDigitosControl(int entidad,int oficina,int cuenta) {
+
+    public static int calcularDigitosControl(int entidad, int oficina, int cuenta) {
         String entidadStr = String.format("%02d", entidad);
         String oficinaStr = String.format("%04d", oficina);
         String cuentaStr = String.format("%010d", cuenta);
-        String iban = "ES" + entidadStr + oficinaStr + cuentaStr + "00";
+        String iban = entidadStr + oficinaStr + cuentaStr + "00";
 
         // Convertir letras a números
         StringBuilder ibanNumerico = new StringBuilder();
@@ -40,42 +42,39 @@ public class Funciones {
         return dc;
     }
 
-    public static boolean validarCuenta(String cuentaStr) {
-    // Separar los componentes de la cuenta
-    String[] partes = cuentaStr.split("-");
-    int entidad = Integer.parseInt(partes[0]);
-    int oficina = Integer.parseInt(partes[1]);
-    int dc = Integer.parseInt(partes[2]);
-    int cuenta = Integer.parseInt(partes[3]);
+    public static boolean validarCuenta(String cuentaStr) throws Exception {
+        // Separar los componentes de la cuenta
+        String entidad = cuentaStr.substring(0, 4);
+        String oficina = cuentaStr.substring(5, 9);
+        String dc = cuentaStr.substring(10, 12);
+        String cuenta = cuentaStr.substring(13, 23);
+        
+        String iban = cuentaStr;
 
-    // Crear el IBAN
-    String entidadStr = String.format("%02d", entidad);
-    String oficinaStr = String.format("%04d", oficina);
-    String cuentaStr2 = String.format("%010d", cuenta);
-    String iban = "ES" + entidadStr + oficinaStr + dc + cuentaStr2;
+        // Convertir letras a números
+        StringBuilder ibanNumerico = new StringBuilder();
+        for (int i = 0; i < iban.length(); i++) {
+            char c = iban.charAt(i);
+            if (Character.isLetter(c)) {
+                int n = c - 'A' + 10;
+                ibanNumerico.append(n);
+            } else {
+                ibanNumerico.append(c);
+            }
+        }
 
-    // Convertir letras a números
-    StringBuilder ibanNumerico = new StringBuilder();
-    for (int i = 0; i < iban.length(); i++) {
-        char c = iban.charAt(i);
-        if (Character.isLetter(c)) {
-            int n = c - 'A' + 10;
-            ibanNumerico.append(n);
+        // Validar el IBAN
+        BigInteger num = new BigInteger(ibanNumerico.toString());
+        BigInteger mod97 = num.mod(new BigInteger("97"));
+
+        boolean result = mod97.intValue() == 1;
+        if (result) {
+            return true;
         } else {
-            ibanNumerico.append(c);
+            throw new Exception("Numero de cuenta invalido");
         }
     }
 
-    // Validar el IBAN
-    BigInteger num = new BigInteger(ibanNumerico.toString());
-    BigInteger mod97 = num.mod(new BigInteger("97"));
-
-    return mod97.intValue() == 1;
-}
-    
-
-
-public class Utilidades {
     public static LocalDate pedirFecha() throws DateTimeParseException {
         Scanner scanner = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -95,9 +94,4 @@ public class Utilidades {
 
         return fecha;
     }
-}
-
-
-
-
 }
