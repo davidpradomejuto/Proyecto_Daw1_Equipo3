@@ -7,6 +7,8 @@ package ejercicio2.teclado;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -42,6 +44,26 @@ public class Teclado {
         }
 
         return n;
+    }
+    
+    public static LocalDate pedirFechaDDMMYYY() throws DateTimeParseException {
+        Scanner scanner = new Scanner(System.in);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate fecha = null;
+        boolean fechaValida = false;
+
+        while (!fechaValida) {
+            try {
+                System.out.print("Introduce una fecha (dd-mm-yyyy): ");
+                String input = scanner.nextLine();
+                fecha = LocalDate.parse(input, formatter);
+                fechaValida = true;
+            } catch (DateTimeParseException e) {
+                System.out.println("Fecha no válida. Introduce una fecha con el formato dd-mm-yyyy.");
+            }
+        }
+
+        return fecha;
     }
 
     public static int pedirIntPositivo(String frase) { // este metodo recibe una String que va a ser la frase que pida el numero entero y mira que sea un numero entero lo que recibe la
