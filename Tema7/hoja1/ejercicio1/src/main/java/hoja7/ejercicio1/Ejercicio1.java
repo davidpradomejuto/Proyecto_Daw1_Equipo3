@@ -51,48 +51,45 @@ public class Ejercicio1 {
 
         System.out.println("Introduce la ruta absoluta");
         String StringRuta = new Scanner(System.in).nextLine();
+        
+        String tabulaciones = "";
+        String directorio = StringRuta;
 
-        File ruta = new File(StringRuta);
-        File[] matrizTodo = ruta.listFiles();
-
-        for (File aux : matrizTodo) {
-
-            if (aux.isFile()) {
-                
-                
-                String soutFichero = "";
-                soutFichero = soutFichero.concat("\tFichero -> " + aux.getName());
-                System.out.println(soutFichero);
-            } else {
-                String directorioAux = "";
-                String soutDir = "";
-                soutDir = soutDir.concat("\t"+"\tDirectorio -> " + aux.getName());
-                System.out.println(soutDir);              
-                directorioAux = directorioAux.concat(StringRuta + "\\" + aux.getName());
-                ListarSubdirectorio(directorioAux);
-            }
-        }
+        ListarSubdirectorio(directorio, tabulaciones);
 
     }
 
-    public static void ListarSubdirectorio(String ruta) {
+    public static void ListarSubdirectorio(String ruta, String tabulaciones) {
+
+        String newtabulaciones = tabulaciones;
+        newtabulaciones = newtabulaciones.replace('-',' ').replace('|',' ');
+        
+        newtabulaciones = newtabulaciones.concat(newtabulaciones + "|----");
 
         File rutaAux = new File(ruta);
         File[] matrizDirectorio = rutaAux.listFiles();
 
-        System.out.println("Subdirectorio : " + rutaAux.getName());
+        //System.out.println(tabulaciones + "Subdirectorio : " + rutaAux.getName());
         for (File auxFichero : matrizDirectorio) {
             if (auxFichero.isFile()) {
+
+                //genero el print del fichero
                 String soutFichero = "";
-                soutFichero = soutFichero.concat("\t"+"\tFichero -> " + auxFichero.getName());
+                soutFichero = soutFichero.concat(tabulaciones + "Fichero -> " + auxFichero.getName());
                 System.out.println(soutFichero);
+
             } else {
+                //genero el print del directorio
                 String soutDir = "";
-                soutDir = soutDir.concat("\t"+"\tDirectorio -> " + auxFichero.getName());
+                soutDir = soutDir.concat(tabulaciones + "Directorio -> " + auxFichero.getName());
                 System.out.println(soutDir);
+
+                //genero la nueva ruta del directorio encontrado
                 String directorioAux = "";
                 directorioAux = directorioAux.concat(ruta + "\\" + auxFichero.getName());
-                ListarSubdirectorio(directorioAux);
+
+                //llamo a esta misma funcion
+                ListarSubdirectorio(directorioAux, newtabulaciones);
             }
         }
     }
