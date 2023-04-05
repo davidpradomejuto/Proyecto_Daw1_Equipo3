@@ -34,7 +34,8 @@ public class Agenda {
         } while (!dnivalido);
 
         boolean encontrada = false;
-        for (Persona persona : matriz) {
+        
+        /*for (Persona persona : matriz) {
             if (persona.getDNI().equalsIgnoreCase(dni) && !encontrada) {
                 encontrada = true;
                 if (matriz.remove(persona)) {
@@ -45,7 +46,27 @@ public class Agenda {
 
             }
         }
+*/
 
+        Iterator<Persona> it = matriz.iterator();
+        while (it.hasNext() && !encontrada) {
+            Persona aux = it.next();
+
+            if (aux.getDNI().equalsIgnoreCase(dni) && !encontrada) {
+                encontrada = true;
+                try {
+                    it.remove();
+                    System.out.println("Jugador Borrado");
+                } catch (UnsupportedOperationException uoe) {
+                    System.out.println("error...");
+                    System.out.println(uoe.getMessage());
+                } catch (Exception e) {
+                    System.out.println("Error...");
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+       
         if (!encontrada) {
             System.out.println("Persona no encontrada");
         }
