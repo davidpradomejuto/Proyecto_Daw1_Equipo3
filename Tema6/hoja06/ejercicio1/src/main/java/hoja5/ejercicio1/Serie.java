@@ -45,9 +45,14 @@ public class Serie {
     public boolean insertarCapitulo(Capitulo capitulo) {
         boolean insertado= false;
         try {
-            matriz.put(generaClaveCapitulo(capitulo), capitulo);
-            System.out.println("Capitulo introducido");
-            insertado = true;
+            if (!matriz.containsKey(generaClaveCapitulo(capitulo))){
+                matriz.put(generaClaveCapitulo(capitulo), capitulo);
+                insertado = true;
+                 System.out.println("Capitulo introducido");
+            }else {
+                System.out.println("Error el capitulo esta repetido");
+            }
+           
         } catch (Exception e) {
             System.out.println("Error...");
             System.out.println(e.getMessage());
