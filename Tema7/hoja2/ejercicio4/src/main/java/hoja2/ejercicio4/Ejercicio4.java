@@ -20,9 +20,9 @@ public class Ejercicio4 {
         if (args.length != 2) {
             System.out.println("No hay suficientes argumentos");
         } else {
-            File fichero = new File("fichero");
+            File fichero = new File(args[0]);
 
-            File ficherocopia = new File("fichero");
+            File ficherocopia = new File(args[1]);
 
             int caracter;
 
