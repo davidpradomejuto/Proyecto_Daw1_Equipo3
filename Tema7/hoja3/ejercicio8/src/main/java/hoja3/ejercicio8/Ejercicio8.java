@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -29,86 +30,99 @@ public class Ejercicio8 {
         3- Salir Al salir antes de cerrar la aplicación volverá a regrabar el fichero inicial con las modificaciones efectuadas de altas y bajas de socios
          */
         File fichero = new File("D:\\Usuarios\\daw118\\Documents\\Pruebas\\nombres.txt");
+        if (fichero.exists()) {
+            ArrayList<String> lista = new ArrayList();
+            BufferedReader br = null;
 
-        ArrayList<String> mapa = new ArrayList();
-        BufferedReader br = null;
-
-        String linea;
-        try {
-            br = new BufferedReader(new FileReader(fichero));
-            //mientras el string que viene por el buffer no sea null se sigue
-            while ((linea = br.readLine()) != null) {
-                mapa.add(linea);
-            }
-
-        } catch (FileNotFoundException fnfe) {
-            System.out.println("Error, el fichero no existe");
-        } catch (IOException ex) {
-            System.err.println(ex.toString());
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException ex) {
-                    System.out.println("Error al cerrar");
+            String linea;
+            try {
+                br = new BufferedReader(new FileReader(fichero));
+                //mientras el string que viene por el buffer no sea null se sigue
+                while ((linea = br.readLine()) != null) {
+                    lista.add(linea);
                 }
-            }
-        }
 
-        System.out.println("Introduce una opcion...");
-        int opcion = 0;
-        do {
-            System.out.println("1- Añadir un nuevo nombre\n"
-                    + "        2- Borrar un nombre\n"
-                    + "        3- Salir");
-            System.out.println("Introduce una opcion");
-            opcion = new Scanner(System.in).nextInt();
-
-            switch (opcion) {
-                case 1 -> {
-                    System.out.println("Introduce el nombre del nuevo socio..");
-                    String nombre = new Scanner(System.in).nextLine();
-                    mapa.add(nombre);
-                }
-                case 2 -> {
-                    System.out.println("Introduce el nombre del socio que quieres eliminar..");
-                    String nombre = new Scanner(System.in).nextLine();
-
-                    if (mapa.remove(nombre)) {
-                        System.out.println("Socio borrado");
-                    } else {
-                        System.out.println("Error algo ha salido mal");
+            } catch (FileNotFoundException fnfe) {
+                System.out.println("Error, el fichero no existe");
+            } catch (IOException ex) {
+                System.err.println(ex.toString());
+            } finally {
+                if (br != null) {
+                    try {
+                        br.close();
+                    } catch (IOException ex) {
+                        System.out.println("Error al cerrar");
                     }
                 }
-                case 3 -> {
-                    BufferedWriter brw = null;
-                    try {
-                        brw = new BufferedWriter(new FileWriter(fichero));
+            }
 
-                        for (String cadena : mapa) {
-                            brw.write(cadena);
-                            brw.write(System.lineSeparator());
+            System.out.println("Introduce una opcion...");
+            int opcion = 0;
+            do {
+                System.out.println("1- Añadir un nuevo nombre\n"
+                        + "        2- Borrar un nombre\n"
+                        + "        3- Salir");
+                System.out.println("Introduce una opcion");
+
+                opcion = new Scanner(System.in).nextInt();
+
+                switch (opcion) {
+                    case 1 -> {
+                        System.out.println("Introduce el nombre del nuevo socio..");
+                        String nombre = new Scanner(System.in).nextLine();
+                        if (lista.add(nombre)) {
+                            System.out.println("Socio añadido...");
+                        } else {
+                            System.out.println("Error socio no añadido");
                         }
 
-                        System.out.println("Adios...");
-                    } catch (IOException ex) {
-                        System.err.println(ex.toString());
-                    } finally {
-                        if (brw != null) {
-                            try {
-                                brw.close();
-                            } catch (IOException ex) {
-                                System.out.println("Error al cerrar");
+                    }
+                    case 2 -> {
+                        System.out.println("Introduce el nombre del socio que quieres eliminar..");
+                        String nombre = new Scanner(System.in).nextLine();
+
+                        boolean encontrado = false;
+                        Iterator<String> it = lista.iterator();
+                        while (it.hasNext() && !encontrado) {
+                            String persona = it.next();
+                            if (persona.equalsIgnoreCase(nombre)) {
+                                encontrado = true;
+                                it.remove();
                             }
                         }
                     }
+                    case 3 -> {
+                        BufferedWriter brw = null;
+                        try {
+                            brw = new BufferedWriter(new FileWriter(fichero));
+
+                            for (String cadena : lista) {
+                                brw.write(cadena);
+                                brw.write(System.lineSeparator());
+                            }
+
+                            System.out.println("Adios...");
+                        } catch (IOException ex) {
+                            System.err.println(ex.toString());
+                        } finally {
+                            if (brw != null) {
+                                try {
+                                    brw.close();
+                                } catch (IOException ex) {
+                                    System.out.println("Error al cerrar");
+                                }
+                            }
+                        }
+                    }
+
+                    default -> {
+                        System.out.println("Opcion no valida...");
+                    }
                 }
 
-                default -> {
-                    System.out.println("Opcion no valida...");
-                }
-            }
-
-        } while (opcion != 3);
+            } while (opcion != 3);
+        } else {
+            System.out.println("El fichero no existe");
+        }
     }
 }
