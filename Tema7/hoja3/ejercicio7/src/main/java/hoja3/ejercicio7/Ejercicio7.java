@@ -7,6 +7,7 @@ package hoja3.ejercicio7;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -23,10 +24,13 @@ public class Ejercicio7 {
         File fichero = new File("C:\\Users\\david\\Desktop\\pruebasficheros\\poema.txt");
         File ficheroencriptado = new File("C:\\Users\\david\\Desktop\\pruebasficheros\\encriptado.txt");
         File ficherodesencriptado = new File("C:\\Users\\david\\Desktop\\pruebasficheros\\desencriptado.txt");
+        if (fichero.exists()) {
+            encriptarLineaALinea(fichero, ficheroencriptado);
 
-        encriptarLineaALinea(fichero, ficheroencriptado);
-
-        desencriptarLineaALinea(ficheroencriptado, ficherodesencriptado);
+            desencriptarLineaALinea(ficheroencriptado, ficherodesencriptado);
+        } else {
+            System.out.println("El fichero que quieres encriptar no existe");
+        }
     }
 
     public static void encriptarLineaALinea(File fichero, File ficheroencriptado) {
@@ -104,6 +108,8 @@ public class Ejercicio7 {
             }
 
             System.out.println("Fichero Desencriptado...");
+        } catch (FileNotFoundException fnfe) {
+            System.out.println("Error, el fichero no existe");
         } catch (IOException ex) {
             System.err.println(ex.toString());
         } finally {

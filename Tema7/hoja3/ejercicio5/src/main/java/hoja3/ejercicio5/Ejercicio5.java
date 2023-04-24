@@ -27,7 +27,8 @@ public class Ejercicio5 {
              brr = new BufferedReader(new FileReader(fichero));
              int linea = 0;
              while ((lineaLeida = brr.readLine()) != null) {
-                System.out.println("La linea "+linea+" tiene : "+lineaLeida.length()+" caracteres");
+                
+                System.out.println("La linea "+linea+" tiene : "+lineaLeida.split(" ").length+" palabras");
                 linea++;
             }
              System.out.println("Y el fichero tiene "+linea+" lineas");

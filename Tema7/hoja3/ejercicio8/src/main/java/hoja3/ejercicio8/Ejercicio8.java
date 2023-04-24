@@ -7,6 +7,7 @@ package hoja3.ejercicio8;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -40,6 +41,8 @@ public class Ejercicio8 {
                 mapa.add(linea);
             }
 
+        } catch (FileNotFoundException fnfe) {
+            System.out.println("Error, el fichero no existe");
         } catch (IOException ex) {
             System.err.println(ex.toString());
         } finally {

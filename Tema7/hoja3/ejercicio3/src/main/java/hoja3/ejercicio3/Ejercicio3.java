@@ -34,7 +34,7 @@ public class Ejercicio3 {
         try {
             //hago los dos ficheros uno que se lee y otro que  se escribe
             brr = new BufferedReader(new FileReader(fichero));
-            brw = new BufferedWriter(new FileWriter(ficherocopia, true));
+            brw = new BufferedWriter(new FileWriter(ficherocopia));
 
             while ((lineaLeida = brr.readLine()) != null) {
                 //cogo la linea que he leido y la escribo
