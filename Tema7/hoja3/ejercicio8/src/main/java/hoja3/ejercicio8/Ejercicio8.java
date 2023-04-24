@@ -27,7 +27,7 @@ public class Ejercicio8 {
         2- Borrar un nombre
         3- Salir Al salir antes de cerrar la aplicación volverá a regrabar el fichero inicial con las modificaciones efectuadas de altas y bajas de socios
          */
-        File fichero = new File("C:\\Users\\david\\Desktop\\pruebasficheros\\nombres.txt");
+        File fichero = new File("D:\\Usuarios\\daw118\\Documents\\Pruebas\\nombres.txt");
 
         ArrayList<String> mapa = new ArrayList();
         BufferedReader br = null;
@@ -71,7 +71,7 @@ public class Ejercicio8 {
                     System.out.println("Introduce el nombre del socio que quieres eliminar..");
                     String nombre = new Scanner(System.in).nextLine();
 
-                    if (mapa.remove("bob")) {
+                    if (mapa.remove(nombre)) {
                         System.out.println("Socio borrado");
                     } else {
                         System.out.println("Error algo ha salido mal");
