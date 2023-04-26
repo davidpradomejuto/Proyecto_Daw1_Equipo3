@@ -22,7 +22,7 @@ public class Ejercicio2 {
     public static void main(String[] args) {
 
         File fichero = new File("D:\\Usuarios\\daw118\\Documents\\Pruebas\\donativos.dat");
-
+        
         if (fichero.exists()) {
 
             int opcion = 0;
