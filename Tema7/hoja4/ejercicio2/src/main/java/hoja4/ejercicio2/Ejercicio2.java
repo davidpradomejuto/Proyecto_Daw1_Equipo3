@@ -73,7 +73,9 @@ public class Ejercicio2 {
 
             do {
                 //pido los datos
-                dni = Teclado.introDni("Introduce Dni: ");
+                //dni = Teclado.introDni("Introduce Dni: ");
+                System.out.println("Introduce el Dni");
+                dni = new Scanner(System.in).nextLine();
                 nombre = Teclado.introTexto("Introduce Nombre: ");
                 importe = Teclado.introEntero("Introduce Importe: ");
 

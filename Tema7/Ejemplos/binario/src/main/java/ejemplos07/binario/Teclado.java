@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package hoja4.ejercicio2;
+package ejemplos07.binario;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
@@ -11,10 +11,9 @@ import java.util.Scanner;
 
 /**
  *
- * @author DAW118
+ * @author cic
  */
 public class Teclado {
-    
      /**
      * valida que la entrada por teclado sea una cadena de texto
      * @param mensaje - para indicar al usuario que dato tiene que introducir
@@ -119,21 +118,4 @@ public class Teclado {
         }
         return campo;
     }
-    
-    public static String introDni(String mensaje) {
-        String cadena="";
-        boolean valido=false;
-        do{
-            System.out.println(mensaje);
-            cadena=new Scanner(System.in).nextLine();
-            if(cadena.matches("[A-ZÑa-zñ ][0-9]*")){
-                valido=true;
-            }else{
-                System.out.println("Error. Solo caracteres.");
-            }
-        }while(!valido);
-        return cadena;
-    }
 }
-    
-
