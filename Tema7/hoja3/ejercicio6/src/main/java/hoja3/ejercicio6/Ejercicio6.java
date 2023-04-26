@@ -39,15 +39,19 @@ public class Ejercicio6 {
 
                 CopiarFichero(uno, tres);
                 CopiarFichero(dos, tres);
+                
+                try {
+                    if (uno.delete()) {
+                        System.out.println("Primer archivo eliminado correctamente");
+                    }
+                    if (dos.delete()) {
+                        System.out.println("Segundo archivo eliminado correctamente");
+                    }
 
-                if (uno.delete()) {
-                    System.out.println("Primer archivo eliminado correctamente");
+                    tres.setReadOnly();
+                } catch (SecurityException e) {
+                    System.out.println(e.toString());
                 }
-                if (dos.delete()) {
-                    System.out.println("Segundo archivo eliminado correctamente");
-                }
-
-                tres.setReadOnly();
             }
         } else {
             System.out.println("Alguno de los fichero de copia no existen");

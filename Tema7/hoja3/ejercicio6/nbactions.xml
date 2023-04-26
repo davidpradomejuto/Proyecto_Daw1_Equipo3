@@ -12,7 +12,7 @@
             <properties>
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.appArgs>C:\Users\david\Desktop\pruebasficheros\prueba1.txt C:\Users\david\Desktop\pruebasficheros\prueba2.txt C:\Users\david\Desktop\pruebasficheros\copia.txt</exec.appArgs>
+                <exec.appArgs>D:\Usuarios\daw118\Desktop\FicheroDePrueba.txt D:\Usuarios\daw118\Desktop\FicheroDePrueba1.txt D:\Usuarios\daw118\Desktop\Prueba.txt</exec.appArgs>
                 <exec.mainClass>${packageClassName}</exec.mainClass>
                 <exec.executable>java</exec.executable>
             </properties>
@@ -29,7 +29,7 @@
             <properties>
                 <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.appArgs>C:\Users\david\Desktop\pruebasficheros\prueba1.txt C:\Users\david\Desktop\pruebasficheros\prueba2.txt C:\Users\david\Desktop\pruebasficheros\copia.txt</exec.appArgs>
+                <exec.appArgs>D:\Usuarios\daw118\Desktop\FicheroDePrueba.txt D:\Usuarios\daw118\Desktop\FicheroDePrueba1.txt D:\Usuarios\daw118\Desktop\Prueba.txt</exec.appArgs>
                 <exec.mainClass>${packageClassName}</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
@@ -49,7 +49,7 @@
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.mainClass>${packageClassName}</exec.mainClass>
                 <exec.executable>java</exec.executable>
-                <exec.appArgs>C:\Users\david\Desktop\pruebasficheros\prueba1.txt C:\Users\david\Desktop\pruebasficheros\prueba2.txt C:\Users\david\Desktop\pruebasficheros\copia.txt</exec.appArgs>
+                <exec.appArgs>D:\Usuarios\daw118\Desktop\FicheroDePrueba.txt D:\Usuarios\daw118\Desktop\FicheroDePrueba1.txt D:\Usuarios\daw118\Desktop\Prueba.txt</exec.appArgs>
             </properties>
         </action>
     </actions>
