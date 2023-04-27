@@ -47,6 +47,19 @@ public class Teclado {
         return n;
     }
     
+    public static boolean introBoolean(String mensaje) {
+        boolean campo = false;
+        char opcion;
+        do {
+            System.out.println(mensaje);
+            opcion = new Scanner(System.in).nextLine().charAt(0);
+        } while (opcion != 'S' && opcion != 's' && opcion != 'N' && opcion != 'n');
+        if (opcion == 'S' || opcion == 's') {
+            campo = true;
+        }
+        return campo;
+    }
+    
     public static LocalDate pedirFechaDDMMYYY() throws DateTimeParseException {
         Scanner scanner = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
