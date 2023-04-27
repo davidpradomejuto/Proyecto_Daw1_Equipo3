@@ -34,6 +34,7 @@ public class Ejercicio5 {
         int edad;
         int nSuspensos;
         String residencia;
+        int ingresosAnuales;
 
         //creo el flujo
         DataOutputStream fd = null;
@@ -52,12 +53,14 @@ public class Ejercicio5 {
                 edad = Teclado.pedirIntRango("Introduce tu edad...", 20, 60);
                 nSuspensos = Teclado.pedirIntPositivo("Introduce tu numero de suspensos(0/4)...");
                 residencia = Teclado.introResidencia("Introduce si tienes una residencia(S/N)...");
+                ingresosAnuales =  Teclado.pedirIntPositivo("Introduce tus ingresos anuales...");
 
                 fd.writeUTF(nombre);
                 fd.writeUTF(sexo);
                 fd.writeInt(edad);
                 fd.writeInt(nSuspensos);
                 fd.writeUTF(residencia);
+                fd.writeInt(ingresosAnuales);
 
                 resp = Teclado.introBoolean("Otro registro:S/N ");
 
@@ -85,6 +88,7 @@ public class Ejercicio5 {
         int edad;
         int nSuspensos;
         String residencia;
+        int ingresosAnuales;
 
         //creo el flujo
         DataInputStream fd = null;
@@ -99,12 +103,14 @@ public class Ejercicio5 {
                 edad=fd.readInt();
                 nSuspensos=fd.readInt();
                 residencia= fd.readUTF();
+                ingresosAnuales = fd.readInt();
 
                 System.out.println("nombre = " + nombre);
                 System.out.println("sexo = " + sexo);
                 System.out.println("edad = " + edad+" años");
                 System.out.println("nSuspensos = " + nSuspensos+ " suspensos");
                 System.out.println("residencia = " + residencia);
+                System.out.println("ingresosAnuales = " + ingresosAnuales+" €");
 
             } while (!fin);
 
