@@ -1,8 +1,8 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ejercicio2.teclado;
+package hoja5.ejercicio5;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
@@ -17,17 +17,6 @@ import java.util.Scanner;
  * @author david
  */
 public class Teclado {
-
-    String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
-    String decimalRegex = "^[0-9]+([.,][0-9]{1,2})?$";
-    String ipRegex = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
-    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
-    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
-    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
-    
-   
-
-
     public static double pedirDouble(String frase) {
         boolean valido = false;
         double n = 0;
@@ -83,6 +72,33 @@ public class Teclado {
         return campo;
     }
     
+    public static String introResidencia(String mensaje) {
+        String campo = "NO";
+        char opcion;
+        do {
+            System.out.println(mensaje);
+            opcion = new Scanner(System.in).nextLine().charAt(0);
+        } while (opcion != 'S' && opcion != 's' && opcion != 'N' && opcion != 'n');
+        if (opcion == 'S' || opcion == 's') {
+            campo = "SI";
+        }
+        return campo;
+    }
+     
+     public static String introSexo(String mensaje) {
+        String campo = "M";
+        char opcion;
+        do {
+            System.out.println(mensaje);
+            opcion = new Scanner(System.in).nextLine().charAt(0);
+        } while (opcion != 'M' && opcion != 'm' && opcion != 'H' && opcion != 'h');
+        if (opcion == 'H' || opcion == 'h') {
+            campo = "H";
+        }
+        return campo;
+    }
+    
+    
     public static LocalDate pedirFechaDDMMYYY() throws DateTimeParseException {
         Scanner scanner = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -113,6 +129,31 @@ public class Teclado {
                 System.out.println(frase); // aqui muestro por pantalla la frase que me ha venido por parametros
                 n = new Scanner(System.in).nextInt();
                 if (n >= 0) { // si es positivo salgo del bucle, si es negativo doy un error
+                    valido = true;
+
+                } else {
+                    System.out.println("Has introducido un numero negativo,repite");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Error No es un numero");
+            } catch (Exception e) {
+                System.out.println("Error Indeterminado");
+            }
+        }
+
+        return n;
+    }
+    
+    public static int pedirIntRango(String frase,int rangoinicial,int rangofinal) { // este metodo recibe una String que va a ser la frase que pida el numero entero y mira que sea un numero entero lo que recibe la
+        //clase scanner, si no lo es, da un error y lo repite
+        boolean valido = false;
+        int n = 0;
+
+        while (!valido) {
+            try {
+                System.out.println(frase); // aqui muestro por pantalla la frase que me ha venido por parametros
+                n = new Scanner(System.in).nextInt();
+                if (n >= rangoinicial && n<=rangofinal) { // si es positivo salgo del bucle, si es negativo doy un error
                     valido = true;
 
                 } else {

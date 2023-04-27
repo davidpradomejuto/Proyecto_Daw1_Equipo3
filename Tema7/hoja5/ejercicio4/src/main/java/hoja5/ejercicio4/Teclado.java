@@ -48,6 +48,32 @@ public class Teclado {
         }
         return campo;
     }
+     
+     public static String introResidencia(String mensaje) {
+        String campo = "NO";
+        char opcion;
+        do {
+            System.out.println(mensaje);
+            opcion = new Scanner(System.in).nextLine().charAt(0);
+        } while (opcion != 'S' && opcion != 's' && opcion != 'N' && opcion != 'n');
+        if (opcion == 'S' || opcion == 's') {
+            campo = "SI";
+        }
+        return campo;
+    }
+     
+     public static String introSexo(String mensaje) {
+        String campo = "M";
+        char opcion;
+        do {
+            System.out.println(mensaje);
+            opcion = new Scanner(System.in).nextLine().charAt(0);
+        } while (opcion != 'M' && opcion != 'm' && opcion != 'H' && opcion != 'h');
+        if (opcion == 'H' || opcion == 'h') {
+            campo = "H";
+        }
+        return campo;
+    }
     
     public static LocalDate pedirFechaDDMMYYY() throws DateTimeParseException {
         Scanner scanner = new Scanner(System.in);
