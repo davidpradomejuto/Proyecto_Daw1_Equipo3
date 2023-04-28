@@ -322,4 +322,58 @@ public class Teclado {
 
         return result;
     }
+    
+    
+    
+    public static String introResidencia(String mensaje) {
+        String campo = "NO";
+        char opcion;
+        do {
+            System.out.println(mensaje);
+            opcion = new Scanner(System.in).nextLine().charAt(0);
+        } while (opcion != 'S' && opcion != 's' && opcion != 'N' && opcion != 'n');
+        if (opcion == 'S' || opcion == 's') {
+            campo = "SI";
+        }
+        return campo;
+    }
+     
+     public static String introSexo(String mensaje) {
+        String campo = "M";
+        char opcion;
+        do {
+            System.out.println(mensaje);
+            opcion = new Scanner(System.in).nextLine().charAt(0);
+        } while (opcion != 'M' && opcion != 'm' && opcion != 'H' && opcion != 'h');
+        if (opcion == 'H' || opcion == 'h') {
+            campo = "H";
+        }
+        return campo;
+    }
+     
+     public static int pedirIntRango(String frase,int rangoinicial,int rangofinal) { // este metodo recibe una String que va a ser la frase que pida el numero entero y mira que sea un numero entero lo que recibe la
+        //clase scanner, si no lo es, da un error y lo repite
+        boolean valido = false;
+        int n = 0;
+
+        while (!valido) {
+            try {
+                System.out.println(frase); // aqui muestro por pantalla la frase que me ha venido por parametros
+                n = new Scanner(System.in).nextInt();
+                if (n >= rangoinicial && n<=rangofinal) { // si es positivo salgo del bucle, si es negativo doy un error
+                    valido = true;
+
+                } else {
+                    System.out.println("Has introducido un numero negativo,repite");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Error No es un numero");
+            } catch (Exception e) {
+                System.out.println("Error Indeterminado");
+            }
+        }
+
+        return n;
+    }
+    
 }
