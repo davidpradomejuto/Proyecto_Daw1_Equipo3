@@ -8,7 +8,7 @@ package hoja7.ejercicio2;
  *
  * @author david
  */
-public class Alumno {
+public class Alumno  {
 
     private String nombreAlumno;
     private int nota;
@@ -33,6 +33,6 @@ public class Alumno {
     public void setNota(int nota) {
         this.nota = nota;
     }
-    
+
     
 }

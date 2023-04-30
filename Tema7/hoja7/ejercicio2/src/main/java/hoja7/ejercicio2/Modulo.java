@@ -12,9 +12,12 @@ import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -63,7 +66,7 @@ public class Modulo {
                 System.out.println(aux.getNombreAlumno().substring(0, 3) + " , " + aux.getNota());
 
                 //inicio el flujo en el fichero
-                fd = new DataOutputStream(new FileOutputStream(fichero, true));
+                fd = new DataOutputStream(new FileOutputStream(fichero));
 
                 nombre = aux.getNombreAlumno().substring(0, 3);
                 nota = aux.getNota();
@@ -123,6 +126,30 @@ public class Modulo {
             }
         }
     }
+    
+     // el final de la lectura lo detecta con -1
+    public void leerLineaALinea(File fichero) {
+        BufferedReader br = null;
+        String linea;
+        try {
+            br = new BufferedReader(new FileReader(fichero));
+            //mientras el string que viene por el buffer no sea null se sigue
+            while ((linea = br.readLine()) != null) {
+                //muestra la linea
+                System.out.println(linea);
+            }
+        } catch (IOException ex) {
+            System.err.println(ex.toString());
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException ex) {
+                    System.out.println("Error al cerrar");
+                }
+            }
+        }
+    }
 
     public void mostrarSuspensosYAprobados() {
         DataOutputStream fd = null;
@@ -174,24 +201,23 @@ public class Modulo {
             }
         }
     }
-    
-    
-    public void grabarDescendente(){
+
+    public void grabarDescendente() {
         DataOutputStream fd = null;
         File fichero = new File("C:\\Users\\david\\Desktop\\pruebasficheros\\hoja7\\descendente.dat");
-        
-        LinkedList<Alumno> listaaux =lista; 
-        listaaux.sort(new Comparator<Alumno>() {
-            
-        });
-        
-         try {
+
+        LinkedList<Alumno> listaaux = lista;
+
+        try {
             fd = new DataOutputStream(new FileOutputStream(fichero));
-            
-             for (Alumno aux : lista) {
-                 aux = listaaux.pollLast();
-                 
-             }
+
+            Iterator<Alumno> it = listaaux.iterator();
+            while (it.hasNext()) {
+                Alumno aux = it.next();
+
+                fd.writeUTF(aux.getNombreAlumno());
+                fd.writeInt(aux.getNota());
+            }
 
         } catch (IOException ex) {
             System.out.println("error " + ex.toString());
@@ -207,8 +233,5 @@ public class Modulo {
 
         }
     }
-    
-            public int compare(Alumno o1, Alumno o2) {
-                return 
-            }
+
 }
