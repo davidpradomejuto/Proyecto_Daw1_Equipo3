@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
-
 package hoja5.ejercicio4;
 
 import java.io.DataInputStream;
@@ -15,28 +14,23 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- *Realiza un programa en JAVA en el que le pidas al usuario su DNI y:
-• En caso de que el DNI sea correcto lo introducirás en un fichero llamado dni.bin.
-• En caso de que el DNI sea incorrecto avisaras al usuario del error y no lo meterás en el
-fichero.
-• Cuando vuelvas a ejecutar el programa no se sobrescribirá el fichero, sino que se
-seguirán añadiendo DNIs validos al final del fichero dni.bin. Ejemplos de ejecución:
-Después de grabar o no el DNI, se muestra todo el contenido del fichero.
+ * Realiza un programa en JAVA en el que le pidas al usuario su DNI y: • En caso de que el DNI sea correcto lo introducirás en un fichero llamado dni.bin. • En caso de que el DNI sea incorrecto avisaras al usuario del error y no lo meterás en el fichero. • Cuando vuelvas a ejecutar el programa no se sobrescribirá el fichero, sino que se seguirán añadiendo DNIs validos al final del fichero dni.bin. Ejemplos de ejecución: Después de grabar o no el DNI, se muestra todo el contenido del fichero.
+ *
  * @author david
  */
 public class Ejercicio4 {
 
     public static void main(String[] args) {
-        File fichero = new File("C:\\Users\\david\\Desktop\\pruebasficheros\\dni.bin");
+        File fichero = new File("D:\\Usuarios\\daw118\\Documents\\Pruebas\\dni.bin");
         escribirBinario(fichero);
+        System.out.println("Leyendo fichero..");
         leerBinario(fichero);
-        
+
     }
-    
-     public static void escribirBinario(File fichero) {
+
+    public static void escribirBinario(File fichero) {
         //datos que quiero escribir
         String dni;
-
 
         //creo el flujo
         DataOutputStream fd = null;
@@ -45,23 +39,23 @@ public class Ejercicio4 {
         try {
 
             //inicio el flujo en el fichero
-            fd = new DataOutputStream(new FileOutputStream(fichero,true));
+            fd = new DataOutputStream(new FileOutputStream(fichero, true));
 
             do {
                 //pido los datos
                 //dni = Teclado.introDni("Introduce Dni: ");
-                
+
                 dni = Teclado.pedirDNIRegex("Introduce el DNI...");
-                if(Teclado.validarDni(dni)){
+                if (Teclado.validarDni(dni)) {
                     //lo grabamos en el fichero
-                fd.writeUTF(dni);
-                //pregunto si quiere agregar otro fichero
-                resp = Teclado.introBoolean("Otro registro:S/N ");
-                }else{
+                    fd.writeUTF(dni);
                     //pregunto si quiere agregar otro fichero
-                resp = Teclado.introBoolean("Otro registro:S/N ");
+                    resp = Teclado.introBoolean("Otro registro:S/N ");
+                } else {
+                    //pregunto si quiere agregar otro fichero
+                    System.out.println("Dni incorrecto...");
+                    resp = Teclado.introBoolean("Otro registro:S/N ");
                 }
-                
 
             } while (resp); //si resp es true sigue pidiendo registros
 
@@ -84,7 +78,6 @@ public class Ejercicio4 {
         //datos que quiero leer
         String dni;
 
-
         //creo el flujo
         DataInputStream fd = null;
         boolean fin = false;
@@ -94,10 +87,8 @@ public class Ejercicio4 {
             fd = new DataInputStream(new FileInputStream(fichero));
             do {
                 dni = fd.readUTF();
-                
-
                 System.out.println("dni = " + dni);
-                
+
             } while (!fin);
 
         } catch (EOFException eof) { // al saltar la excepcio de fin de leectura se cambia fin a true

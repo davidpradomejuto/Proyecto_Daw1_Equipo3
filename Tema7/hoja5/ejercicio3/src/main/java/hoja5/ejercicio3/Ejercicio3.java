@@ -32,7 +32,7 @@ No tiene que borrar los datos anteriores si existieran.
     public static void main(String[] args) {
 
         int opcion = 0;
-        String ruta = "C:\\Users\\david\\Desktop\\pruebasficheros";
+        File fichero = new File("D:\\Usuarios\\daw118\\Documents\\Pruebas\\hoja5ej3\\datos.dat");
 
         do {
             System.out.println("1. Grabar en el fichero.");
@@ -44,23 +44,10 @@ No tiene que borrar los datos anteriores si existieran.
 
             switch (opcion) {
                 case 1 -> {
-                    String archivo = Teclado.introTexto("Introduce el nombre del fichero que quieres escribir sin extension: ");
-                    String ficheroruta = "";
-                    ficheroruta = ficheroruta.concat(ruta + "\\" + archivo + ".dat");
-                    
-                    System.out.println(ficheroruta);
-                    File fichero = new File(ficheroruta);
                     escribirBinario(fichero);
-
                 }
                 case 2 -> {
-                   
-                    String archivo = Teclado.introTexto("Introduce el nombre del fichero que quieres leer sin extension: ");
-                    String ficheroruta = "";
-                    ficheroruta = ficheroruta.concat(ruta + "\\" + archivo + ".dat");
-                    File fichero = new File(ficheroruta);
                     leerBinario(fichero);
-
                 }
                 case 3 -> {
                     System.out.println("Adios..");
