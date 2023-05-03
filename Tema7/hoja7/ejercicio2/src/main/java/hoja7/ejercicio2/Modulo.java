@@ -111,6 +111,7 @@ public class Modulo {
                 System.out.println("nota = " + nota);
 
             } while (!fin);
+            
 
         } catch (EOFException eof) { // al saltar la excepcio de fin de leectura se cambia fin a true
             fin = true;
