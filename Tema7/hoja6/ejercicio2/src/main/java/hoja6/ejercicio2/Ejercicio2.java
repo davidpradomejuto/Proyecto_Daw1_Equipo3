@@ -15,7 +15,7 @@ public class Ejercicio2 implements Serializable {
 
     public static void main(String[] args) {
          int opcion = 0;
-         Fichero fichero = new Fichero();
+         Fichero fichero = new Fichero("D:\\Usuarios\\daw118\\Documents\\Pruebas\\Ejercicios de serializados\\agenda.dat");
         do {
             System.out.println("1.- Añadir entrada..\n"
                     + "2.- Listar entradas agenda.\n"

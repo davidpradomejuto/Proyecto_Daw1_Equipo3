@@ -20,9 +20,11 @@ import java.util.Iterator;
  *
  * @author DAW118
  */
-public class Fichero implements Serializable {
-
-    private File f = new File("D:\\Usuarios\\daw118\\Documents\\Pruebas\\Ejercicios de serializados\\agenda.dat");
+public class Fichero {
+     private File f = null;
+    public Fichero( String Nombre){
+            File f = new File(Nombre);
+    }
 
     public void escribir(Persona obj) {
         ObjectOutputStream fo = null;
@@ -80,8 +82,10 @@ public class Fichero implements Serializable {
 
     public void Buscar(String nombre) {
         ArrayList<Persona> lista = new ArrayList();
+        
         ObjectInputStream os = null;
         boolean fin = false;
+        
         try {
             os = new ObjectInputStream(new FileInputStream(f));
             Persona c;
@@ -143,9 +147,7 @@ public class Fichero implements Serializable {
                 } else {//añado el objeto al array list     
                     lista.add(c);
                 }
-
             }
-
             if (!encontrado) {
                 System.out.println("La persona no ha sido encontrada y eliminada...");
             } else {
