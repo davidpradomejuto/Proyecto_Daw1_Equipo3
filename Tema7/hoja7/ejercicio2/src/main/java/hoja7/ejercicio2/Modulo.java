@@ -57,7 +57,7 @@ public class Modulo {
         DataOutputStream fd = null;
         String nombre;
         int nota;
-        File fichero = new File("C:\\Users\\david\\Desktop\\pruebasficheros\\hoja7\\iniciales.dat");
+        File fichero = new File("D:\\Usuarios\\daw118\\Documents\\Pruebas\\hoja7ej2\\iniciales.dat");
 
         try {
             Iterator<Alumno> it = lista.iterator();
@@ -156,8 +156,8 @@ public class Modulo {
         BufferedWriter br = null;
         String nombre;
         int nota;
-        File ficheroAprobados = new File("C:\\Users\\david\\Desktop\\pruebasficheros\\hoja7\\aprobados.txt");
-        File ficheroSuspensos = new File("C:\\Users\\david\\Desktop\\pruebasficheros\\hoja7\\suspensos.dat");
+        File ficheroAprobados = new File("D:\\Usuarios\\daw118\\Documents\\Pruebas\\hoja7ej2\\aprobados.txt");
+        File ficheroSuspensos = new File("D:\\Usuarios\\daw118\\Documents\\Pruebas\\hoja7ej2\\suspensos.dat");
 
         try {
             fd = new DataOutputStream(new FileOutputStream(ficheroSuspensos));
@@ -172,7 +172,7 @@ public class Modulo {
                     br.write(System.lineSeparator());
                 } else {
                     System.out.println("Suspenso: " + aux.getNombreAlumno() + " , " + aux.getNota());
-                    nombre = aux.getNombreAlumno().substring(0, 3);
+                    nombre = aux.getNombreAlumno();
                     nota = aux.getNota();
 
                     fd.writeUTF(nombre);
@@ -204,7 +204,7 @@ public class Modulo {
 
     public void grabarDescendente() {
         DataOutputStream fd = null;
-        File fichero = new File("C:\\Users\\david\\Desktop\\pruebasficheros\\hoja7\\descendente.dat");
+        File fichero = new File("D:\\Usuarios\\daw118\\Documents\\Pruebas\\hoja7ej2\\descendente.dat");
 
         LinkedList<Alumno> listaaux = lista;
 

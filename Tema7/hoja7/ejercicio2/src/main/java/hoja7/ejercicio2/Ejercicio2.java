@@ -38,7 +38,7 @@ public class Ejercicio2 {
         modulo.grabarDescendente();
 
         System.out.println("Mostrando descendente.dat");
-        File fichero = new File("C:\\Users\\david\\Desktop\\pruebasficheros\\hoja7\\descendente.dat");
+        File fichero = new File("D:\\Usuarios\\daw118\\Documents\\Pruebas\\hoja7ej2\\descendente.dat");
         modulo.mostrarFichero(fichero);
         
         System.out.println("");
@@ -50,8 +50,8 @@ public class Ejercicio2 {
         modulo.mostrarSuspensosYAprobados();
         
         System.out.println("-------------listandos los dos ficheros-------------");
-        File ficheroAprobados = new File("C:\\Users\\david\\Desktop\\pruebasficheros\\hoja7\\aprobados.txt");
-        File ficheroSuspensos = new File("C:\\Users\\david\\Desktop\\pruebasficheros\\hoja7\\suspensos.dat");
+        File ficheroAprobados = new File("D:\\Usuarios\\daw118\\Documents\\Pruebas\\hoja7ej2\\aprobados.txt");
+        File ficheroSuspensos = new File("D:\\Usuarios\\daw118\\Documents\\Pruebas\\hoja7ej2\\suspensos.dat");
         
         System.out.println("Listando aprobados........");
         modulo.leerLineaALinea(ficheroAprobados);
