@@ -25,13 +25,14 @@ public class UsuarioDAOImp implements Repositorio<Usuario> {
 
     @Override
     public List<Usuario> listar() {
-        List<Usuario> productos = new ArrayList<>();
+        List<Usuario> usuarios = new ArrayList<>();
         try ( Statement stmt = getConnection().createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT id,username,password,email FROM usuarios");
+                ResultSet rs = stmt.executeQuery("SELECT id,username,"
+                        + "password,email FROM usuarios");
             ) {
             while (rs.next()) {
-                Usuario producto = crearUsuario(rs);
-                if (!productos.add(producto)) {
+                Usuario usuario = crearUsuario(rs);
+                if (!usuarios.add(usuario)) {
                     throw new Exception("error no se ha insertado el objeto en la colección");
                 }
             }
@@ -42,7 +43,7 @@ public class UsuarioDAOImp implements Repositorio<Usuario> {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-        return productos;
+        return usuarios;
     }
 
     @Override
@@ -112,7 +113,10 @@ public class UsuarioDAOImp implements Repositorio<Usuario> {
     }
 
     private Usuario crearUsuario(final ResultSet rs) throws SQLException {
-        return new Usuario(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("email"));
+        return new Usuario(rs.getInt("id"),
+                rs.getString("username"),
+                rs.getString("password"),
+                rs.getString("email"));
     }
 
 }
