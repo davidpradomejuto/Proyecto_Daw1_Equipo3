@@ -20,13 +20,10 @@ public class Teclado {
 
     String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
     String decimalRegex = "^[0-9]+([.,][0-9]{1,2})?$";
-    String ipRegex = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
-    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
-    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
-    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
-    
-   
-
+    String ipRegex = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\."
+            + "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\."
+            + "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\."
+            + "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
 
     public static double pedirDouble(String frase) {
         boolean valido = false;
@@ -46,8 +43,31 @@ public class Teclado {
 
         return n;
     }
-    
-     public static String pedirDNIRegex(String mensaje) { // este metodo me sirve para recoger un nombre, tambien lo uso para pedir los apellidos del alumno, hace lo mismo que el del pedir un color
+
+    public static String pedirDNIRegex(String mensaje) { // este metodo me sirve para recoger un nombre, tambien lo uso para pedir los apellidos del alumno, hace lo mismo que el del pedir un color
+        // pero recibiendo la frase que va a mostrar por pantalla mediante parametros
+
+        String regex = "[A-Za-z0-9]*";
+        boolean valido = false;
+        String nombre;
+
+        do {
+
+            System.out.print(mensaje);
+            nombre = new Scanner(System.in).nextLine();
+            if (nombre.matches(regex)) {
+                valido = true;
+            } else {
+                System.out.println("Error. La cadena no cumple los requisitos");
+            }
+
+        } while (!valido);
+
+        return nombre;
+
+    }
+
+    public static String pedirEmailRegex(String mensaje) { // este metodo me sirve para recoger un nombre, tambien lo uso para pedir los apellidos del alumno, hace lo mismo que el del pedir un color
         // pero recibiendo la frase que va a mostrar por pantalla mediante parametros
 
         String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
@@ -69,31 +89,7 @@ public class Teclado {
         return nombre;
 
     }
-     
-     public static String pedirEmailRegex(String mensaje) { // este metodo me sirve para recoger un nombre, tambien lo uso para pedir los apellidos del alumno, hace lo mismo que el del pedir un color
-        // pero recibiendo la frase que va a mostrar por pantalla mediante parametros
 
-        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
-        boolean valido = false;
-        String nombre;
-
-        do {
-
-            System.out.print(mensaje);
-            nombre = new Scanner(System.in).nextLine();
-            if (nombre.matches(regex)) {
-                valido = true;
-            } else {
-                System.out.println("Error. La cadena no cumple los requisitos");
-            }
-
-        } while (!valido);
-
-        return nombre;
-
-    }
-    
-    
     public static boolean introBoolean(String mensaje) {
         boolean campo = false;
         char opcion;
@@ -106,7 +102,7 @@ public class Teclado {
         }
         return campo;
     }
-    
+
     public static LocalDate pedirFechaDDMMYYY() throws DateTimeParseException {
         Scanner scanner = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -118,7 +114,30 @@ public class Teclado {
                 System.out.print("Introduce una fecha (dd-mm-yyyy): ");
                 String input = scanner.nextLine();
                 fecha = LocalDate.parse(input, formatter);
-                fechaValida = true;
+                    fechaValida = true;
+            } catch (DateTimeParseException e) {
+                System.out.println("Fecha no válida. Introduce una fecha con el formato dd-mm-yyyy.");
+            }
+        }
+
+        return fecha;
+    }
+    
+    public static LocalDate pedirFechaDDMMYYYMayorQueHoy() throws DateTimeParseException {
+        Scanner scanner = new Scanner(System.in);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate fecha = null;
+        boolean fechaValida = false;
+
+        while (!fechaValida) {
+            try {
+                System.out.print("Introduce una fecha (dd-mm-yyyy): ");
+                String input = scanner.nextLine();
+                fecha = LocalDate.parse(input, formatter);
+                if (fecha.isBefore(LocalDate.now())) {
+                    fechaValida = true;
+                }
+
             } catch (DateTimeParseException e) {
                 System.out.println("Fecha no válida. Introduce una fecha con el formato dd-mm-yyyy.");
             }
@@ -346,9 +365,7 @@ public class Teclado {
 
         return result;
     }
-    
-    
-    
+
     public static String introResidencia(String mensaje) {
         String campo = "NO";
         char opcion;
@@ -361,8 +378,8 @@ public class Teclado {
         }
         return campo;
     }
-     
-     public static String introSexo(String mensaje) {
+
+    public static String introSexo(String mensaje) {
         String campo = "M";
         char opcion;
         do {
@@ -374,8 +391,8 @@ public class Teclado {
         }
         return campo;
     }
-     
-     public static int pedirIntRango(String frase,int rangoinicial,int rangofinal) { // este metodo recibe una String que va a ser la frase que pida el numero entero y mira que sea un numero entero lo que recibe la
+
+    public static int pedirIntRango(String frase, int rangoinicial, int rangofinal) { // este metodo recibe una String que va a ser la frase que pida el numero entero y mira que sea un numero entero lo que recibe la
         //clase scanner, si no lo es, da un error y lo repite
         boolean valido = false;
         int n = 0;
@@ -384,7 +401,7 @@ public class Teclado {
             try {
                 System.out.println(frase); // aqui muestro por pantalla la frase que me ha venido por parametros
                 n = new Scanner(System.in).nextInt();
-                if (n >= rangoinicial && n<=rangofinal) { // si es positivo salgo del bucle, si es negativo doy un error
+                if (n >= rangoinicial && n <= rangofinal) { // si es positivo salgo del bucle, si es negativo doy un error
                     valido = true;
 
                 } else {
@@ -399,5 +416,5 @@ public class Teclado {
 
         return n;
     }
-    
+
 }
