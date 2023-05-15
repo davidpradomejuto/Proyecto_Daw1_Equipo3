@@ -16,7 +16,7 @@ public class Ejercicio1 {
     public static void main(String[] args) {
         int opcion = 0;
 
-        try ( Connection conn = AccesoBaseDatos.getInstance().getConn()) {
+        try ( Connection conn = AccesoBaseDatos.getInstance().getConn();) {
             do {
                 System.out.println("Menú: \n"
                         + "1. insertar paciente....\n"
@@ -29,14 +29,48 @@ public class Ejercicio1 {
 
                 switch (opcion) {
                     case 1 -> {
-                        MetodosDB.insertarPaciente();
+                        Paciente auxPaciente = new Paciente();
+                        MetodosDB.insertarPaciente(auxPaciente);
                     }
                     case 2 -> {
-                        MetodosDB.insertarVisita();
+                        String dni = Teclado.pedirDNIRegex("Introduce el Dni del paciente que quiera añadir la visita..");
+
+                        //si el paciente no existe pide crearlo
+                        if (MetodosDB.pedirPacientePorDni(dni) == null) {
+                            boolean opcion = Teclado.introBoolean("El paciente no existe, quieres crearlo? (s/n)");
+                            if (opcion) {
+                                Paciente auxPaciente = Paciente();
+                                MetodosDB.insertarPaciente(auxPaciente);
+                            }
+                        } else {
+
+                            Visita auxVisita = new Visita();
+                            MetodosDB.insertarVisita(auxVisita);
+
+                        }
                     }
                     case 3 -> {
+                        LinkedList lista = MetodosDB.ListarDia();
+
+                            for (Visita visita : lista) {
+                                System.out.println(visita.toString());
+                            }
+
                     }
                     case 4 -> {
+                        Paciente auxPaciente = MetodosDB.pedirPacientePorDni(dni)
+                        if (auxPaciente == null) {
+                            System.out.println("El paciente no existe");
+                        } else {
+
+                            System.out.println(auxPaciente.toString());
+                            LinkedList lista = MetodosDB.listar(auxPaciente);
+
+                            for (Visita visita : lista) {
+                                System.out.println(visita.toString());
+                            }
+
+                        }
                     }
                     case 5 -> {
                         System.out.println("Saliendo adios");

@@ -48,6 +48,11 @@ public class Paciente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+    @Override
+    public String toString() {
+        return "Paciente{" + "dni=" + dni + ", nombre=" + nombre + ", telefono=" + telefono + '}';
+    }
     
     
     

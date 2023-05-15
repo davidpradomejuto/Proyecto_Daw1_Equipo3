@@ -20,7 +20,7 @@ public class Visita {
 
     public Visita() {
         this.dni = Teclado.pedirDNIRegex("Introduce el DNI del paciente...");
-        this.fecha = Teclado.pedirFechaDDMMYYY();
+        this.fecha = Teclado.pedirFechaDDMMYYYMayorQueHoy();
         System.out.println("Introduce el tratamiento...");
         this.tratamiento = new Scanner(System.in).nextLine();
         System.out.println("Introduce las observaciones...");
@@ -55,7 +55,7 @@ public class Visita {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(LocalDate fecha){
         this.fecha = fecha;
     }
 
@@ -75,6 +75,12 @@ public class Visita {
         this.observaciones = observaciones;
     }
   
+    @Override
+    public String toString() {
+        return "Visita{" + "id=" + id + ", dni=" + dni + ", fecha=" + fecha + ", tratamiento=" + tratamiento + ", observaciones=" + observaciones + '}';
+    }
+    
+    
   
 
     

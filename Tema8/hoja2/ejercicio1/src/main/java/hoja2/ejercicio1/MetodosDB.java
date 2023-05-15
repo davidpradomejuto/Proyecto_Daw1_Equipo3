@@ -5,11 +5,15 @@
 package hoja2.ejercicio1;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -18,65 +22,59 @@ import java.util.Scanner;
  */
 public class MetodosDB {
 
-    public static void insertarPaciente() {
-        PreparedStatement ps = null;
-        Connection conn = AccesoBaseDatos.getInstance().getConn();
-        String sql = "INSERT INTO pacientes (dni,nombre,telefono) VALUES (?,?,?)";
-
-        try {
-            ///recogo los datos que quiero sustituir
-            System.out.println("Introduce los datos del paciente que quieres añadir....");
-            String dni = Teclado.pedirDNIRegex("Intoduce el DNI del paciente....");
-            String nombre = Teclado.pedirNombre("Introduce el nombre del paciente....");
-            String telefono = String.valueOf(Teclado.pedirTlf("Introduce el telefono del paciente..."));
-
-            //creo el prepare
-            ps = conn.prepareStatement(sql);
-
-            //sustituyo los valores
-            ps.setString(1, dni);
-            ps.setString(2, nombre);
-            ps.setString(3, telefono);
-
-            //ejecuto la sentencia
-            int salida = ps.executeUpdate();
-
-            //si la salida es 1 significica que se ha insertado
-            if (salida == 1) {
-                System.out.println("Ha sido insertado el paciente");
-            } else {
-                throw new Exception("Error no se ha realizado la inserción");
-            }
-
-        } catch (SQLException ex) {
-            System.out.println("Error en la inserción de datos " + ex.getMessage());
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        } finally {
-            try {
-                //cierro la prepare
-                if (ps != null) {
-                    ps.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println("Error al cerrar la sentencia ");
-            }
-        }
+    // metodo privado que nos devuelve la conexión
+    private Connection getConnection() {
+        return AccesoBaseDatos.getInstance().getConn();
     }
 
-    public static Paciente pedirPacientePorDni(String dni) {
-        Connection conn = AccesoBaseDatos.getInstance().getConn();
+    public boolean insertarPaciente(Paciente paciente) {
+        boolean result = false;
+        String sql = "INSERT INTO pacientes(dni,nombre,telefono) VALUES (?,?,?)";
+        if (pedirPacientePorDni(paciente.getDni()) == null) {
+
+            try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
+
+                stmt.setString(1, paciente.getDni());
+                stmt.setString(2, paciente.getNombre());
+                stmt.setString(3, paciente.getTelefono());
+
+                int salida = stmt.executeUpdate();
+                if (salida != 1) {
+                    throw new Exception(" No se ha insertado/modificado un solo registro");
+                } else {
+                    result = true;
+                }
+
+            } catch (SQLException ex) {
+                // errores
+                System.out.println("SQLException: " + ex.getMessage());
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        } else {
+            System.out.println("El paciente ya existe, no se puede crear otro con el mismo DNI");
+        }
+
+        return result;
+    }
+
+    public Paciente pedirPacientePorDni(String dni) {
 
         Paciente result = null;
 
-        String sql = "SELECT dni,nombre,telefono FROM pacientes  WHERE dni=?";
+        //esta es la sentencia del prepare
+        String sql = "SELECT dni,nombre,telefono FROM pacientes WHERE dni=?";
 
-        try ( PreparedStatement stmt = conn.prepareStatement(sql);) {
+        try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
 
+            //en el prepare sustituyo el DNI
             stmt.setString(1, dni);
+
             try ( ResultSet rs = stmt.executeQuery();) {
                 if (rs.next()) {
-                    result = new Paciente(rs.getString("dni"), rs.getString("nombre"), rs.getString("telefono"));
+                    //genero el objeto paciente si existe
+                    result = crearPaciente(rs);
+
                 } else {
                     System.out.println("Paciente no encontrado...");
                 }
@@ -89,84 +87,116 @@ public class MetodosDB {
         return result;
     }
 
-    public static void insertarVisita() {
-        PreparedStatement ps = null;
-        Connection conn = AccesoBaseDatos.getInstance().getConn();
+    public boolean insertarVisita(Visita visita) {
+        boolean result = false;
+
         String sql = "INSERT INTO visitas (dni,fecha,tratamiento,observaciones) VALUES (?,?,?,?)";
-        try {
 
-            Paciente aux = pedirPacientePorDni(Teclado.pedirDNIRegex("introduce el DNI del paciente al que quieras añadir la visita...."));
-            if (aux != null) {
-                String dni = Teclado.pedirDNIRegex("introduce el DNI del paciente al que quieras añadir la visita....");
-                LocalDate fecha = Teclado.pedirFechaDDMMYYYMayorQueHoy();
-                System.out.println("Introduce el tratamiento...");
-                String tratamiento = new Scanner(System.in).nextLine();
-                System.out.println("Introduce las observaciones...");
-                String observaciones = new Scanner(System.in).nextLine();
+        try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
 
-                //creo el prepare
-                ps = conn.prepareStatement(sql);
+            stmt.setString(1, visita.getDni());
+            stmt.setDate(2, Date.valueOf(visita.getFecha()));
+            stmt.setString(3, visita.getTratamiento());
+            stmt.setString(4, visita.getTratamiento());
 
-                //sustituyo los valores
-                ps.setString(1, dni);
-                ps.setString(2, fecha.toString());
-                ps.setString(3, tratamiento);
-                ps.setString(4, observaciones);
-
-                //ejecuto la sentencia
-                int salida = ps.executeUpdate();
-
-                //si la salida es 1 significica que se ha insertado
-                if (salida == 1) {
-                    System.out.println("Ha sido insertado la visita");
-                } else {
-                    throw new Exception("Error no se ha realizado la inserción");
-                }
-
+            int salida = stmt.executeUpdate();
+            if (salida != 1) {
+                throw new Exception(" No se ha insertado/modificado un solo registro");
             } else {
-                boolean opcion = Teclado.introBoolean("Quieres insertar el paciente?");
-                if (opcion) {
-                    insertarPaciente();
-                }
+                result = true;
             }
+
         } catch (SQLException ex) {
-            System.out.println("Error en la inserción de datos " + ex.getMessage());
+            // errores
+            System.out.println("SQLException: " + ex.getMessage());
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-        } finally {
-            try {
-                //cierro la prepare
-                if (ps != null) {
-                    ps.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println("Error al cerrar la sentencia ");
-            }
         }
+
+        return result;
     }
 
-    public static void ListarDia() {
+    public List<Visita> ListarDia() {
+
+        List lista = new ArrayList<Visita>();
+
         LocalDate fechaBuscada = Teclado.pedirFechaDDMMYYY();
         // dentro de executeQuery Codigo de la select
-        String sql = "select id,nombre,cantidad from productos";
-        Connection conn = AccesoBaseDatos.getInstance().getConn();
-        try (
-                 Statement sentencia = conn.createStatement();  ResultSet rs = sentencia.executeQuery(sql);) {
-            while (rs.next()) {
-//cada columna se indica, el tipo en el get, y que posicion o
-//que nombre tiene en el argumento
-                System.out.print(rs.getInt(1) + " ");
-                System.out.print(rs.getString("nombre") + " ");
-                System.out.println(rs.getInt(3));
+        String sql = "select dni,fecha,tratamiento, observaciones from visitas where fecha = ?";
+
+        
+        try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
+            stmt.setDate(1, Date.valueOf(fechaBuscada));
+
+            try ( ResultSet rs = stmt.executeQuery();) {
+                
+                //mientras en el resultado de la sentencia queden registros los vas guardando en la lista
+                while (rs.next()) {
+                    //creo el objeto y lo guardo
+                    Visita visitaAux = crearVisita(rs);
+                    if (!lista.add(visitaAux)) {
+                        throw new Exception("error no se ha insertado el objeto en la colección");
+                    }
+                }
+                
             }
+
         } catch (SQLException ex) {
             System.out.println("Error en la consulta " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
+
+        return lista;
 
     }
 
-    public static void ListarPaciente(Paciente paciente) {
+    public List ListarPaciente(Paciente paciente) {
+        
+        List lista = new LinkedList();
+        
+        // dentro de executeQuery Codigo de la select
+        String sql = "select dni,fecha,tratamiento, observaciones from visitas where dni = ? order by fecha asc";
 
+        
+        try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
+            stmt.setString(1, paciente.getDni());
+
+            try ( ResultSet rs = stmt.executeQuery();) {
+                
+                //mientras en el resultado de la sentencia queden registros los vas guardando en la lista
+                while (rs.next()) {
+                    //creo el objeto y lo guardo
+                    Visita visitaAux = crearVisita(rs);
+                    if (!lista.add(visitaAux)) {
+                        throw new Exception("error no se ha insertado el objeto en la colección");
+                    }
+                }
+                
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error en la consulta " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return lista;
+        
+    }
+
+    private Visita crearVisita(final ResultSet rs) throws SQLException {
+        return new Visita(rs.getInt("id"),
+                rs.getString("dni"),
+                rs.getDate("fecha").toLocalDate(),
+                rs.getString("tratamiento"),
+                rs.getString("observaciones"));
+    }
+
+    private Paciente crearPaciente(final ResultSet rs) throws SQLException {
+        return new Paciente(rs.getString("dni"),
+                rs.getString("nombre"),
+                rs.getString("telefono"));
     }
 
 }
