@@ -5,6 +5,7 @@
 package hoja2.ejercicio1;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 /**
  *
@@ -18,6 +19,12 @@ public class Visita {
   private String observaciones;
 
     public Visita() {
+        this.dni = Teclado.pedirDNIRegex("Introduce el DNI del paciente...");
+        this.fecha = Teclado.pedirFechaDDMMYYY();
+        System.out.println("Introduce el tratamiento...");
+        this.tratamiento = new Scanner(System.in).nextLine();
+        System.out.println("Introduce las observaciones...");
+        this.observaciones = new Scanner(System.in).nextLine();
     }
 
     public Visita(int id, String dni, LocalDate fecha, String tratamiento, String observaciones) {

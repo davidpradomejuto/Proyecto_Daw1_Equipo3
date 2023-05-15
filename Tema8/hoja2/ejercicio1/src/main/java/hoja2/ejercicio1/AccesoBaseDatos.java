@@ -18,7 +18,7 @@ public class AccesoBaseDatos {
     // constantes a definir
     private static final String BD = "java_02_clinica";
     private static final String USUARIO = "conexion";
-    private static final String CLAVE = "";
+    private static final String CLAVE = "conexion";
     private static final String URL = "jdbc:mysql://localhost:3306/" + BD;
 
     private AccesoBaseDatos() {

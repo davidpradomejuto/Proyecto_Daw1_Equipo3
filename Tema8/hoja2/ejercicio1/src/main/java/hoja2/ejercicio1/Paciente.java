@@ -16,7 +16,7 @@ public class Paciente {
     public Paciente(){
         this.dni = Teclado.pedirDNIRegex("Intoduce el DNI del paciente....");
         this.nombre = Teclado.pedirNombre("Introduce el nombre del paciente....");
-        this.telefono = Integer.parseInt(Teclado.pedirTlf("Introduce el telefono del paciente..."));
+        this.telefono = String.valueOf(Teclado.pedirTlf("Introduce el telefono del paciente..."));
     }
 
     public Paciente(String dni, String nombre, String telefono) {
