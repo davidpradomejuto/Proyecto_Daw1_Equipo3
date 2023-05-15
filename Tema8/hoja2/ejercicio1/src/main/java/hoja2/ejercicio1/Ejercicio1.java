@@ -6,6 +6,8 @@ package hoja2.ejercicio1;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  *
@@ -15,6 +17,8 @@ public class Ejercicio1 {
 
     public static void main(String[] args) {
         int opcion = 0;
+        
+        MetodosDB mysql = new MetodosDB();
 
         try ( Connection conn = AccesoBaseDatos.getInstance().getConn();) {
             do {
@@ -30,27 +34,27 @@ public class Ejercicio1 {
                 switch (opcion) {
                     case 1 -> {
                         Paciente auxPaciente = new Paciente();
-                        MetodosDB.insertarPaciente(auxPaciente);
+                        mysql.insertarPaciente(auxPaciente);
                     }
                     case 2 -> {
                         String dni = Teclado.pedirDNIRegex("Introduce el Dni del paciente que quiera añadir la visita..");
 
                         //si el paciente no existe pide crearlo
-                        if (MetodosDB.pedirPacientePorDni(dni) == null) {
-                            boolean opcion = Teclado.introBoolean("El paciente no existe, quieres crearlo? (s/n)");
-                            if (opcion) {
-                                Paciente auxPaciente = Paciente();
-                                MetodosDB.insertarPaciente(auxPaciente);
+                        if (mysql.pedirPacientePorDni(dni) == null) {
+                            boolean opcion2 = Teclado.introBoolean("El paciente no existe, quieres crearlo? (s/n)");
+                            if (opcion2) {
+                                Paciente auxPaciente =new Paciente();
+                                mysql.insertarPaciente(auxPaciente);
                             }
                         } else {
 
                             Visita auxVisita = new Visita();
-                            MetodosDB.insertarVisita(auxVisita);
+                            mysql.insertarVisita(auxVisita);
 
                         }
                     }
                     case 3 -> {
-                        LinkedList lista = MetodosDB.ListarDia();
+                        ArrayList<Visita> lista = mysql.ListarDia();
 
                             for (Visita visita : lista) {
                                 System.out.println(visita.toString());
@@ -58,13 +62,13 @@ public class Ejercicio1 {
 
                     }
                     case 4 -> {
-                        Paciente auxPaciente = MetodosDB.pedirPacientePorDni(dni)
+                        Paciente auxPaciente = mysql.pedirPacientePorDni(Teclado.pedirDNIRegex("Introduce el DNI del paciente que quieras ver"));
                         if (auxPaciente == null) {
                             System.out.println("El paciente no existe");
                         } else {
 
                             System.out.println(auxPaciente.toString());
-                            LinkedList lista = MetodosDB.listar(auxPaciente);
+                            LinkedList<Visita> lista = mysql.ListarPaciente(auxPaciente);
 
                             for (Visita visita : lista) {
                                 System.out.println(visita.toString());

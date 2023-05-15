@@ -34,6 +34,8 @@ public class Visita {
         this.tratamiento = tratamiento;
         this.observaciones = observaciones;
     }
+    
+     
 
     public int getId() {
         return id;

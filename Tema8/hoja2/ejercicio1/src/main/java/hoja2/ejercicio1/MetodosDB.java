@@ -116,13 +116,13 @@ public class MetodosDB {
         return result;
     }
 
-    public List<Visita> ListarDia() {
+    public ArrayList<Visita> ListarDia() {
 
-        List lista = new ArrayList<Visita>();
+        ArrayList lista = new ArrayList<Visita>();
 
         LocalDate fechaBuscada = Teclado.pedirFechaDDMMYYY();
         // dentro de executeQuery Codigo de la select
-        String sql = "select dni,fecha,tratamiento, observaciones from visitas where fecha = ?";
+        String sql = "select id,dni,fecha,tratamiento, observaciones from visitas where fecha = ?";
 
         
         try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
@@ -151,12 +151,12 @@ public class MetodosDB {
 
     }
 
-    public List ListarPaciente(Paciente paciente) {
+    public LinkedList ListarPaciente(Paciente paciente) {
         
-        List lista = new LinkedList();
+        LinkedList lista = new LinkedList();
         
         // dentro de executeQuery Codigo de la select
-        String sql = "select dni,fecha,tratamiento, observaciones from visitas where dni = ? order by fecha asc";
+        String sql = "select id,dni,fecha,tratamiento, observaciones from visitas where dni = ? order by fecha asc";
 
         
         try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
