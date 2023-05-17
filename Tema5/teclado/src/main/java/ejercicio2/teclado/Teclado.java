@@ -102,6 +102,48 @@ public class Teclado {
 
         return fecha;
     }
+    
+    public static Enum pedirEnum(String mensaje) {
+        Enum tematica = null;
+        boolean valido = false;
+        int n = 0;
+        int opcion = 0;
+
+        while (!valido) {
+            try {
+                System.out.println("Elige la tematica.\n1. Aventura\n2. Comedia\n3. Infantil\n4. Policial");
+                System.out.println(mensaje); // aqui muestro por pantalla la frase que me ha venido por parametros
+                opcion = new Scanner(System.in).nextInt();
+                switch (opcion) {
+                    case 1 -> {
+                       // tematica = Enum.Aventura;
+                        valido = true;
+                    }
+                    case 2 -> {
+                       // tematica = Enum.Comedia;
+                        valido = true;
+                    }
+                    case 3 -> {
+                     //   tematica = Enum.Infantil;
+                        valido = true;
+                    }
+                    case 4 -> {
+                   //     tematica = Enum.Policial;
+                        valido = true;
+                    }
+                    default -> {
+                        System.out.println("Error: elige una opcion");
+                    }
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Error No es un numero");
+            } catch (Exception e) {
+                System.out.println("Error Indeterminado");
+            }
+        }
+
+       return tematica;
+    }
 
     public static int pedirIntPositivo(String frase) { // este metodo recibe una String que va a ser la frase que pida el numero entero y mira que sea un numero entero lo que recibe la
         //clase scanner, si no lo es, da un error y lo repite
