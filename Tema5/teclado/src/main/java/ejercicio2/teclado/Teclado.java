@@ -214,7 +214,7 @@ public class Teclado {
         return n;
     }
 
-    public static LocalDate pedirFecha() { // este metodo pide el dia,mes y anio en numeros  y lo convierte en fecha, se que el rango de fecha de los dias cambia dependiendo del mes
+    public static LocalDate pedirFechaDiaMesAnio() { // este metodo pide el dia,mes y anio en numeros  y lo convierte en fecha, se que el rango de fecha de los dias cambia dependiendo del mes
         //yo le he puesto de 0 a 31 , por que no queria poner otra capa mas de complejidad
 
         int dia = 0, mes = 0, anio = 0;
