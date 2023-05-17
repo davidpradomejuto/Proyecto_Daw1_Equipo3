@@ -5,6 +5,7 @@
 package hoja2.ejercicio1;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 /**
@@ -79,7 +80,9 @@ public class Visita {
   
     @Override
     public String toString() {
-        return "Visita{" + "id=" + id + ", dni=" + dni + ", fecha=" + fecha + ", tratamiento=" + tratamiento + ", observaciones=" + observaciones + '}';
+        
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        return "Visita{" + "id=" + id + ", dni=" + dni + ", fecha=" + fecha.format(formato) + ", tratamiento=" + tratamiento + ", observaciones=" + observaciones + '}';
     }
     
     
