@@ -13,7 +13,7 @@ import java.util.Properties;
  * @author cic
  */
 public class AccesoBaseDatos {
-
+    //prueba de comitado
     private Connection conn = null; //atributo conexión
     // constantes a definir
     private static final String BD = "proyecto";
