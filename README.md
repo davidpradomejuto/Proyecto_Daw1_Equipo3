@@ -1,90 +1,3 @@
-# ProyectoIntermodularDaw1
-# Dia 1
-
-| David Prado | Coordinador |
-| --- | --- |
-| David Llanillo | Diseñar base de datos |
-| Aymane Laaziri | Creación del proyecto de Github |
-| Asier | Diseñar base de datos |
-| Angel | Creación del proyecto de Github |
-
-## Actividades a realizar
-
-- Asignar las tareas a cada uno (David Prado)
-- Crear el proyecto en github (David Prado)
-- Diseñar la base de datos (David Prado)
-- Implementar la base de datos (David Llanillo y Aymane)
-- Crear la máquina de producción (Asier)
-- Diseñar la página web (David Llanillo y Aymane)
-
-Actividades realizadas
-
-## Diseño de la base de datos
-
-Datos que queremos guardar en la base de datos:
-
-Clientes:
-
-- identificador UUID
-- dni
-- nombre
-- apellidos
-- telefono
-- direccion
-- localidad
-- fecha nacimiento
-
-Perfil de cliente:
-
-- credenciales de acceso a la web de banco,
-- situacion civil,
-- situacion laboral
-- morosidad
-- procesoJudicial
-- estadoCivil
-- conyuge
-- enGananciales
-
-Cuenta Bancaria:
-
-- IBAN
-- tipoDeCuenta
-- saldoActual
-- dineroUltimaNomina
-- mediaNominas
-
-MovimientoCliente:
-
-- numeroOperacion
-- cantidad
-- conceptoOperacion
-- emisor
-- destinatario
-
-Prestamo preconcedido:
-
-- id
-- fechaPrestamo
-- cantidadPrestada
-- periodoPrestamo
-- tipoDeInteres
-- plazoDeConfirmacion
-
-Prestamo concedido:
-
-- fechaDeFirma
-- idPrestamoPreconcedido
-- cantidadAmortizadaMensualmente
-
-PagosPrestamos:
-
-- numpago
-- fechaPago
-- cantidadPago
-
-
-
-
 # Dia 1                                   22/05/2023
 
 
@@ -298,16 +211,11 @@ Actividades realizadas
 
 
 * Asignar las tareas a cada uno (David Prado)
-* Iimplementar la base de datos (David Llanillo y David Prado)
-* hHacer la página web (Asier y Aymane)
-* Empezar a desarrollar el programa
+* Implementar la base de datos (David Llanillo y David Prado)
+* Hacer la página web (Asier y Aymane)
+* Empezar a desarrollar el programa (David Prado)
 
 
 # Diagrama de bases de datos
 
 
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image1.png "image_tooltip")
