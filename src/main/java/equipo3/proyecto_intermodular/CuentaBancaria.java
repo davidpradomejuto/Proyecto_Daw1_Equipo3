@@ -11,5 +11,6 @@ package equipo3.proyecto_intermodular;
 public class CuentaBancaria {
     private String iban;
     private String cliente;
+     private String aa;
     private String tipocuenta;
 }
