@@ -11,6 +11,67 @@ package equipo3.proyecto_intermodular;
 public class CuentaBancaria {
     private String iban;
     private String cliente;
-     private String aa;
     private String tipocuenta;
+    private double saldo;
+    private double nominaMes;
+    private double mediaNomina;
+
+    public CuentaBancaria(String iban, String cliente, String tipocuenta, double saldo, double nominaMes, double mediaNomina) {
+        this.iban = iban;
+        this.cliente = cliente;
+        this.tipocuenta = tipocuenta;
+        this.saldo = saldo;
+        this.nominaMes = nominaMes;
+        this.mediaNomina = mediaNomina;
+    }
+
+    public String getIban() {
+        return iban;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public String getTipocuenta() {
+        return tipocuenta;
+    }
+
+    public void setTipocuenta(String tipocuenta) {
+        this.tipocuenta = tipocuenta;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public double getNominaMes() {
+        return nominaMes;
+    }
+
+    public void setNominaMes(double nominaMes) {
+        this.nominaMes = nominaMes;
+    }
+
+    public double getMediaNomina() {
+        return mediaNomina;
+    }
+
+    public void setMediaNomina(double mediaNomina) {
+        this.mediaNomina = mediaNomina;
+    }
+    
+    
 }
