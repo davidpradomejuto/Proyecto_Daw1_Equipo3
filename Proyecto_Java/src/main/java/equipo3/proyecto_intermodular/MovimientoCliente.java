@@ -9,7 +9,7 @@ package equipo3.proyecto_intermodular;
  *
  * @author DAW209
  */
-public class MovimientosCliente {
+public class MovimientoCliente {
     private int numOperacion;
     private String emisor;
     private String ibanOrigen;
@@ -17,7 +17,7 @@ public class MovimientosCliente {
     private double cantidadOperacion;
     private String conceptoOperacion;
 
-    public MovimientosCliente(int numOperacion, String emisor, String ibanOrigen, String ibanDestino, double cantidadOperacion, String conceptoOperacion) {
+    public MovimientoCliente(int numOperacion, String emisor, String ibanOrigen, String ibanDestino, double cantidadOperacion, String conceptoOperacion) {
         this.numOperacion = numOperacion;
         this.emisor = emisor;
         this.ibanOrigen = ibanOrigen;

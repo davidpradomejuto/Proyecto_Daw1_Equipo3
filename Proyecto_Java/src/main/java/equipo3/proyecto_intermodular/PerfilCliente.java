@@ -10,32 +10,33 @@ package equipo3.proyecto_intermodular;
  * @author DAW209
  */
 public class PerfilCliente {
-    private String uuid;
+    private Cliente cliente;
     private String credenciales;
     private SituacionLaboral situacionLaboral;
     private EstadoCivil estadoCivil;
     private boolean morosidad;
     private boolean procesoJudicial;
-    private String uuidPareja;
+    private Cliente Pareja;
     private boolean enGananciales;
 
-    public PerfilCliente(String uuid, String credenciales, SituacionLaboral situacionLaboral, EstadoCivil estadoCivil, boolean morosidad, boolean procesoJudicial, String uuidPareja, boolean enGananciales) {
-        this.uuid = uuid;
+    public PerfilCliente(Cliente cliente, String credenciales, SituacionLaboral situacionLaboral, EstadoCivil estadoCivil, boolean morosidad,
+        boolean procesoJudicial, Cliente Pareja, boolean enGananciales) {
+        this.cliente = cliente;
         this.credenciales = credenciales;
         this.situacionLaboral = situacionLaboral;
         this.estadoCivil = estadoCivil;
         this.morosidad = morosidad;
         this.procesoJudicial = procesoJudicial;
-        this.uuidPareja = uuidPareja;
+        this.Pareja = Pareja;
         this.enGananciales = enGananciales;
     }
 
-    public String getUuid() {
-        return uuid;
+    public Cliente getUuid() {
+        return cliente;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setUuid(Cliente uuid) {
+        this.cliente = cliente;
     }
 
     public String getCredenciales() {
@@ -78,12 +79,12 @@ public class PerfilCliente {
         this.procesoJudicial = procesoJudicial;
     }
 
-    public String getUuidPareja() {
-        return uuidPareja;
+    public Cliente getUuidPareja() {
+        return Pareja;
     }
 
-    public void setUuidPareja(String uuidPareja) {
-        this.uuidPareja = uuidPareja;
+    public void setUuidPareja(Cliente uuidPareja) {
+        this.Pareja = Pareja;
     }
 
     public boolean isEnGananciales() {
@@ -96,6 +97,6 @@ public class PerfilCliente {
 
     @Override
     public String toString() {
-        return "PerfilCliente{" + "uuid=" + uuid + ", credenciales=" + credenciales + ", situacionLaboral=" + situacionLaboral.name() + ", estadoCivil=" + estadoCivil.name() + ", morosidad=" + morosidad + ", procesoJudicial=" + procesoJudicial + ", uuidPareja=" + uuidPareja + ", enGananciales=" + enGananciales + '}';
+        return "PerfilCliente{"  + ", credenciales=" + credenciales + ", situacionLaboral=" + situacionLaboral.name() + ", estadoCivil=" + estadoCivil.name() + ", morosidad=" + morosidad + ", procesoJudicial=" + procesoJudicial + "enGananciales=" + enGananciales + '}';
     }
 }

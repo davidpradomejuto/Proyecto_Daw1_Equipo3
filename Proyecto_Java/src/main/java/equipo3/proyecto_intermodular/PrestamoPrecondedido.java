@@ -11,7 +11,7 @@ package equipo3.proyecto_intermodular;
 
 import java.time.LocalDate;
 
-public class PrestamosPrecondedidos {
+public class PrestamoPrecondedido {
     private int ID;
     private Cliente cliente;
     private LocalDate fechaOferta;

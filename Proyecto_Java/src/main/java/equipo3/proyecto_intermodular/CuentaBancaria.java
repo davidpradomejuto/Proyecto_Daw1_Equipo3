@@ -4,26 +4,32 @@
  */
 package equipo3.proyecto_intermodular;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author daw118
  */
 public class CuentaBancaria {
     private String iban;
-    private String cliente;
+    private Cliente cliente;
     private String tipocuenta;
     private double saldo;
     private double nominaMes;
     private double mediaNomina;
+    private LinkedList<MovimientoCliente> movimientos;
 
-    public CuentaBancaria(String iban, String cliente, String tipocuenta, double saldo, double nominaMes, double mediaNomina) {
+    public CuentaBancaria(String iban, Cliente cliente, String tipocuenta, double saldo, double nominaMes, double mediaNomina, LinkedList<MovimientoCliente> movimientos) {
         this.iban = iban;
         this.cliente = cliente;
         this.tipocuenta = tipocuenta;
         this.saldo = saldo;
         this.nominaMes = nominaMes;
         this.mediaNomina = mediaNomina;
+        this.movimientos = movimientos;
     }
+
+    
 
     public String getIban() {
         return iban;
@@ -33,11 +39,11 @@ public class CuentaBancaria {
         this.iban = iban;
     }
 
-    public String getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public void setCliente(String cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 

@@ -20,13 +20,12 @@ public class Cliente {
     private int telefono;
     private String direccion;
     private String localización;
-    private EstadoCivil estadoCivil;
-    private SituacionLaboral situacionLaboral;
     private LocalDate fechaNacimiento;
     private CuentaBancaria cuentaBancaria;
-    private PerfilCliente 
+    private PerfilCliente perfil;
+    private PrestamoCondecido prestamo;
 
-    public Cliente(String uuidd, String dni, String nombre, String apellido, int telefono, String direccion, String localización, EstadoCivil estadoCivil, SituacionLaboral situacionLaboral, LocalDate fechaNacimiento) {
+    public Cliente(String uuidd, String dni, String nombre, String apellido, int telefono, String direccion, String localización, LocalDate fechaNacimiento, CuentaBancaria cuentaBancaria, PerfilCliente perfil, PrestamoCondecido prestamo) {
         this.uuidd = uuidd;
         this.dni = dni;
         this.nombre = nombre;
@@ -34,10 +33,37 @@ public class Cliente {
         this.telefono = telefono;
         this.direccion = direccion;
         this.localización = localización;
-        this.estadoCivil = estadoCivil;
-        this.situacionLaboral = situacionLaboral;
         this.fechaNacimiento = fechaNacimiento;
+        this.cuentaBancaria = cuentaBancaria;
+        this.perfil = perfil;
+        this.prestamo = prestamo;
     }
+
+    public CuentaBancaria getCuentaBancaria() {
+        return cuentaBancaria;
+    }
+
+    public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
+        this.cuentaBancaria = cuentaBancaria;
+    }
+
+    public PerfilCliente getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(PerfilCliente perfil) {
+        this.perfil = perfil;
+    }
+
+    public PrestamoCondecido getPrestamo() {
+        return prestamo;
+    }
+
+    public void setPrestamo(PrestamoCondecido prestamo) {
+        this.prestamo = prestamo;
+    }
+
+    
 
     public String getUuidd() {
         return uuidd;
@@ -95,21 +121,6 @@ public class Cliente {
         this.localización = localización;
     }
 
-    public EstadoCivil getEstadoCivil() {
-        return estadoCivil;
-    }
-
-    public void setEstadoCivil(EstadoCivil estadoCivil) {
-        this.estadoCivil = estadoCivil;
-    }
-
-    public SituacionLaboral getSituacionLaboral() {
-        return situacionLaboral;
-    }
-
-    public void setSituacionLaboral(SituacionLaboral situacionLaboral) {
-        this.situacionLaboral = situacionLaboral;
-    }
 
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
@@ -122,6 +133,6 @@ public class Cliente {
     @Override
     public String toString() {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return "Cliente{" + "uuidd=" + uuidd + ", dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", direccion=" + direccion + ", localizaci\u00f3n=" + localización + ", estadoCivil=" + estadoCivil + ", situacionLaboral=" + situacionLaboral + ", fechaNacimiento=" + fechaNacimiento.format(f) + '}';
+        return "Cliente{" + "uuidd=" + uuidd + ", dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", direccion=" + direccion + ", localizaci\u00f3n=" + localización + ",  fechaNacimiento=" + fechaNacimiento.format(f) + '}';
     }
 }
