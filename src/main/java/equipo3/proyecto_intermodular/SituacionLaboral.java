@@ -9,6 +9,6 @@ package equipo3.proyecto_intermodular;
  *
  * @author DAW209
  */
-public enum situacionesLaborales {
+public enum SituacionLaboral {
     empleado, desempleado, autónomo, pensionista, rentista, estudiante, responsable_del_hogar;
 }

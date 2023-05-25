@@ -12,14 +12,14 @@ package equipo3.proyecto_intermodular;
 public class PerfilCliente {
     private String uuid;
     private String credenciales;
-    private situacionesLaborales situacionLaboral;
-    private estadosCiviles estadoCivil;
+    private SituacionLaboral situacionLaboral;
+    private EstadoCivil estadoCivil;
     private boolean morosidad;
     private boolean procesoJudicial;
     private String uuidPareja;
     private boolean enGananciales;
 
-    public PerfilCliente(String uuid, String credenciales, situacionesLaborales situacionLaboral, estadosCiviles estadoCivil, boolean morosidad, boolean procesoJudicial, String uuidPareja, boolean enGananciales) {
+    public PerfilCliente(String uuid, String credenciales, SituacionLaboral situacionLaboral, EstadoCivil estadoCivil, boolean morosidad, boolean procesoJudicial, String uuidPareja, boolean enGananciales) {
         this.uuid = uuid;
         this.credenciales = credenciales;
         this.situacionLaboral = situacionLaboral;
@@ -46,19 +46,19 @@ public class PerfilCliente {
         this.credenciales = credenciales;
     }
 
-    public situacionesLaborales getSituacionLaboral() {
+    public SituacionLaboral getSituacionLaboral() {
         return situacionLaboral;
     }
 
-    public void setSituacionLaboral(situacionesLaborales situacionLaboral) {
+    public void setSituacionLaboral(SituacionLaboral situacionLaboral) {
         this.situacionLaboral = situacionLaboral;
     }
 
-    public estadosCiviles getEstadoCivil() {
+    public EstadoCivil getEstadoCivil() {
         return estadoCivil;
     }
 
-    public void setEstadoCivil(estadosCiviles estadoCivil) {
+    public void setEstadoCivil(EstadoCivil estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
 

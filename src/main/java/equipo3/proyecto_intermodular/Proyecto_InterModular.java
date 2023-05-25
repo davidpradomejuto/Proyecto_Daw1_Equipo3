@@ -5,6 +5,8 @@
 
 package equipo3.proyecto_intermodular;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author daw118
@@ -12,6 +14,7 @@ package equipo3.proyecto_intermodular;
 public class Proyecto_InterModular {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Cliente cliente = new Cliente("23434556456","72197202H","david","prado",654789021,"barrio covadonga","torrelavega",
+                EstadoCivil.casado,SituacionLaboral.empleado,LocalDate.now());
     }
 }

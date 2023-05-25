@@ -20,11 +20,13 @@ public class Cliente {
     private int telefono;
     private String direccion;
     private String localización;
-    private estadosCiviles estadoCivil;
-    private situacionesLaborales situacionLaboral;
+    private EstadoCivil estadoCivil;
+    private SituacionLaboral situacionLaboral;
     private LocalDate fechaNacimiento;
+    private CuentaBancaria cuentaBancaria;
+    private PerfilCliente 
 
-    public Cliente(String uuidd, String dni, String nombre, String apellido, int telefono, String direccion, String localización, estadosCiviles estadoCivil, situacionesLaborales situacionLaboral, LocalDate fechaNacimiento) {
+    public Cliente(String uuidd, String dni, String nombre, String apellido, int telefono, String direccion, String localización, EstadoCivil estadoCivil, SituacionLaboral situacionLaboral, LocalDate fechaNacimiento) {
         this.uuidd = uuidd;
         this.dni = dni;
         this.nombre = nombre;
@@ -93,19 +95,19 @@ public class Cliente {
         this.localización = localización;
     }
 
-    public estadosCiviles getEstadoCivil() {
+    public EstadoCivil getEstadoCivil() {
         return estadoCivil;
     }
 
-    public void setEstadoCivil(estadosCiviles estadoCivil) {
+    public void setEstadoCivil(EstadoCivil estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
 
-    public situacionesLaborales getSituacionLaboral() {
+    public SituacionLaboral getSituacionLaboral() {
         return situacionLaboral;
     }
 
-    public void setSituacionLaboral(situacionesLaborales situacionLaboral) {
+    public void setSituacionLaboral(SituacionLaboral situacionLaboral) {
         this.situacionLaboral = situacionLaboral;
     }
 

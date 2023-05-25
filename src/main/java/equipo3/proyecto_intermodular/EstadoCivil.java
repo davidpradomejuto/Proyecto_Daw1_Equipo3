@@ -9,6 +9,6 @@ package equipo3.proyecto_intermodular;
  *
  * @author DAW209
  */
-public enum estadosCiviles {
-    casdo, soltero, divorciado, viudo;
+public enum EstadoCivil {
+    casado, soltero, divorciado, viudo;
 }
