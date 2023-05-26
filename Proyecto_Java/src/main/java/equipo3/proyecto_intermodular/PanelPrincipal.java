@@ -173,12 +173,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemSalirActionPerformed
 
     private void btnAniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniadirActionPerformed
-        // TODO add your handling code here:
-        Panel1.setVisible(false);
-        Panel2.setVisible(true);
-        Panel3.setVisible(false);
-        txtNombre.setEnabled(false);
-        txtTelefono.setEnabled(false);
+        
     }//GEN-LAST:event_btnAniadirActionPerformed
 
     private void btnAniadir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniadir1ActionPerformed

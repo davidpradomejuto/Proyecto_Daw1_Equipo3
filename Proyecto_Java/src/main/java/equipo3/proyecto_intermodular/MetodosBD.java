@@ -134,7 +134,7 @@ public class MetodosBD {
                 rs.getString("nombre"), rs.getString("apellidos"), rs.getInt("telefono"),
                 rs.getString("direccion"), rs.getString("localidad"),
                 rs.getDate("fechaNacimiento").toLocalDate(),
-                seleccionCuentaBancaria(rs.getString("UUID")),null,null);
+                seleccionCuentaBancaria(rs.getString("UUID")),null);
     }
 
     //hay que modificar este metodo y donde esta null poner el seleccionCliente(uuid)
