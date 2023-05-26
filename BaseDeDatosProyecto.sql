@@ -40,7 +40,7 @@ CREATE TABLE `clientes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-insert into clientes values("123456789","72197202H","david","prado","barrio covadonga","torrelavega",2002-11-30);
+insert into clientes values("123456789","72197202H","david","prado","6182345678","barrio covadonga","torrelavega",2002-11-30);
 --
 -- Dumping data for table `clientes`
 --
@@ -117,12 +117,12 @@ DROP TABLE IF EXISTS `pagoscliente`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pagoscliente` (
   `numPago` int auto_increment NOT NULL,
-  `cliente` varchar(36) NOT NULL,
+  `idConcedido` int(11) NOT NULL,
   `fechaPago` date DEFAULT NULL,
   `cantidadPagada` double DEFAULT NULL,
   PRIMARY KEY (`numPago`),
-  KEY `fk_pagosCliente_prestamosConcedidos1_idx` (`cliente`),
-  CONSTRAINT `fk_pagosCliente_prestamosConcedidos1` FOREIGN KEY (`cliente`) REFERENCES `prestamosconcedidos` (`cliente`)
+  KEY `fk_pagosCliente_prestamosConcedidos1_idx` (`idConcedido`),
+  CONSTRAINT `fk_pagosCliente_prestamosConcedidos1` FOREIGN KEY (`idConcedido`) REFERENCES `id` (`prestamosconcedido`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -170,10 +170,10 @@ UNLOCK TABLES;
 -- Table structure for table `prestamospreconcedido`
 --
 
-DROP TABLE IF EXISTS `prestamospreconcedido`;
+DROP TABLE IF EXISTS `prestamospreconcedidos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `prestamospreconcedido` (
+CREATE TABLE `prestamospreconcedidos` (
 	id int auto_increment,
   `cliente` varchar(36) NOT NULL,
   `fechaOferta` date NOT NULL,
@@ -198,13 +198,11 @@ DROP TABLE IF EXISTS `prestamosconcedidos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `prestamosconcedidos` (
-  `cliente` varchar(36) NOT NULL,
   `fechaConfirmacion` date NOT NULL,
   `pagoMensual` double NOT NULL,
-  datosPrecondedidos int not null,
-  PRIMARY KEY (`cliente`,`datosPrecondedidos`),
-  CONSTRAINT `fk_prestamosConcedidos_prestamoPreconcedido1` FOREIGN KEY (`cliente`) REFERENCES `prestamospreconcedido` (`cliente`),
-  CONSTRAINT `fk_prestamosConcedidos_prestamoPreconcedido2` FOREIGN KEY (`datosPrecondedidos`) REFERENCES `prestamospreconcedido` (`id`)
+  idPreconcedido int not null,
+  PRIMARY KEY (`idPreconcedido`),
+  CONSTRAINT `fk_prestamosConcedidos_prestamoPreconcedido2` FOREIGN KEY (`idPreconcedido`) REFERENCES `prestamospreconcedidos` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
