@@ -12,26 +12,26 @@ import java.util.ArrayList;
  * @author DAW118
  */
 public class PrestamoConcedido {
-    private Cliente cliente;
+    private String uuidd;
     private LocalDate fechaConfimacion;
     private double pagoMensual;
-    private PrestamoPrecondedido prestamoPrecondedido;
+    private int idPreconcedido;
     private ArrayList<PagoCliente> pagos;
 
-    public PrestamoConcedido(Cliente cliente, LocalDate fechaConfimacion, double pagoMensual, PrestamoPrecondedido prestamoPrecondedido, ArrayList<PagoCliente> pagos) {
-        this.cliente = cliente;
+    public PrestamoConcedido(String uuidd, LocalDate fechaConfimacion, double pagoMensual, int idPreconcedido, ArrayList<PagoCliente> pagos) {
+        this.uuidd = uuidd;
         this.fechaConfimacion = fechaConfimacion;
         this.pagoMensual = pagoMensual;
-        this.prestamoPrecondedido = prestamoPrecondedido;
+        this.idPreconcedido = idPreconcedido;
         this.pagos = pagos;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public String getCliente() {
+        return uuidd;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setCliente(String uuidd) {
+        this.uuidd = uuidd;
     }
 
     public LocalDate getFechaConfimacion() {
@@ -50,12 +50,12 @@ public class PrestamoConcedido {
         this.pagoMensual = pagoMensual;
     }
 
-    public PrestamoPrecondedido getPrestamoPrecondedido() {
-        return prestamoPrecondedido;
+    public int getIdPreconcedido() {
+        return idPreconcedido;
     }
 
-    public void setPrestamoPrecondedido(PrestamoPrecondedido prestamoPrecondedido) {
-        this.prestamoPrecondedido = prestamoPrecondedido;
+    public void setIdPreconcedido(int idPreconcedido) {
+        this.idPreconcedido = idPreconcedido;
     }
 
     public ArrayList<PagoCliente> getPagos() {

@@ -12,20 +12,20 @@ package equipo3.proyecto_intermodular;
 import java.time.LocalDate;
 
 public class PrestamoPrecondedido {
-    private int ID;
+    private int id;
     private Cliente cliente;
     private LocalDate fechaOferta;
     private int cantidadPrestamo;
     private int periodoPrestamo;
     private double tipoInteres;
-    private int PlazoParaAceptar;
+    private int plazoParaAceptar;
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public LocalDate getFechaOferta() {
@@ -61,11 +61,11 @@ public class PrestamoPrecondedido {
     }
 
     public int getPlazoParaAceptar() {
-        return PlazoParaAceptar;
+        return plazoParaAceptar;
     }
 
-    public void setPlazoParaAceptar(int PlazoParaAceptar) {
-        this.PlazoParaAceptar = PlazoParaAceptar;
+    public void setPlazoParaAceptar(int plazoParaAceptar) {
+        this.plazoParaAceptar = plazoParaAceptar;
     }
     
     
