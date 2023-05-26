@@ -4,8 +4,11 @@
  */
 package equipo3.proyecto_intermodular;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.LinkedList;
+import java.util.UUID;
 
 /**
  *
@@ -14,19 +17,22 @@ import java.util.LinkedList;
 public class Proyecto_InterModular {
 
     public static void main(String[] args) {
-        Cliente cliente = new Cliente("23434556456", "72197202H", "david", "prado", 654789021, "barrio covadonga", "torrelavega", LocalDate.now(), null, null);
+        MetodosBD mysql = new MetodosBD();
 
-        CuentaBancaria cuenta = new CuentaBancaria("es 86 12312312", cliente, "cuentaCorriente", 3000, 1200, 3001, null);
-
-        PerfilCliente perfil = new PerfilCliente(cliente, "contrania", SituacionLaboral.empleado,
-                EstadoCivil.casado, false, false, null, false);
-
-        cliente.setCuentaBancaria(cuenta);
-        cliente.setPerfil(perfil);
-        
-        MetodosBanco metodos = new MetodosBanco();
-        
-        System.out.println(metodos.concesionPrestamo(cliente));
+        try ( Connection conn = AccesoBaseDatos.getInstance().getConn();) {
+            System.out.println("");
+                   //Cliente prueba= new Cliente("1112","72197202H","david","prado",618020202,"barrio la redonda","pielagos",LocalDate.now(),null,null);
+                   //mysql.insertarCliente(prueba);
+                    
+                    
+                    System.out.println("Mostrando cliente");
+                    Cliente busqueda = null;
+                     busqueda = mysql.seleccionClientePorDni("72197202H");
+                   System.out.println(busqueda.toString());
+            
+        } catch (SQLException ex) {
+            System.out.println("error sql" + ex.getMessage());
+        }
 
     }
 }

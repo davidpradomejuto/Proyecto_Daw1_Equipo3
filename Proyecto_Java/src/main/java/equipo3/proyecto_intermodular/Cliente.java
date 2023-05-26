@@ -19,22 +19,22 @@ public class Cliente {
     private String apellido;
     private int telefono;
     private String direccion;
-    private String localización;
+    private String localidad;
     private LocalDate fechaNacimiento;
     private CuentaBancaria cuentaBancaria;
     private PerfilCliente perfil;
 
-    public Cliente(String uuidd, String dni, String nombre, String apellido, int telefono, String direccion, String localización, LocalDate fechaNacimiento, CuentaBancaria cuentaBancaria, PerfilCliente perfil) {
+    public Cliente(String uuidd, String dni, String nombre, String apellido, int telefono, String direccion, String localidad, LocalDate fechaNacimiento, CuentaBancaria cuentaBancaria, PerfilCliente perfil) {
         this.uuidd = uuidd;
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.localización = localización;
+        this.localidad = localidad;
         this.fechaNacimiento = fechaNacimiento;
         this.cuentaBancaria = cuentaBancaria;
-        this.perfil = perfil;;
+        this.perfil = perfil;
     }
 
     public CuentaBancaria getCuentaBancaria() {
@@ -52,9 +52,6 @@ public class Cliente {
     public void setPerfil(PerfilCliente perfil) {
         this.perfil = perfil;
     }
-
-
-    
 
     public String getUuidd() {
         return uuidd;
@@ -104,12 +101,12 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public String getLocalización() {
-        return localización;
+    public String getLocalidad() {
+        return localidad;
     }
 
-    public void setLocalización(String localización) {
-        this.localización = localización;
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
     }
 
 
@@ -124,6 +121,7 @@ public class Cliente {
     @Override
     public String toString() {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return "Cliente{" + "uuidd=" + uuidd + ", dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", direccion=" + direccion + ", localizaci\u00f3n=" + localización + ",  fechaNacimiento=" + fechaNacimiento.format(f) + '}';
+        return "Cliente{" + "uuidd=" + uuidd + ", dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono +
+                ", direccion=" + direccion + ", localidad=" + localidad + ",  fechaNacimiento=" + fechaNacimiento.format(f) + '}';
     }
 }

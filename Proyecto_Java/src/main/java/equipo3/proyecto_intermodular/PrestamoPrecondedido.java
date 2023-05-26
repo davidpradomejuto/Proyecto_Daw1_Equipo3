@@ -8,16 +8,51 @@ package equipo3.proyecto_intermodular;
  *
  * @author daw118
  */
-
 import java.time.LocalDate;
 
 public class PrestamoPrecondedido {
+
     private int id;
+    private String uuid;
     private LocalDate fechaOferta;
-    private int cantidadPrestamo;
-    private int periodoPrestamo;
+    private int cantidad;
+    private int periodo;
     private double tipoInteres;
     private int plazoParaAceptar;
+
+    public PrestamoPrecondedido(int id, String uuid, LocalDate fechaOferta, int cantidad, int periodo, double tipoInteres, int plazoParaAceptar) {
+        this.id = id;
+        this.uuid = uuid;
+        this.fechaOferta = fechaOferta;
+        this.cantidad = cantidad;
+        this.periodo = periodo;
+        this.tipoInteres = tipoInteres;
+        this.plazoParaAceptar = plazoParaAceptar;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public int getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(int periodo) {
+        this.periodo = periodo;
+    }
 
     public int getId() {
         return id;
@@ -35,22 +70,6 @@ public class PrestamoPrecondedido {
         this.fechaOferta = fechaOferta;
     }
 
-    public int getCantidadPrestamo() {
-        return cantidadPrestamo;
-    }
-
-    public void setCantidadPrestamo(int cantidadPrestamo) {
-        this.cantidadPrestamo = cantidadPrestamo;
-    }
-
-    public int getPeriodoPrestamo() {
-        return periodoPrestamo;
-    }
-
-    public void setPeriodoPrestamo(int periodoPrestamo) {
-        this.periodoPrestamo = periodoPrestamo;
-    }
-
     public double getTipoInteres() {
         return tipoInteres;
     }
@@ -66,7 +85,5 @@ public class PrestamoPrecondedido {
     public void setPlazoParaAceptar(int plazoParaAceptar) {
         this.plazoParaAceptar = plazoParaAceptar;
     }
-    
-    
-}
 
+}
