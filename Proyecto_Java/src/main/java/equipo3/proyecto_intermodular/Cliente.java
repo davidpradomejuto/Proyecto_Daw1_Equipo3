@@ -23,9 +23,9 @@ public class Cliente {
     private LocalDate fechaNacimiento;
     private CuentaBancaria cuentaBancaria;
     private PerfilCliente perfil;
-    private PrestamoCondecido prestamo;
+    private PrestamoConcedido prestamo;
 
-    public Cliente(String uuidd, String dni, String nombre, String apellido, int telefono, String direccion, String localización, LocalDate fechaNacimiento, CuentaBancaria cuentaBancaria, PerfilCliente perfil, PrestamoCondecido prestamo) {
+    public Cliente(String uuidd, String dni, String nombre, String apellido, int telefono, String direccion, String localización, LocalDate fechaNacimiento, CuentaBancaria cuentaBancaria, PerfilCliente perfil, PrestamoConcedido prestamo) {
         this.uuidd = uuidd;
         this.dni = dni;
         this.nombre = nombre;
@@ -55,11 +55,11 @@ public class Cliente {
         this.perfil = perfil;
     }
 
-    public PrestamoCondecido getPrestamo() {
+    public PrestamoConcedido getPrestamo() {
         return prestamo;
     }
 
-    public void setPrestamo(PrestamoCondecido prestamo) {
+    public void setPrestamo(PrestamoConcedido prestamo) {
         this.prestamo = prestamo;
     }
 

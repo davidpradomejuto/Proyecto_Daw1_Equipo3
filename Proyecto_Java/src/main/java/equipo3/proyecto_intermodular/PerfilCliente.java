@@ -10,17 +10,17 @@ package equipo3.proyecto_intermodular;
  * @author DAW209
  */
 public class PerfilCliente {
-    private Cliente cliente;
+    private String cliente;
     private String credenciales;
     private SituacionLaboral situacionLaboral;
     private EstadoCivil estadoCivil;
     private boolean morosidad;
     private boolean procesoJudicial;
-    private Cliente Pareja;
+    private String Pareja;
     private boolean enGananciales;
 
-    public PerfilCliente(Cliente cliente, String credenciales, SituacionLaboral situacionLaboral, EstadoCivil estadoCivil, boolean morosidad,
-        boolean procesoJudicial, Cliente Pareja, boolean enGananciales) {
+    public PerfilCliente(String cliente, String credenciales, SituacionLaboral situacionLaboral, EstadoCivil estadoCivil, boolean morosidad,
+        boolean procesoJudicial, String Pareja, boolean enGananciales) {
         this.cliente = cliente;
         this.credenciales = credenciales;
         this.situacionLaboral = situacionLaboral;
@@ -31,12 +31,12 @@ public class PerfilCliente {
         this.enGananciales = enGananciales;
     }
 
-    public Cliente getUuid() {
+    public String getUuid() {
         return cliente;
     }
 
-    public void setUuid(Cliente uuid) {
-        this.cliente = cliente;
+    public void setUuid(String uuid) {
+        this.cliente = uuid;
     }
 
     public String getCredenciales() {
@@ -79,12 +79,12 @@ public class PerfilCliente {
         this.procesoJudicial = procesoJudicial;
     }
 
-    public Cliente getUuidPareja() {
+    public String getUuidPareja() {
         return Pareja;
     }
 
-    public void setUuidPareja(Cliente uuidPareja) {
-        this.Pareja = Pareja;
+    public void setUuidPareja(String uuidPareja) {
+        this.Pareja = uuidPareja;
     }
 
     public boolean isEnGananciales() {

@@ -11,14 +11,14 @@ import java.util.ArrayList;
  *
  * @author DAW118
  */
-public class PrestamoCondecido {
+public class PrestamoConcedido {
     private Cliente cliente;
     private LocalDate fechaConfimacion;
     private double pagoMensual;
     private PrestamoPrecondedido prestamoPrecondedido;
     private ArrayList<PagoCliente> pagos;
 
-    public PrestamoCondecido(Cliente cliente, LocalDate fechaConfimacion, double pagoMensual, PrestamoPrecondedido prestamoPrecondedido, ArrayList<PagoCliente> pagos) {
+    public PrestamoConcedido(Cliente cliente, LocalDate fechaConfimacion, double pagoMensual, PrestamoPrecondedido prestamoPrecondedido, ArrayList<PagoCliente> pagos) {
         this.cliente = cliente;
         this.fechaConfimacion = fechaConfimacion;
         this.pagoMensual = pagoMensual;

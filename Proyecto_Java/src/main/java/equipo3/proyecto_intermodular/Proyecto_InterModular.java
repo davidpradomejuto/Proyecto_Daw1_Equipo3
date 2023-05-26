@@ -16,14 +16,17 @@ public class Proyecto_InterModular {
     public static void main(String[] args) {
         Cliente cliente = new Cliente("23434556456", "72197202H", "david", "prado", 654789021, "barrio covadonga", "torrelavega", LocalDate.now(), null, null, null);
 
-        
-        CuentaBancaria cuenta = new  CuentaBancaria("es 86 12312312",cliente,"cuentaCorriente",3000,1200,1000, null);
-        
+        CuentaBancaria cuenta = new CuentaBancaria("es 86 12312312", cliente, "cuentaCorriente", 3000, 1200, 3001, null);
+
         PerfilCliente perfil = new PerfilCliente(cliente, "contrania", SituacionLaboral.empleado,
-                EstadoCivil.casado, true, false, null, false);
+                EstadoCivil.casado, false, false, null, false);
 
         cliente.setCuentaBancaria(cuenta);
-                cliente.setPerfil(perfil);
+        cliente.setPerfil(perfil);
+        
+        MetodosBanco metodos = new MetodosBanco();
+        
+        System.out.println(metodos.concesionPrestamo(cliente));
 
     }
 }
