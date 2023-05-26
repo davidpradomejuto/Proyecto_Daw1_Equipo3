@@ -14,7 +14,7 @@ import java.util.LinkedList;
 public class Proyecto_InterModular {
 
     public static void main(String[] args) {
-        Cliente cliente = new Cliente("23434556456", "72197202H", "david", "prado", 654789021, "barrio covadonga", "torrelavega", LocalDate.now(), null, null, null);
+        Cliente cliente = new Cliente("23434556456", "72197202H", "david", "prado", 654789021, "barrio covadonga", "torrelavega", LocalDate.now(), null, null);
 
         CuentaBancaria cuenta = new CuentaBancaria("es 86 12312312", cliente, "cuentaCorriente", 3000, 1200, 3001, null);
 

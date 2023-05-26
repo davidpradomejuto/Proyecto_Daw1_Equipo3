@@ -31,8 +31,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabeltitulo = new javax.swing.JLabel();
         btnAniadir = new javax.swing.JButton();
         btnAniadir1 = new javax.swing.JButton();
-        btnAniadir2 = new javax.swing.JButton();
         lblIcono1 = new javax.swing.JLabel();
+        btnAniadir3 = new javax.swing.JButton();
+        btnAniadir4 = new javax.swing.JButton();
         jMenuBarArchivo = new javax.swing.JMenuBar();
         jMenuArchivo = new javax.swing.JMenu();
         jMenuItemGuardar = new javax.swing.JMenuItem();
@@ -60,10 +61,17 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnAniadir2.setText("Iniciar Sesion");
-        btnAniadir2.addActionListener(new java.awt.event.ActionListener() {
+        btnAniadir3.setText("Salir");
+        btnAniadir3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAniadir2ActionPerformed(evt);
+                btnAniadir3ActionPerformed(evt);
+            }
+        });
+
+        btnAniadir4.setText("Salir");
+        btnAniadir4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAniadir4ActionPerformed(evt);
             }
         });
 
@@ -82,15 +90,20 @@ public class PanelPrincipal extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addComponent(btnAniadir1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnAniadir2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnAniadir3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblIcono1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(130, 130, 130))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblIcono1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(130, 130, 130))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnAniadir4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(259, 259, 259))))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAniadir, btnAniadir1, btnAniadir2});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAniadir, btnAniadir1});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,8 +116,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAniadir)
                     .addComponent(btnAniadir1)
-                    .addComponent(btnAniadir2))
-                .addGap(83, 83, 83))
+                    .addComponent(btnAniadir3))
+                .addGap(18, 18, 18)
+                .addComponent(btnAniadir4)
+                .addGap(43, 43, 43))
         );
 
         jMenuArchivo.setText("Archivo");
@@ -158,21 +173,20 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemSalirActionPerformed
 
     private void btnAniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniadirActionPerformed
-        // TODO add your handling code here:
-        Panel1.setVisible(false);
-        Panel2.setVisible(true);
-        Panel3.setVisible(false);
-        txtNombre.setEnabled(false);
-        txtTelefono.setEnabled(false);
+        
     }//GEN-LAST:event_btnAniadirActionPerformed
 
     private void btnAniadir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniadir1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAniadir1ActionPerformed
 
-    private void btnAniadir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniadir2ActionPerformed
+    private void btnAniadir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniadir3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAniadir2ActionPerformed
+    }//GEN-LAST:event_btnAniadir3ActionPerformed
+
+    private void btnAniadir4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniadir4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAniadir4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,7 +226,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAniadir;
     private javax.swing.JButton btnAniadir1;
-    private javax.swing.JButton btnAniadir2;
+    private javax.swing.JButton btnAniadir3;
+    private javax.swing.JButton btnAniadir4;
     private javax.swing.JLabel jLabeltitulo;
     private javax.swing.JMenu jMenuArchivo;
     private javax.swing.JMenuBar jMenuBarArchivo;
