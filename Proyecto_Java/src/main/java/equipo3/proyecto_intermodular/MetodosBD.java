@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
 
 /**
  *
@@ -72,7 +73,7 @@ public class MetodosBD {
                 stmt.setString(6, cliente.getDireccion());
                 stmt.setString(7, cliente.getLocalización());
                 stmt.setDate(8, Date.valueOf(cliente.getFechaNacimiento()));
-                
+
                 int salida = stmt.executeUpdate();
                 if (salida != 1) {
                     throw new Exception(" No se ha insertado/modificado un solo registro");
@@ -122,6 +123,39 @@ public class MetodosBD {
         return result;
     }
 
+    public LinkedList ListarCliente(Cliente cliente) {
+
+        LinkedList<Cliente> lista = new LinkedList();
+
+        // dentro de executeQuery Codigo de la select
+        String sql = "select uuidd,dni,nombre,apellido,telefono,direccion,localidad,fechaNacimiento from clientes";
+
+        try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
+            stmt.setString(1, cliente.getDni());
+
+            try ( ResultSet rs = stmt.executeQuery();) {
+
+                //mientras en el resultado de la sentencia queden registros los vas guardando en la lista
+                while (rs.next()) {
+                    //creo el objeto y lo guardo
+                    Cliente clienteAux = crearCliente(rs);
+                    if (!lista.add(clienteAux)) {
+                        throw new Exception("error no se ha insertado el objeto en la colección");
+                    }
+                }
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error en la consulta " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return lista;
+
+    }
+
     private Cliente crearCliente(final ResultSet rs) throws SQLException {
         return new Cliente(rs.getString("uuidd"),
                 rs.getString("dni"),
@@ -129,10 +163,10 @@ public class MetodosBD {
                 rs.getString("apellido"),
                 rs.getInt("telefono"),
                 rs.getString("direccion"),
+                rs.getString("localidad"),
                 rs.getDate("fechanacimiento"),
-                rs.getString("nombre"),
-                rs.getString("nombre"),
-                rs.getString("nombre"),
-                rs.getString("nombre"),);
+                null,
+                null,
+                null);
     }
 }
