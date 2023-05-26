@@ -13,15 +13,15 @@ import java.sql.SQLException;
  * @author DAW118
  */
 public class MetodosBD {
-    public Cliente seleccionCliente(String dni) {
+
+    public Cliente seleccionCliente(String UUID) {
         Cliente p = null;
-        String sql = "Select UUID,dni,nombre,apellidos,telefono,direccion,localidad,fechaNacimiento from clientes where dni=?";
+        String sql = "Select UUID,dni,nombre,apellidos,telefono,direccion,localidad,fechaNacimiento from clientes where UUID=?";
         try ( PreparedStatement sentencia = conn.prepareStatement(sql);) {
-            sentencia.setString(1, dni);
+            sentencia.setString(1, UUID);
             try ( ResultSet rs = sentencia.executeQuery();) {
                 if (rs.next()) {
-                    String uuid = rs.getString(1);
-                    p = new Cliente(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getDate(8),);
+                    p = new Cliente(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getDate(8),null,null);
                     System.out.println(p.toString());
                 }
             }
@@ -40,12 +40,14 @@ public class MetodosBD {
             sentencia.setString(1, uuidCliente);
             try ( ResultSet rs = sentencia.executeQuery();) {
                 if (rs.next()) {
-                    
-                    cb = new CuentaBancaria(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getDouble(5),rs.getDouble(6),);
+
+                    cb = new CuentaBancaria(rs.getString(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getDouble(5), rs.getDouble(6),);
                 }
             }
         } catch (SQLException e) {
             System.out.println("error al consultar seleccion de cuenta bancaria del cliente" + e.toString());
         }
+        return cb;
     }
+
 }
