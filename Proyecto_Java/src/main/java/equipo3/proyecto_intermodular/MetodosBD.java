@@ -5,6 +5,7 @@
 package equipo3.proyecto_intermodular;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -57,18 +58,20 @@ public class MetodosBD {
 
     public boolean insertarCliente(Cliente cliente) {
         boolean result = false;
-        String sql = "INSERT INTO pacientes(dni,nombre,telefono) VALUES (?,?,?)";
-        if (pedirClientePorUuidd(cliente.getDni()) == null) {
+        String sql = "INSERT INTO clientes(uuidd,dni,nombre,apellido,telefono,direccion,localidad,fechanacimiento) VALUES (?,?,?,?,?,?,?,?)";
+        if (pedirClientePorUuidd(cliente.getUuidd()) == null) {
 
             try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
 
-                stmt.setString(1, cliente.getDni());
-                stmt.setString(2, cliente.getNombre());
-                stmt.setString(3, cliente.getTelefono());
-                stmt.setString(3, cliente.getTelefono());
-                stmt.setString(3, cliente.getTelefono());
-                stmt.setString(3, cliente.getTelefono());
-
+                stmt.setString(1, cliente.getUuidd());
+                stmt.setString(2, cliente.getDni());
+                stmt.setString(3, cliente.getNombre());
+                stmt.setString(4, cliente.getApellido());
+                stmt.setInt(5, cliente.getTelefono());
+                stmt.setString(6, cliente.getDireccion());
+                stmt.setString(7, cliente.getLocalización());
+                stmt.setDate(8, Date.valueOf(cliente.getFechaNacimiento()));
+                
                 int salida = stmt.executeUpdate();
                 if (salida != 1) {
                     throw new Exception(" No se ha insertado/modificado un solo registro");
@@ -94,7 +97,7 @@ public class MetodosBD {
         Cliente result = null;
 
         //esta es la sentencia del prepare
-        String sql = "SELECT dni,nombre,telefono FROM pacientes WHERE dni=?";
+        String sql = "SELECT dni,nombre,telefono FROM pacientes WHERE uuidd=?";
 
         try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
 
@@ -120,6 +123,14 @@ public class MetodosBD {
     private Cliente crearCliente(final ResultSet rs) throws SQLException {
         return new Cliente(rs.getString("dni"),
                 rs.getString("nombre"),
-                rs.getString("telefono"));
+                rs.getString("telefono"),
+                rs.getString("nombre"),
+                rs.getString("nombre"),
+                rs.getString("nombre"),
+                rs.getString("nombre"),
+                rs.getString("nombre"),
+                rs.getString("nombre"),
+                rs.getString("nombre"),
+                rs.getString("nombre"),);
     }
 }
