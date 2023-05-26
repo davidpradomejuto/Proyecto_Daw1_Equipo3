@@ -42,7 +42,7 @@ public class MetodosBD {
 
     private CuentaBancaria seleccionCuentaBancaria(String uuid) {
         CuentaBancaria cuenta = null;
-        String sql = "SELECT IBAN,clientes,tipoCuenta,tipoCuenta,saldo,nominaMes,mediaNominaFROM cuentabancarias WHERE UUID=?";
+        String sql = "SELECT IBAN,clientes,tipoCuenta,tipoCuenta,saldo,nominaMes,mediaNomina FROM cuentabancarias WHERE UUID=?";
         try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
             stmt.setString(1, uuid);
             try ( ResultSet rs = stmt.executeQuery();) {

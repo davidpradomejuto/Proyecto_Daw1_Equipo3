@@ -13,7 +13,6 @@ import java.time.LocalDate;
 
 public class PrestamoPrecondedido {
     private int id;
-    private Cliente cliente;
     private LocalDate fechaOferta;
     private int cantidadPrestamo;
     private int periodoPrestamo;
