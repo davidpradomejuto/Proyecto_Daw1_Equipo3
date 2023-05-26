@@ -4,9 +4,11 @@
  */
 package equipo3.proyecto_intermodular;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 
 /**
  *
@@ -21,7 +23,8 @@ public class MetodosBD {
             sentencia.setString(1, UUID);
             try ( ResultSet rs = sentencia.executeQuery();) {
                 if (rs.next()) {
-                    p = new Cliente(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getDate(8),null,null);
+     
+                    p = new Cliente(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7),sqlDate.toLocalDate(rs.getDate(8)),null,null);
                     System.out.println(p.toString());
                 }
             }
