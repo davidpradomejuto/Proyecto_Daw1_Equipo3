@@ -15,6 +15,7 @@ import java.sql.SQLException;
  */
 public class MetodosBanco {
 
+
     public double concesionPrestamo(Cliente cliente) {
         double prestamo = 0;
         if (cliente.getPerfil().isMorosidad() || cliente.getPerfil().isProcesoJudicial()) {
