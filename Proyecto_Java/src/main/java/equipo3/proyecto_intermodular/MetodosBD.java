@@ -123,13 +123,13 @@ public class MetodosBD {
     }
 
     private Cliente crearCliente(final ResultSet rs) throws SQLException {
-        return new Cliente(rs.getString("dni"),
+        return new Cliente(rs.getString("uuidd"),
+                rs.getString("dni"),
                 rs.getString("nombre"),
-                rs.getString("telefono"),
-                rs.getString("nombre"),
-                rs.getString("nombre"),
-                rs.getString("nombre"),
-                rs.getString("nombre"),
+                rs.getString("apellido"),
+                rs.getInt("telefono"),
+                rs.getString("direccion"),
+                rs.getDate("fechanacimiento"),
                 rs.getString("nombre"),
                 rs.getString("nombre"),
                 rs.getString("nombre"),
