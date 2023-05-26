@@ -21,20 +21,21 @@ public class MetodosBD {
     }
 
     public Cliente seleccionCliente(String UUID) {
-        Cliente p = null;
-        String sql = "Select UUID,dni,nombre,apellidos,telefono,direccion,localidad,fechaNacimiento from clientes where UUID=?";
-        try ( PreparedStatement sentencia = conn.prepareStatement(sql);) {
-            sentencia.setString(1, UUID);
-            try ( ResultSet rs = sentencia.executeQuery();) {
+        Cliente cliente = null;
+        String sql = "SELECT id,username,password,email FROM usuarios WHERE id=?";
+        try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
+            stmt.setString(1, UUID);
+            try ( ResultSet rs = stmt.executeQuery();) {
                 if (rs.next()) {
-                    p = new Cliente(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getDate(8), null, null);
-                    System.out.println(p.toString());
+                    cliente = crearCliente(rs);
                 }
             }
+
         } catch (SQLException ex) {
-            System.out.println("error al consultar seleccion propietario" + ex.toString());
+            // errores
+            System.out.println("SQLException: " + ex.getMessage());
         }
-        return p;
+        return cliente;
     }
 
     private CuentaBancaria seleccionCuentaBancaria(String uuidCliente) {
@@ -120,6 +121,7 @@ public class MetodosBD {
         }
         return result;
     }
+
     private Cliente crearCliente(final ResultSet rs) throws SQLException {
         return new Cliente(rs.getString("dni"),
                 rs.getString("nombre"),
