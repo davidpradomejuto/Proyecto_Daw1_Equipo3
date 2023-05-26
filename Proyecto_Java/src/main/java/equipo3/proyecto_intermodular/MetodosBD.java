@@ -19,11 +19,11 @@ public class MetodosBD {
         return AccesoBaseDatos.getInstance().getConn();
     }
 
-    public Cliente seleccionCliente(String UUID) {
+    public Cliente seleccionCliente(String uuid) {
         Cliente cliente = null;
-        String sql = "SELECT id,username,password,email FROM usuarios WHERE id=?";
+        String sql = "SELECT UUID,dni,nombre,apellidos,telefono,direccion,localidad,fechaNacimiento FROM clientes WHERE UUID=?";
         try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
-            stmt.setString(1, UUID);
+            stmt.setString(1, uuid);
             try ( ResultSet rs = stmt.executeQuery();) {
                 if (rs.next()) {
                     cliente = crearCliente(rs);
@@ -37,58 +37,26 @@ public class MetodosBD {
         return cliente;
     }
 
-    private CuentaBancaria seleccionCuentaBancaria(String uuidCliente) {
-
-        CuentaBancaria cb = null;
-        String sql = "Select IBAN, clientes, tipoCuenta, saldo, nominaMes, mediaNomina from cuentasbancarias where clientes = ?";
-
-        try ( PreparedStatement sentencia = conn.prepareStatement(sql);) {
-            sentencia.setString(1, uuidCliente);
-            try ( ResultSet rs = sentencia.executeQuery();) {
+    private CuentaBancaria seleccionCuentaBancaria(String uuid) {
+        CuentaBancaria cuenta = null;
+        String sql = "SELECT IBAN,clientes,tipoCuenta,tipoCuenta,saldo,nominaMes,mediaNominaFROM cuentabancarias WHERE UUID=?";
+        try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
+            stmt.setString(1, uuid);
+            try ( ResultSet rs = stmt.executeQuery();) {
                 if (rs.next()) {
-
-                    cb = new CuentaBancaria(rs.getString(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getDouble(5), rs.getDouble(6),);
+                    cuenta = crearCuenta(rs);
                 }
             }
-        } catch (SQLException e) {
-            System.out.println("error al consultar seleccion de cuenta bancaria del cliente" + e.toString());
+
+        } catch (SQLException ex) {
+            // errores
+            System.out.println("SQLException: " + ex.getMessage());
         }
-        return cb;
+        return cuenta;
+
     }
 
-    public boolean insertarCliente(Cliente cliente) {
-        boolean result = false;
-        String sql = "INSERT INTO pacientes(dni,nombre,telefono) VALUES (?,?,?)";
-        if (pedirClientePorUuidd(cliente.getDni()) == null) {
-
-            try ( PreparedStatement stmt = getConnection().prepareStatement(sql);) {
-
-                stmt.setString(1, cliente.getDni());
-                stmt.setString(2, cliente.getNombre());
-                stmt.setString(3, cliente.getTelefono());
-                stmt.setString(3, cliente.getTelefono());
-                stmt.setString(3, cliente.getTelefono());
-                stmt.setString(3, cliente.getTelefono());
-
-                int salida = stmt.executeUpdate();
-                if (salida != 1) {
-                    throw new Exception(" No se ha insertado/modificado un solo registro");
-                } else {
-                    result = true;
-                }
-
-            } catch (SQLException ex) {
-                // errores
-                System.out.println("SQLException: " + ex.getMessage());
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
-        } else {
-            System.out.println("El cliente ya existe, no se puede crear otro con el mismo UUIDD");
-        }
-
-        return result;
-    }
+    
 
     public Cliente pedirClientePorUuidd(String uuidd) {
 
@@ -120,8 +88,19 @@ public class MetodosBD {
     }
 
     private Cliente crearCliente(final ResultSet rs) throws SQLException {
-        return new Cliente(rs.getString("dni"),
-                rs.getString("nombre"),
-                rs.getString("telefono"));
+        return new Cliente(rs.getString("UUID"),
+                rs.getString("dni"),
+                rs.getString("nombre"),rs.getString("apellidos"), rs.getInt("telefono"), 
+                rs.getString("direccion"), rs.getString("localidad"), rs.getString("fechaNacimiento"),
+                seleccionCuentaBancaria(rs.getString("UUID")),null);
+    }
+
+    
+    //hay que modificar este metodo y donde esta null poner el seleccionCliente(uuid)
+    private CuentaBancaria crearCuenta(final ResultSet rs) throws SQLException {
+        return new CuentaBancaria(rs.getString("IBAN"),  null,
+                rs.getString("tipoCuenta"), rs.getDouble("saldo"), 
+                rs.getDouble("nominaMes"), rs.getDouble("mediaNomina"),null
+        );
     }
 }
