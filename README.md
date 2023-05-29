@@ -127,14 +127,14 @@ Actividades realizadas
 - Empezamos a desarrollar el programa
 - todos los diagramas de clases hechos
 # <a name="_392kt42f2yys"></a>Diagrama de bases de datos
-![](Aspose.Words.64940ae2-bab4-4d5a-9abc-5cd0de3c1c21.001.png)
+![](imagenes/Aspose.Words.64940ae2-bab4-4d5a-9abc-5cd0de3c1c21.001.png)
 
 
-![](Aspose.Words.64940ae2-bab4-4d5a-9abc-5cd0de3c1c21.002.png)
+![](imagenes/Aspose.Words.64940ae2-bab4-4d5a-9abc-5cd0de3c1c21.002.png)
 
 Diagrama del tratamiento del préstamo
 
-![](Aspose.Words.64940ae2-bab4-4d5a-9abc-5cd0de3c1c21.003.png)
+![](imagenes/Aspose.Words.64940ae2-bab4-4d5a-9abc-5cd0de3c1c21.003.png)
 
 <a name="_tsak8youeihd"></a>Dia 4 
 
