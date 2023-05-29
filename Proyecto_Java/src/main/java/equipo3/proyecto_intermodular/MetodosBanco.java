@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class MetodosBanco {
 
 
-    public double concesionPrestamo(Cliente cliente) {
+    public static double concesionPrestamo(Cliente cliente) {
         double prestamo = 0;
         if (cliente.getPerfil().isMorosidad() || cliente.getPerfil().isProcesoJudicial()) {
             System.out.println("No se puede realizar prestamos al cliente\n"
@@ -30,7 +30,7 @@ public class MetodosBanco {
                     System.out.println("No se puede realizar prestamos al cliente\n"
                             + "Cliente ...");
                 } else {
-                    // comprobar si el cónyuge está cliente...
+                    // comprobar si el cónyuge es cliente...
                 }
             } else {
                 double mediaNominas = cliente.getCuentaBancaria().getMediaNomina();

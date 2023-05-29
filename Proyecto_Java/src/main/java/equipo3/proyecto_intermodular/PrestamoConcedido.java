@@ -12,26 +12,17 @@ import java.util.ArrayList;
  * @author DAW118
  */
 public class PrestamoConcedido {
-    private String uuidd;
+
+    private int idPreconcedido;
     private LocalDate fechaConfimacion;
     private double pagoMensual;
-    private int idPreconcedido;
     private ArrayList<PagoCliente> pagos;
 
-    public PrestamoConcedido(String uuidd, LocalDate fechaConfimacion, double pagoMensual, int idPreconcedido, ArrayList<PagoCliente> pagos) {
-        this.uuidd = uuidd;
+    public PrestamoConcedido(LocalDate fechaConfimacion, double pagoMensual, int idPreconcedido, ArrayList<PagoCliente> pagos) {
         this.fechaConfimacion = fechaConfimacion;
         this.pagoMensual = pagoMensual;
         this.idPreconcedido = idPreconcedido;
         this.pagos = pagos;
-    }
-
-    public String getCliente() {
-        return uuidd;
-    }
-
-    public void setCliente(String uuidd) {
-        this.uuidd = uuidd;
     }
 
     public LocalDate getFechaConfimacion() {
@@ -65,6 +56,5 @@ public class PrestamoConcedido {
     public void setPagos(ArrayList<PagoCliente> pagos) {
         this.pagos = pagos;
     }
-    
-    
+
 }

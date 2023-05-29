@@ -21,14 +21,24 @@ public class Proyecto_InterModular {
 
         try ( Connection conn = AccesoBaseDatos.getInstance().getConn();) {
             System.out.println("");
-                   //Cliente prueba= new Cliente("1112","72197202H","david","prado",618020202,"barrio la redonda","pielagos",LocalDate.now(),null,null);
+                   // PerfilCliente perfil = new PerfilCliente("aa","asdasd",SituacionLaboral.desempleado,EstadoCivil.casado,false,false,"a",false);
+                  // Cliente prueba= new Cliente("1112","72197202H","david","prado",618020202,"barrio la redonda","pielagos",LocalDate.now(),null,null);
                    //mysql.insertarCliente(prueba);
                     
                     
                     System.out.println("Mostrando cliente");
                     Cliente busqueda = null;
-                     busqueda = mysql.seleccionClientePorDni("72197202H");
-                   System.out.println(busqueda.toString());
+                     busqueda = mysql.seleccionClientePorDni("45344347P");
+                     
+                     
+                     System.out.println(busqueda.getPerfil().toString());
+                     System.out.println(MetodosBanco.concesionPrestamo(busqueda));
+                   
+                     
+                     EstadoCivil prueba = EstadoCivil.valueOf("soltero");
+                     System.out.println(prueba);
+                   
+
             
         } catch (SQLException ex) {
             System.out.println("error sql" + ex.getMessage());

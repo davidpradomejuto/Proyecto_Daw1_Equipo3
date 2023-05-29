@@ -10,7 +10,7 @@ package equipo3.proyecto_intermodular;
  */
 import java.time.LocalDate;
 
-public class PrestamoPrecondedido {
+public class PrestamoPreconcedido {
 
     private int id;
     private String uuid;
@@ -20,7 +20,7 @@ public class PrestamoPrecondedido {
     private double tipoInteres;
     private int plazoParaAceptar;
 
-    public PrestamoPrecondedido(int id, String uuid, LocalDate fechaOferta, int cantidad, int periodo, double tipoInteres, int plazoParaAceptar) {
+    public PrestamoPreconcedido(int id, String uuid, LocalDate fechaOferta, int cantidad, int periodo, double tipoInteres, int plazoParaAceptar) {
         this.id = id;
         this.uuid = uuid;
         this.fechaOferta = fechaOferta;
@@ -86,4 +86,10 @@ public class PrestamoPrecondedido {
         this.plazoParaAceptar = plazoParaAceptar;
     }
 
+    @Override
+    public String toString() {
+        return "PrestamoPreconcedido{" + "id=" + id + ", uuid=" + uuid + ", fechaOferta=" + fechaOferta + ", cantidad=" + cantidad + ", periodo=" + periodo + ", tipoInteres=" + tipoInteres + ", plazoParaAceptar=" + plazoParaAceptar + '}';
+    }
+
+    
 }
