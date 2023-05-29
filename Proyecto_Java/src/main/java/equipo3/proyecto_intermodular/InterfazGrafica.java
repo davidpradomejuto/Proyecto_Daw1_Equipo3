@@ -211,6 +211,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.CardLayout());
+
+        PanelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanelPrincipal.setPreferredSize(new java.awt.Dimension(708, 648));
 
@@ -222,6 +225,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 ListarClientesActionPerformed(evt);
             }
         });
+        PanelPrincipal.add(ListarClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, -1, -1));
 
         InsertarClientes.setText("Insertar Clientes");
         InsertarClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -434,20 +438,28 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jLabelDetalleTelefono1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabelDetalleTelefono1.setText("Telefono");
 
+        txtDetalleNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDetalleNombre.setText("Sin datos");
 
+        txtDetalleDni.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDetalleDni.setText("Sin datos");
 
+        txtDetalleApellidos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDetalleApellidos.setText("Sin datos");
 
+        txtDetalleUUID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDetalleUUID.setText("Sin datos");
 
+        txtDetalleFechaNacimiento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDetalleFechaNacimiento.setText("Sin datos");
 
+        txtDetalleTelefeno.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDetalleTelefeno.setText("Sin datos");
 
+        txtDetalleLocalidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDetalleLocalidad.setText("Sin datos");
 
+        txtDetalleDireccion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDetalleDireccion.setText("Sin datos");
 
         javax.swing.GroupLayout jPanelDatosClienteDetalleLayout = new javax.swing.GroupLayout(jPanelDatosClienteDetalle);
@@ -493,7 +505,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                             .addComponent(jLabelDetalleLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txtDetalleLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanelDatosClienteDetalleLayout.setVerticalGroup(
             jPanelDatosClienteDetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -512,24 +524,24 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     .addComponent(jLabelDetalleDireccion)
                     .addComponent(txtDetalleApellidos)
                     .addComponent(txtDetalleDireccion))
-                .addGroup(jPanelDatosClienteDetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelDatosClienteDetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelDatosClienteDetalleLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelDatosClienteDetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelDetalleDni)
                             .addComponent(jLabelDetalleTelefono1)
-                            .addComponent(txtDetalleTelefeno))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosClienteDetalleLayout.createSequentialGroup()
+                            .addComponent(txtDetalleTelefeno)
+                            .addComponent(txtDetalleDni))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtDetalleDni)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(jPanelDatosClienteDetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabelDetalleTelefono)
-                    .addComponent(txtDetalleUUID)
-                    .addComponent(txtDetalleFechaNacimiento))
-                .addGap(18, 18, 18))
+                        .addGroup(jPanelDatosClienteDetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabelDetalleTelefono)
+                            .addComponent(txtDetalleFechaNacimiento))
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanelDatosClienteDetalleLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtDetalleUUID)
+                        .addGap(24, 24, 24))))
         );
 
         jTableDetalleCuenta.setModel(new javax.swing.table.DefaultTableModel(
@@ -594,14 +606,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
         PanelDetalleClienteLayout.setHorizontalGroup(
             PanelDetalleClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelDetalleClienteLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addGroup(PanelDetalleClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7)
                     .addGroup(PanelDetalleClienteLayout.createSequentialGroup()
-                        .addGroup(PanelDetalleClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelDetalleClienteLayout.createSequentialGroup()
                         .addGap(543, 543, 543)
                         .addComponent(aniadirPreconcedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -650,7 +659,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getContentPane().add(PanelDetalleCliente, "card3");
+
         PanelSeleccionClientes.setEnabled(false);
+        PanelSeleccionClientes.setMaximumSize(new java.awt.Dimension(743, 595));
+        PanelSeleccionClientes.setPreferredSize(new java.awt.Dimension(743, 595));
 
         ListarClientePorDni.setText("Listar Cliente");
         ListarClientePorDni.addActionListener(new java.awt.event.ActionListener() {
@@ -744,6 +757,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addComponent(btnVolver3)
                 .addContainerGap())
         );
+
+        getContentPane().add(PanelSeleccionClientes, "card4");
 
         PanelCreacionClientes.setEnabled(false);
         PanelCreacionClientes.setPreferredSize(new java.awt.Dimension(708, 648));
@@ -1063,6 +1078,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         PanelDatosCuenta.getAccessibleContext().setAccessibleDescription("");
 
+        getContentPane().add(PanelCreacionClientes, "card5");
+
         PanelCreacionPrestamos.setEnabled(false);
         PanelCreacionPrestamos.setPreferredSize(new java.awt.Dimension(708, 648));
 
@@ -1145,6 +1162,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addGroup(PanelCreacionPrestamosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PanelCreacionPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelDatosPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelCreacionPrestamosLayout.createSequentialGroup()
                         .addComponent(btnInsertarPrestamo)
                         .addGap(426, 426, 426)
@@ -1154,7 +1172,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         );
         PanelCreacionPrestamosLayout.setVerticalGroup(
             PanelCreacionPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCreacionPrestamosLayout.createSequentialGroup()
+            .addGroup(PanelCreacionPrestamosLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(PanelDatosPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
