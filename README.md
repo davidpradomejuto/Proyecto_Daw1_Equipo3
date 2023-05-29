@@ -25,68 +25,6 @@ Actividades realizadas
 - Crear el proyecto en github (David Prado)
 - Diseñar la base de datos (David Llanio , Aymane Laaziri)
 - Crear la máquina de producción (Asier)
-## <a name="_qxjax2iow7h1"></a>Diseño de la base de datos
-
-Datos que queremos guardar en la base de datos:
-
-Clientes:
-
-- identificador UUID
-- dni
-- nombre
-- apellidos
-- telefono
-- direccion
-- localidad
-- fecha nacimiento
-
-Perfil del cliente:
-
-- credenciales de acceso a la web de banco
-- situacion civil
-- situacion laboral
-- morosidad
-- procesoJudicial
-- estadoCivil
-- conyuge
-- enGananciales
-
-Cuenta Bancaria:
-
-- IBAN
-- tipoDeCuenta
-- saldoActual
-- dineroUltimaNomina
-- mediaNominas
-
-Movimiento Cliente:
-
-- numeroOperacion
-- cantidad
-- conceptoOperacion
-- emisor
-- destinatario
-
-Prestamo preconcedido:
-
-- id
-- fechaPrestamo
-- cantidadPrestada
-- periodoPrestamo
-- tipoDeInteres
-- plazoDeConfirmacion
-
-Prestamo concedido:
-
-- fechaDeFirma
-- idPrestamoPreconcedido
-- cantidadAmortizadaMensualmente
-
-PagosPrestamos:
-
-- numpago
-- fechaPago
-- cantidadPago
 
 
 <a name="_6vycwqgiczxf"></a><a name="_a1ya1e2h0mpc"></a>Dia 2                                   23/05/2023
@@ -163,3 +101,14 @@ Actividades realizadas
 |Aymane Laaziri|Desarrollar el programa en java|
 |Asier |Desarrollar el programa en java|
 |Angel|Desarrollar el programa en java|
+
+
+<a name="_exdb9itc6liz"></a>Dia 6
+
+
+|David Prado |Realizar la presentación y ultimas modificaciones del programa de java|
+| :- | :- |
+|David Llanillo|Realizar la presentación|
+|Aymane Laaziri|Realizar la presentación|
+|Asier |Finalizar el cliente-servidor, crear el Markdown y realizar la presentación|
+|Angel|Realizar la presentación|
