@@ -81,6 +81,7 @@ Diagrama del tratamiento del préstamo
 | :- | :- |
 |David Llanillo|Desarrollar el programa en java|
 |Aymane Laaziri|Desarrollar el programa en java|
+
 ## Actividades a realizar
 - Seguir con el desarrollo del programa
 - Realizar el método para a través de un cliente sacar su préstamos
