@@ -65,7 +65,7 @@ Actividades realizadas
 - Empezamos a desarrollar el programa
 - todos los diagramas de clases hechos
 # Diagrama de bases de datos
-![](imagenes/Aspose.Words.64940ae2-bab4-4d5a-9abc-5cd0de3c1c21.001.png)
+![](imagenes/BaseDeDatosDiagramaProyecto.png)
 
 
 ![](imagenes/Aspose.Words.64940ae2-bab4-4d5a-9abc-5cd0de3c1c21.002.png)
