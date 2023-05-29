@@ -1,5 +1,5 @@
 
-<a name="_j4r477aa1gro"></a>Dia 1                                   22/05/2023
+## <a name="_j4r477aa1gro"></a>Dia 1                                   22/05/2023
 
 
 |David Prado |Coordinador|
@@ -27,7 +27,7 @@ Actividades realizadas
 - Crear la máquina de producción (Asier)
 
 
-<a name="_6vycwqgiczxf"></a><a name="_a1ya1e2h0mpc"></a>Dia 2                                   23/05/2023
+## <a name="_6vycwqgiczxf"></a><a name="_a1ya1e2h0mpc"></a>Dia 2                                   23/05/2023
 
 
 
@@ -43,7 +43,7 @@ Actividades realizadas
 - Diseñar e Implementar la base de datos (David Llanio , Aymane Laaziri)
 
 
-<a name="_9kl9mkqa3rpg"></a><a name="_ziib31rh02kq"></a>Dia 3	                               24/05/2023
+## Dia 3	                               24/05/2023
 
 
 |David Prado |Coordinador|
@@ -74,7 +74,7 @@ Diagrama del tratamiento del préstamo
 
 ![](imagenes/Aspose.Words.64940ae2-bab4-4d5a-9abc-5cd0de3c1c21.003.png)
 
-<a name="_tsak8youeihd"></a>Dia 4 
+## <a name="_tsak8youeihd"></a>Dia 4 
 
 
 |David Prado|Desarrollar el programa en java|
