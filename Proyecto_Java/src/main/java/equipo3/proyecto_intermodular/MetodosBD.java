@@ -111,7 +111,7 @@ public class MetodosBD {
         }
         return prestamo;
     }
-    
+
     public PrestamoPreconcedido seleccionPreconcedidoPorId(int id) {
         PrestamoPreconcedido prestamo = null;
         String sql = "SELECT id,uuid,fecha_oferta,cantidad,periodo,tipo_interes,plazo_para_aceptar FROM prestamos_preconcedidos WHERE id=?";
@@ -157,6 +157,101 @@ public class MetodosBD {
                     obj[i][6] = rs.getString("localidad");
                     obj[i][7] = rs.getString("fecha_nacimiento");
                     i++;
+                }
+            }
+            rs.close();
+            sentencia.close();
+        } catch (SQLException ex) {
+            System.out.println(" error en la consulta de Clientes" + ex.toString());
+        }
+        return obj;
+    }
+
+    public Object[][] consultaClientesAptos() {
+        Object[][] obj = null;
+        PreparedStatement sentencia;
+        Cliente auxCliente = null;
+        try {
+            String contador = "Select count(*) from clientes";
+            sentencia = getConnection().prepareStatement(contador);
+            ResultSet rs = sentencia.executeQuery();
+            if (rs.next()) {
+
+                int filas = rs.getInt(1);//devuelve cuantas filas tendra nuestra matriz
+                rs.close();
+                obj = new Object[filas][9];
+
+                String sql = "SELECT uuid,dni,nombre,apellidos,telefono,direccion,localidad,fecha_nacimiento FROM clientes";
+                sentencia = getConnection().prepareStatement(sql);
+                rs = sentencia.executeQuery();
+                int i = 0;
+                while (rs.next()) {
+                    //genero el objeto del cliente que he recogido para calcular si es apto o no para tener un prestamo
+                    auxCliente = crearCliente(rs);
+                    double prestamo = MetodosBanco.concesionPrestamo(auxCliente);
+                    //si puede obtener un prestamo lo meto en el array
+                    if (prestamo > 0) {
+                        System.out.println(prestamo);
+                    
+                    obj[i][0] = (double) prestamo;
+                    obj[i][1] = rs.getString("uuid");
+                    obj[i][2] = rs.getString("dni");
+                    obj[i][3] = rs.getString("nombre");
+                    obj[i][4] = rs.getString("apellidos");
+                    obj[i][5] = rs.getString("telefono");
+                    obj[i][6] = rs.getString("direccion");
+                    obj[i][7] = rs.getString("localidad");
+                    obj[i][8] = rs.getString("fecha_nacimiento");
+                    i++;
+                    }
+                }
+            }
+            rs.close();
+            sentencia.close();
+        } catch (SQLException ex) {
+            System.out.println(" error en la consulta de Clientes" + ex.toString());
+        }
+        return obj;
+    }
+
+    public Object[][] consultaClientesNoAptos() {
+        Object[][] obj = null;
+        PreparedStatement sentencia;
+        Cliente auxCliente = null;
+        try {
+            String contador = "Select count(*) from clientes";
+            sentencia = getConnection().prepareStatement(contador);
+            ResultSet rs = sentencia.executeQuery();
+            if (rs.next()) {
+
+                int filas = rs.getInt(1);//devuelve cuantas filas tendra nuestra matriz
+                rs.close();
+                obj = new Object[filas][8];
+
+                String sql = "SELECT uuid,dni,nombre,apellidos,telefono,direccion,localidad,fecha_nacimiento FROM clientes";
+                sentencia = getConnection().prepareStatement(sql);
+                rs = sentencia.executeQuery();
+               
+                int i = 0;
+               
+                while (rs.next()) {
+                    //genero el objeto del cliente que he recogido para calcular si es apto o no para tener un prestamo
+                    auxCliente = crearCliente(rs);
+                    double prestamo = MetodosBanco.concesionPrestamo(auxCliente);
+                    //si puede obtener un prestamo lo meto en el array
+                    if (prestamo == 0) {
+                        obj[i][0] = rs.getString("uuid");
+                    
+                    obj[i][1] = rs.getString("dni");
+                    obj[i][2] = rs.getString("nombre");
+                    obj[i][3] = rs.getString("apellidos");
+                    obj[i][4] = rs.getString("telefono");
+                    obj[i][5] = rs.getString("direccion");
+                    obj[i][6] = rs.getString("localidad");
+                    obj[i][7] = rs.getString("fecha_nacimiento");
+
+                    i++;
+                    }
                 }
             }
             rs.close();
@@ -288,9 +383,9 @@ public class MetodosBD {
         PreparedStatement sentencia;
         try {
             String contador = "Select count(*) from prestamos_concedidos inner join proyecto.prestamos_preconcedidos on  proyecto.prestamos_preconcedidos.id = proyecto.prestamos_concedidos.id_preconcedido where uuid = ?";
-           
+
             sentencia = getConnection().prepareStatement(contador);
-            
+
             sentencia.setString(1, uuid);
 
             ResultSet rs = sentencia.executeQuery();
