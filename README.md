@@ -1,5 +1,5 @@
 
-## <a name="_j4r477aa1gro"></a>Dia 1                                   22/05/2023
+## Dia 1                                   22/05/2023
 
 
 |David Prado |Coordinador|
@@ -10,7 +10,7 @@
 |Angel|Creación del proyecto de Github|
 
 
-## <a name="_a5ubk430mrgo"></a>Actividades a realizar 
+## Actividades a realizar 
 - Asignar las tareas a cada uno (David Prado)
 - Crear el proyecto en github (David Prado)
 - Diseñar la base de datos (David Prado)
@@ -27,7 +27,7 @@ Actividades realizadas
 - Crear la máquina de producción (Asier)
 
 
-## <a name="_6vycwqgiczxf"></a><a name="_a1ya1e2h0mpc"></a>Dia 2                                   23/05/2023
+## Dia 2                                   23/05/2023
 
 
 
