@@ -1,5 +1,5 @@
 
-## Dia 1                                   22/05/2023
+## Dia 1
 
 
 |David Prado |Coordinador|
@@ -19,7 +19,7 @@
 - Diseñar la página web  (David Llanillo y Aymane)
 
 
-Actividades realizadas
+Actividades realizadas:
 
 - Asignar las tareas a cada uno (David Prado)
 - Crear el proyecto en github (David Prado)
@@ -27,14 +27,14 @@ Actividades realizadas
 - Crear la máquina de producción (Asier)
 
 
-## Dia 2                                   23/05/2023
+## Dia 2
 
 
 
 |David Llanillo|Implementar las bases de datos|
 | :- | :- |
 |Aymane Laaziri|Implementar las bases de datos|
-## <a name="_kajfs75i41"></a>Actividades a realizar 
+## Actividades a realizar 
 - Diseñar e Implementar la base de datos (David Llanillo y Aymane)
 
 
@@ -43,7 +43,7 @@ Actividades realizadas
 - Diseñar e Implementar la base de datos (David Llanio , Aymane Laaziri)
 
 
-## Dia 3	                               24/05/2023
+## Dia 3
 
 
 |David Prado |Coordinador|
@@ -53,18 +53,18 @@ Actividades realizadas
 |Asier |Creación de la web|
 |Angel|desarrollar el programa en java|
 
-## <a name="_7r6hvn4bzecg"></a>Actividades a realizar 
+## Actividades a realizar 
 - Asignar las tareas a cada uno (David Prado)
 - Implementar la base de datos (David Llanillo y David Prado)
 - Hacer la página web (Asier y Aymane)
 - Empezar a desarrollar el programa
 - hacer diagramas de clases
-## <a name="_v364hea1xt49"></a>Actividades realizadas
+## Actividades realizadas
 - Página web completa
 - Base datos implementada
 - Empezamos a desarrollar el programa
 - todos los diagramas de clases hechos
-# <a name="_392kt42f2yys"></a>Diagrama de bases de datos
+# Diagrama de bases de datos
 ![](imagenes/Aspose.Words.64940ae2-bab4-4d5a-9abc-5cd0de3c1c21.001.png)
 
 
@@ -74,14 +74,14 @@ Diagrama del tratamiento del préstamo
 
 ![](imagenes/Aspose.Words.64940ae2-bab4-4d5a-9abc-5cd0de3c1c21.003.png)
 
-## <a name="_tsak8youeihd"></a>Dia 4 
+## Dia 4 
 
 
 |David Prado|Desarrollar el programa en java|
 | :- | :- |
 |David Llanillo|Desarrollar el programa en java|
 |Aymane Laaziri|Desarrollar el programa en java|
-## <a name="_uwtuadpp3qgo"></a>Actividades a realizar
+## Actividades a realizar
 - Seguir con el desarrollo del programa
 - Realizar el método para a través de un cliente sacar su préstamos
 
@@ -92,7 +92,7 @@ Actividades realizadas
 
 
 
-<a name="_exdb9itc6liz"></a>Dia 5
+## Dia 5
 
 
 |David Prado |Desarrollar el programa en java|
@@ -103,7 +103,7 @@ Actividades realizadas
 |Angel|Desarrollar el programa en java|
 
 
-<a name="_exdb9itc6liz"></a>Dia 6
+## Dia 6
 
 
 |David Prado |Realizar la presentación y ultimas modificaciones del programa de java|
