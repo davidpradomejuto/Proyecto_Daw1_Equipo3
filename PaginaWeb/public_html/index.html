@@ -12,6 +12,30 @@
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="John Doe">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body,
+      html {
+        height: 100%;
+      }
+  
+      .mid {
+        position: relative;
+        height: 100%;
+        background-image: url('img/lago-2.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: repeat;
+      }
+  
+      .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+      }
+    </style>
   </head>
   <header class="p-3 text-bg-dark">
     <div class="container">
@@ -33,22 +57,13 @@
   </header>
 </nav>
 
-<body>
-  <div class="d_flex mx-auto ">
-    <div class="container" style="background-image: url('img/lago-2.jpg');
-     background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
-    height: 100vh;">
-      <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-          <img src="img/logo-black.png" width="200" height="70" class="me-2" ></img>
-          <p class="lead fw-normal text-white">Tu futuro financiero comienza aquí: Descubre el poder de tu dinero con TTT Bank.</p>
-        <div class="product-device shadow-sm d-none d-md-block"></div>
-        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-      </div>
-    </div>
+<div class="mid">
+  <div class="content">
+    <img src="img/logo-black.png" width="200" height="70" class="me-2">
+    <p class="lead fw-normal text-white">Tu futuro financiero comienza aquí: Descubre el poder de tu dinero con TTT Bank.</p>
   </div>
+</div>
+
   <footer class="p-3 text-center text-bg-dark">
     <p>&copy; 2023 TTT Bank. Todos los derechos reservados.</p>
   </footer>
