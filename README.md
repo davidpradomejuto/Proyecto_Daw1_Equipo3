@@ -181,11 +181,8 @@ Actividades realizadas
 |Asier |Desarrollar el programa en java|
 |Angel|Desarrollar el programa en java|
 
-Actividades a realizar
-
-    Seguir con el desarrollo del programa
-
-
+## Actividades a realizar 
+- Seguir con el desarrollo del programa
 
 
 ## Dia 6
@@ -198,15 +195,15 @@ Actividades a realizar
 |Asier |Finalizar el cliente-servidor, crear el Markdown y realizar la presentación|
 |Angel|Realizar la presentación|
 
-Actividades a realizar
+## Actividades a realizar 
+- Seguir con el desarrollo del programa
+- Realizar la presentacion
+- Terminar la documentacion
 
-    Seguir con el desarrollo del programa
-    Realizar la presentacion
-    Terminar la documentacion
 
-Actividades realizadas
+## Actividades realizadas
+-  Presentacion terminada
+-  Documentacion parcialmente completa
+-  Programa terminado
 
-    Presentacion terminada
-    Documentacion parcialmente completa
-    Programa terminado
 
