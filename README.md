@@ -78,7 +78,7 @@ Actividades realizadas
 
 ## Diagrama de casos de uso
 
-![](imagenes/DiagramaDeCasosDeUso)
+![](imagenes/DiagramaDeCasosDeUso.png)
 
 **Caso de uso Solicitar préstamo**
 
