@@ -67,10 +67,10 @@ Actividades realizadas
 
 ## Diagrama de bases de datos
 
-![](imagenes\BaseDeDatosDiagramaProyecto.png)
+![](imagenes/BaseDeDatosDiagramaProyecto.png)
 
 ## Diagrama De Clases
-![](imagenes\DiagramaDeClasespng.png)
+![](imagenes/DiagramaDeClasespng.png)
 
 ## Diagrama del tratamiento del préstamo
 
@@ -78,7 +78,7 @@ Actividades realizadas
 
 ## Diagrama de casos de uso
 
-![](imagenes\DiagramaDeCasosDeUso)
+![](imagenes/DiagramaDeCasosDeUso)
 
 **Caso de uso Solicitar préstamo**
 
