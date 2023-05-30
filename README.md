@@ -68,11 +68,91 @@ Actividades realizadas
 ![](imagenes/BaseDeDatosDiagramaProyecto.png)
 
 
-![](imagenes/Aspose.Words.64940ae2-bab4-4d5a-9abc-5cd0de3c1c21.002.png)
+![](imagenes/DiagramaDeClasespng.png)
 
 Diagrama del tratamiento del préstamo
 
 ![](imagenes/Aspose.Words.64940ae2-bab4-4d5a-9abc-5cd0de3c1c21.003.png)
+
+Diagrama de Casos de uso
+
+![](imagenes/DiagramaDeCasosDeUso.png)
+
+
+
+ 
+
+**Caso de uso Solicitar préstamo**
+
+•<span style="text-decoration:underline;"> Actores involucrados</span>: administrador y cliente.
+
+•<span style="text-decoration:underline;"> Precondición</span>: El cliente debe tener una cuenta en el banco.
+
+• <span style="text-decoration:underline;">Flujo básico</span>:
+
+1.Un cliente acude a una sucursal bancaria a pedir un préstamo.
+
+2.El administrador del programa del banco introduce el dni del cliente y solicita el préstamo,
+
+en caso de que cumpla las condiciones se le añadirá a una lista de préstamos preconcedidos y
+
+se le mostrará la cantidad preconcedida.
+
+ 
+
+• <span style="text-decoration:underline;">Caminos alternativos</span>:
+
+- Si el cliente no tiene cuenta en el banco no podrá acceder a un préstamo.
+
+- Si en el paso 2 no cumple con los requisitos, se muestra un mensaje de que el usuario no es apto para
+
+préstamo, por lo que se le denegará el mismo.
+
+
+ 
+
+**Caso de uso Calcular préstamo**
+
+• Actores involucrados: administrador.
+
+• Precondición: El cliente debe tener una cuenta en el banco y haber solicitado préstamo.
+
+• Flujo básico:
+
+1.El administrador ,mediante la aplicación, calculará los préstamos de todos los clientes que hayan solicitado uno.
+
+2.Generar un informe con los préstamos calculados .
+
+ 
+
+**Caso de uso Mostrar datos de clientes**
+
+• Actores involucrados: administrador y cliente.
+
+• Precondición: El cliente debe tener una cuenta en el banco
+
+• Flujo básico:
+
+1.El administrador del banco usará la aplicación para que le muestre la lista de todos los clientes con sus datos.
+
+ 
+
+**Caso de uso Firmar préstamo**
+
+• Actores involucrados: administrador y cliente.
+
+• Precondición: El cliente debe tener una cuenta en el banco y haber solicitado un préstamo.
+
+• Flujo básico:
+
+1.El administrador introducirá el dni del cliente en el programa.
+
+2.El cliente debe comunicarle al administrador cual es el préstamo  preconcedido que desea firmar.
+
+3.El administrador del banco seleccionará ese préstamo preconcedido y le dará a firmar, apareciendo así
+
+en la lista de préstamos concedidos al cliente.
+
 
 ## Dia 4 
 
