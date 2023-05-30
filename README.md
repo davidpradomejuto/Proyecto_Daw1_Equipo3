@@ -74,7 +74,7 @@ Actividades realizadas
 
 ## Diagrama del tratamiento del préstamo
 
-![](imagenes\)
+![](imagenes/Aspose.Words.64940ae2-bab4-4d5a-9abc-5cd0de3c1c21.003.png)
 
 ## Diagrama de casos de uso
 
