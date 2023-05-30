@@ -1,3 +1,5 @@
+## Proyecto Intermodular Equipo 3
+
 
 ## Dia 1
 
@@ -36,7 +38,7 @@ Actividades realizadas:
 - Diseñar e Implementar la base de datos (David Llanillo y Aymane)
 
 
-Actividades realizadas
+##Actividades realizadas
 
 - Diseñar e Implementar la base de datos (David Llanio , Aymane Laaziri)
 
