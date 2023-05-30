@@ -29,11 +29,10 @@ Actividades realizadas:
 
 ## Dia 2
 
-
-
 |David Llanillo|Implementar las bases de datos|
 | :- | :- |
 |Aymane Laaziri|Implementar las bases de datos|
+
 ## Actividades a realizar 
 - Diseñar e Implementar la base de datos (David Llanillo y Aymane)
 
