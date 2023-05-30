@@ -10,7 +10,7 @@ package equipo3.proyecto_intermodular;
  * @author DAW209
  */
 public class PerfilCliente {
-    private Cliente cliente;
+    private String uuid;
     private String credenciales;
     private SituacionLaboral situacionLaboral;
     private EstadoCivil estadoCivil;
@@ -19,9 +19,9 @@ public class PerfilCliente {
     private String Pareja;
     private boolean enGananciales;
 
-    public PerfilCliente(Cliente cliente, String credenciales, SituacionLaboral situacionLaboral, EstadoCivil estadoCivil, boolean morosidad,
+    public PerfilCliente(String uuid, String credenciales, SituacionLaboral situacionLaboral, EstadoCivil estadoCivil, boolean morosidad,
         boolean procesoJudicial, String Pareja, boolean enGananciales) {
-        this.cliente = cliente;
+        this.uuid = uuid;
         this.credenciales = credenciales;
         this.situacionLaboral = situacionLaboral;
         this.estadoCivil = estadoCivil;
@@ -31,12 +31,12 @@ public class PerfilCliente {
         this.enGananciales = enGananciales;
     }
 
-    public Cliente getUuid() {
-        return cliente;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setUuid(Cliente uuid) {
-        this.cliente = uuid;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getCredenciales() {

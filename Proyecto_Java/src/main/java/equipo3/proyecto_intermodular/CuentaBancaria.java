@@ -12,16 +12,16 @@ import java.util.LinkedList;
  */
 public class CuentaBancaria {
     private String iban;
-    private Cliente cliente;
+    private String id_cliente;
     private String tipocuenta;
     private double saldo;
     private double nominaMes;
     private double mediaNomina;
     private LinkedList<MovimientoCliente> movimientos;
 
-    public CuentaBancaria(String iban, Cliente cliente, String tipocuenta, double saldo, double nominaMes, double mediaNomina, LinkedList<MovimientoCliente> movimientos) {
+    public CuentaBancaria(String iban, String id_cliente, String tipocuenta, double saldo, double nominaMes, double mediaNomina, LinkedList<MovimientoCliente> movimientos) {
         this.iban = iban;
-        this.cliente = cliente;
+        this.id_cliente = id_cliente;
         this.tipocuenta = tipocuenta;
         this.saldo = saldo;
         this.nominaMes = nominaMes;
@@ -39,12 +39,12 @@ public class CuentaBancaria {
         this.iban = iban;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public String getCliente() {
+        return id_cliente;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setCliente(String id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     public String getTipocuenta() {
